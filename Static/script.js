@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       outputElement.appendChild(responseLine);
 
       let link;
-      if (command === "cb dotiles") {
+      if (command === "cb dotfiles") {
         link = document.createElement("a");
-        link.href = "Stranice/projekti";
-        link.textContent = "projekti.html";
+        link.href = "Stranice/dotfiles";
+        link.textContent = "dotfiles.html";
         typeText("Отварање секције 'dotfiles'... --> ", responseLine, () => {
           responseLine.appendChild(link);
         });
@@ -154,7 +154,7 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
             "- cb projekti",
             "- cb kontakt",
             "- cb galerija",
-            "- cb dotflies",
+            "- cb dotfiles",
           ];
           commandsList.forEach((cmd) => {
             const cmdText = document.createTextNode(cmd);
