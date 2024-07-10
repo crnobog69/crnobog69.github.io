@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       outputElement.appendChild(responseLine);
 
       let link;
-      if (command === "cb dotflies") {
+      if (command === "cb dotiles") {
         link = document.createElement("a");
         link.href = "Stranice/projekti";
         link.textContent = "projekti.html";
