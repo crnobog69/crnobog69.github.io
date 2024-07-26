@@ -151,7 +151,7 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
           responseLine.appendChild(extraBreakLine);
 
           const commandsList = [
-            "- cb projekti",
+            "- cb preuzimanja",
             "- cb kontakt",
             "- cb galerija",
             "- cb dotfiles",
