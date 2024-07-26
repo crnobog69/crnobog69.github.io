@@ -33,7 +33,7 @@ body, html {
     padding: 0;
     font-family: 'Nunito', monospace;  
     background-color: black;
-    color: lime;
+    color: red;
     font-size: 15px;
   }
 
@@ -55,7 +55,7 @@ body, html {
     outline: none;
     border: none;
     background-color: black;
-    color: lime;
+    color: red;
     width: 100%;
     font-size: 15px;
     margin-left: 3px;
@@ -65,7 +65,7 @@ body, html {
 
 
 a {
-    color: lime;  
+    color: red;  
     text-decoration: none;  
   }
   
@@ -79,7 +79,7 @@ a {
     bottom: 0;
     left: 0;
     padding: 10px;
-    color: lime;
+    color: red;
     background-color: black;
     font-family: 'Nunito', monospace;
   }
@@ -89,7 +89,7 @@ a {
     bottom: 0;
     right: 0;
     padding: 10px;
-    color: lime;
+    color: red;
     background-color: black;
     font-family: 'Nunito', monospace;
   }
