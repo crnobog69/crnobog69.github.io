@@ -8,7 +8,7 @@
 
 ## Како покренути пројекат 🚀
 
-1. **[Клоком овде](https://crnobog69.github.io/)**:
+1. **[Клоком овде](https://crnobog69.github.io/)**
 
 ## Структура пројекта 📁
 
@@ -34,7 +34,7 @@ Lord's Autumn // 2023 🍂
 
 ## How to Run the Project 🚀
 
-1. **[Click here](https://crnobog69.github.io/)**:
+1. **[Click here](https://crnobog69.github.io/)**
 
 ## Project Structure 📁
 
