@@ -17,6 +17,7 @@
 - `index.html`: Главна HTML страница
 - `Static/`: Фолдер са статичким фајловима (CSS, JavaScript, слике)
 - `Stranice/`: Датотека са додатним HTML страницама
+- `404.html`: Страница за грешку (Страница није пронађена)
 
 ## Лиценца 📜
 
@@ -44,6 +45,7 @@
 - `index.html`: Main HTML page
 - `Static/`: Folder with static files (CSS, JavaScript, images)
 - `Stranice/`: Folder with additional HTML pages
+- `404.html`: Error page (Page not found)
 
 ## License 📜
 
