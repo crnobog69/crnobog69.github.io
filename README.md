@@ -33,7 +33,7 @@
 
 "THEY WOULD ALL BEAR WITNESS TO THE BARE FLESH OF THE ONE WHO IS FREE. TO THE ONE WHO LEFT IT ALL BEHIND."
 
-Lord's Autumn // 2023 🍂
+> Lord's Autumn // 2023 🍂
 
 ## How to Run the Project 🚀
 
