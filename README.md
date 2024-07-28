@@ -28,7 +28,8 @@
 
 # crnobog69.github.io 🪐
 
-This is the repository for my personal website, built using HTML, CSS, and JavaScript technologies.
+> [!NOTE]
+> This is the repository for my personal website, built using HTML, CSS, and JavaScript technologies.
 
 "THEY WOULD ALL BEAR WITNESS TO THE BARE FLESH OF THE ONE WHO IS FREE. TO THE ONE WHO LEFT IT ALL BEHIND."
 
