@@ -8,22 +8,13 @@
 
 ## Како покренути пројекат 🚀
 
-1. **Клонирање репозиторијума**:
-   ```bash
-   git clone https://github.com/crnobog69/crnobog69.github.io.git
-   ```
-2. **Навигација до директоријума**:
-   ```bash
-   cd crnobog69.github.io
-   ```
-3. **Отварање index.html датотеке у претраживачу**:
-   Пронађите и отворите `index.html` у вашем омиљеном претраживачу да бисте видели веб сајт 🌐.
+1. **[Клоком овде](https://crnobog69.github.io/)**:
 
 ## Структура пројекта 📁
 
 - `index.html`: Главна HTML страница
-- `static/`: Фолдер са статичким фајловима (CSS, JavaScript, слике)
-- `pages/`: Фолдер са додатним HTML страницама
+- `Static/`: Фолдер са статичким фајловима (CSS, JavaScript, слике)
+- `Stranice/`: Датотека са додатним HTML страницама
 
 ## Лиценца 📜
 
@@ -43,22 +34,13 @@ Lord's Autumn // 2023 🍂
 
 ## How to Run the Project 🚀
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/crnobog69/crnobog69.github.io.git
-   ```
-2. **Navigate to the Directory**:
-   ```bash
-   cd crnobog69.github.io
-   ```
-3. **Open the index.html File in a Browser**:
-   Find and open `index.html` in your favorite browser to view the website 🌐.
+1. **[Click here](https://crnobog69.github.io/)**:
 
 ## Project Structure 📁
 
 - `index.html`: Main HTML page
-- `static/`: Folder with static files (CSS, JavaScript, images)
-- `pages/`: Folder with additional HTML pages
+- `Static/`: Folder with static files (CSS, JavaScript, images)
+- `Stranice/`: Folder with additional HTML pages
 
 ## License 📜
 
