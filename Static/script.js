@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
           responseLine.appendChild(link);
         });
       }
-      } else if (command === "cb crnobog") {
+    } else if (command === "cb crnobog") {
         const asciiArt = `
 -------------------
 ----///////////----
