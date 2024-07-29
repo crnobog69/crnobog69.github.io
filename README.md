@@ -26,6 +26,14 @@
 - 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
 - 📟 - [Конзола](https://crnobog69.github.io/konzola)
 
+## Конзола 📟 - Команде у конзоли
+
+- cb preuzimanja
+- cb kontakt
+- cb galerija
+- cb dotfiles
+- и још 2 скривене команде
+
 ## Слике 🖼️
 
 - **Почетна страница 🏠**
@@ -70,6 +78,14 @@
 - 🐙 - [Github](https://github.com/crnobog69)
 - 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
 - 📟 - [Конзола](https://crnobog69.github.io/konzola)
+
+## Console 📟 - Commands in console
+
+- cb preuzimanja
+- cb kontakt
+- cb galerija
+- cb dotfiles
+- ann 2 secret commands
 
 ## Images 🖼️
 
