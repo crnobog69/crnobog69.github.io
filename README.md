@@ -11,6 +11,8 @@
 ## Како покренути пројекат 🚀
 
 1. **[Клоком овде](https://crnobog69.github.io/)**
+или
+1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)
 
 ## Структура пројекта 📁
 
@@ -64,6 +66,8 @@
 ## How to Run the Project 🚀
 
 1. **[Click here](https://crnobog69.github.io/)**
+or
+1. **[Click here - Codeberg](https://crnobog.codeberg.page/)
 
 ## Project Structure 📁
 
