@@ -15,9 +15,16 @@
 ## Структура пројекта 📁
 
 - `index.html`: Главна HTML страница
+- `konzola.html` : Страница конзоле
 - `Static/`: Фолдер са статичким фајловима (CSS, JavaScript, слике)
 - `Stranice/`: Датотека са додатним HTML страницама
 - `404.html`: Страница за грешку (Страница није пронађена)
+
+## Почетна страница 🏠
+
+- 🐙 - [Github](https://github.com/crnobog69)
+- 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
+- 📟 - [Конзола](https://crnobog69.github.io/konzola)
 
 ## Слике 🖼️
 
@@ -53,9 +60,16 @@
 ## Project Structure 📁
 
 - `index.html`: Main HTML page
+- `konzola.html` : Console page
 - `Static/`: Folder with static files (CSS, JavaScript, images)
 - `Stranice/`: Folder with additional HTML pages
 - `404.html`: Error page (Page not found)
+
+## Homepage 🏠
+
+- 🐙 - [Github](https://github.com/crnobog69)
+- 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
+- 📟 - [Конзола](https://crnobog69.github.io/konzola)
 
 ## Images 🖼️
 
