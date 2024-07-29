@@ -83,6 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
         typeText("СЕКС ЖУРКА... --> ", responseLine, () => {
           responseLine.appendChild(link);
         });
+      } else if (command === "cb home") {
+        link = document.createElement("a");
+        link.href = "../index.html";
+        link.textContent = "index.html";
+        typeText("Отварање секције 'Кућа'... --> ", responseLine, () => {
+          responseLine.appendChild(link);
+        });
+      }
       } else if (command === "cb crnobog") {
         const asciiArt = `
 -------------------
