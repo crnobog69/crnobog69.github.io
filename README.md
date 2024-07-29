@@ -21,10 +21,10 @@
 
 ## Слике 🖼️
 
-Почетна страница 🏠
+- **Почетна страница 🏠**
 ![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
 
-Конзола 📟
+- **Конзола 📟**
 ![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
 
 
@@ -59,10 +59,10 @@
 
 ## Images 🖼️
 
-Homepage 🏠
+- **Homepage 🏠**
 ![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
 
-Console 📟
+- **Console 📟**
 ![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
 
 ## License 📜
