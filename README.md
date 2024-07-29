@@ -12,7 +12,7 @@
 
 1. **[Клоком овде](https://crnobog69.github.io/)**
 или
-1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)
+1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)**
 
 ## Структура пројекта 📁
 
@@ -67,7 +67,7 @@
 
 1. **[Click here](https://crnobog69.github.io/)**
 or
-1. **[Click here - Codeberg](https://crnobog.codeberg.page/)
+1. **[Click here - Codeberg](https://crnobog.codeberg.page/)**
 
 ## Project Structure 📁
 
