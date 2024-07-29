@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         typeText("Отварање секције 'Кућа'... --> ", responseLine, () => {
           responseLine.appendChild(link);
         });
-      }
     } else if (command === "cb crnobog") {
         const asciiArt = `
 -------------------
