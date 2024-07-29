@@ -1,13 +1,4 @@
-/*
--------------------
-----///////////----
------/////////-----
-------///////------
--------/////-------
---------///--------
----------/---------
--------------------
-*/
+
 
 body, html {
     margin: 0;
@@ -16,22 +7,26 @@ body, html {
     background-color: black;
     color: red;
     font-size: 15px;
+    height: 100%;
 }
 
 #terminal {
     padding: 10px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 #output {
     flex-grow: 1;
     overflow-y: auto;
+    margin-bottom: 10px;
 }
 
 #input-line {
     display: flex;
+    align-items: center;
 }
 
 #prompt {
@@ -44,9 +39,8 @@ input {
     background-color: black;
     color: red;
     width: 100%;
-    font-size: 15px;
-    margin-left: 3px;
-    font-family: 'Nunito', monospace;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 a {
@@ -66,6 +60,7 @@ a:hover {
     background-color: black;
     font-family: 'Nunito', monospace;
     font-size: 12px;
+    z-index: 10;
 }
 
 #footer-text {
@@ -81,18 +76,28 @@ a:hover {
     font-size: 70px;
 }
 
-/* Responsive design */
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     body, html {
         font-size: 14px;
     }
 
     #terminal {
-        padding: 5px;
+        padding: 8px;
     }
 
-    input {
-        font-size: 14px;
+    .kontakt-tekst {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body, html {
+        font-size: 13px;
+    }
+
+    #terminal {
+        padding: 5px;
     }
 
     #footer-text, #footer-text2 {
@@ -102,28 +107,5 @@ a:hover {
 
     .kontakt-tekst {
         font-size: 40px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    body, html {
-        font-size: 12px;
-    }
-
-    #terminal {
-        padding: 3px;
-    }
-
-    input {
-        font-size: 12px;
-    }
-
-    #footer-text, #footer-text2 {
-        font-size: 8px;
-        padding: 3px;
-    }
-
-    .kontakt-tekst {
-        font-size: 30px;
     }
 }
