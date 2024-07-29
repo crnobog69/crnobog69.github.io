@@ -19,6 +19,16 @@
 - `Stranice/`: Датотека са додатним HTML страницама
 - `404.html`: Страница за грешку (Страница није пронађена)
 
+## Слике 🖼️
+
+Почетна страница 🏠
+![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
+
+Конзола 📟
+![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
+
+
+
 ## Лиценца 📜
 
 Овај пројекат је лиценциран под GPL-3.0 лиценцом.
@@ -46,6 +56,14 @@
 - `Static/`: Folder with static files (CSS, JavaScript, images)
 - `Stranice/`: Folder with additional HTML pages
 - `404.html`: Error page (Page not found)
+
+## Images 🖼️
+
+Homepage 🏠
+![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
+
+Console 📟
+![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
 
 ## License 📜
 
