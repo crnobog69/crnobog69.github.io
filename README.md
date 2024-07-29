@@ -85,7 +85,7 @@
 - cb kontakt
 - cb galerija
 - cb dotfiles
-- ann **2** secret commands 👻
+- and **2** more secret commands 👻
 
 ## Images 🖼️
 
