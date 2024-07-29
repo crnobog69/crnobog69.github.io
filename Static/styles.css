@@ -1,32 +1,13 @@
 /*
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMWXXWMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMXd:xNWKc..c0WNxcdXMMMMMWMMMMMMMMMM
-MMMMMMMMMMMMMWWO; .l0x.    'x0l. ,OWMMMMMMMMMMMMMM
-MMMMMMMMMMMMMXl. ,kO;  :xx:  ;Ok, .lXMWMMMMMMMMMMM
-MMMMMMMMMMMW0, .lXWk. .xNNx. .OWXl. ,0MMMMMMMMMMMM
-MMMMMMMMMMMM0, .dNMW0; .,,. ;0WMWd. ;0MMMMMMMMMMMM
-MMMMMMMMNKKKKk' .oKKKO:    :OKK0o. 'kKKKKNWMMMMMMM
-MMMMMMMWO,.....   .....    .....   .....,OWMMMMMMM
-MMMMMMMMWk.  ;dd:. .cddddddddc. .:dd;  .kWMMMMMMMM
-MMMMMMMMMMO, .xWNd. ;0MMMMMMK; .dNNx. ,OMMMMMMMMMM
-MMMMMMMMMMM0;.lXWNx. ,0WMMW0, .xWMXc.;KMMMMMMMMMMM
-MMMMMMMMMMMMXKWMMMWk' .OWWO. 'kWMMMNKNMWMMMMMMMMMM
-MMMMMMMMMMMMMMMMMXXW0, .::. ,OWXXWMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMWx''kWK;    ;KWx''xWMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMM0; .dNd.  .dNd. ,0WMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMWK: .,. .. .'. :KMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMXl.  cOOc   lXMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMNo'oNMMNo'oNMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMNXWMMMMWXWMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+-------------------
+----///////////----
+-----/////////-----
+------///////------
+-------/////-------
+--------///--------
+---------/---------
+-------------------
 */
-
-
 
 body, html {
     margin: 0;
@@ -35,23 +16,29 @@ body, html {
     background-color: black;
     color: red;
     font-size: 15px;
-  }
+}
 
-
-  
-  #terminal {
+#terminal {
     padding: 10px;
-  }
-  
-  #input-line {
+    height: 100vh;
     display: flex;
-  }
-  
-  #prompt {
+    flex-direction: column;
+}
+
+#output {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#input-line {
+    display: flex;
+}
+
+#prompt {
     margin-right: 5px;
-  }
-  
-  input {
+}
+
+input {
     outline: none;
     border: none;
     background-color: black;
@@ -60,43 +47,83 @@ body, html {
     font-size: 15px;
     margin-left: 3px;
     font-family: 'Nunito', monospace;
-  }
-  
-
+}
 
 a {
     color: red;  
     text-decoration: none;  
-  }
-  
-  a:hover {
+}
+
+a:hover {
     text-decoration: underline; 
-  }
-  
+}
 
-  #footer-text {
+#footer-text, #footer-text2 {
     position: fixed;
     bottom: 0;
+    padding: 10px;
+    color: red;
+    background-color: black;
+    font-family: 'Nunito', monospace;
+    font-size: 12px;
+}
+
+#footer-text {
     left: 0;
-    padding: 10px;
-    color: red;
-    background-color: black;
-    font-family: 'Nunito', monospace;
-  }
+}
 
-  #footer-text2 {
-    position: fixed;
-    bottom: 0;
+#footer-text2 {
     right: 0;
-    padding: 10px;
-    color: red;
-    background-color: black;
-    font-family: 'Nunito', monospace;
-  }
-  
-  .kontakt-tekst {
+}
+
+.kontakt-tekst {
     text-align: center;
     font-size: 70px;
-  }
+}
 
-  
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    body, html {
+        font-size: 14px;
+    }
+
+    #terminal {
+        padding: 5px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    #footer-text, #footer-text2 {
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .kontakt-tekst {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body, html {
+        font-size: 12px;
+    }
+
+    #terminal {
+        padding: 3px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    #footer-text, #footer-text2 {
+        font-size: 8px;
+        padding: 3px;
+    }
+
+    .kontakt-tekst {
+        font-size: 30px;
+    }
+}
