@@ -32,7 +32,7 @@
 - cb kontakt
 - cb galerija
 - cb dotfiles
-- и још 2 скривене команде
+- и још **2** скривене команде 👻
 
 ## Слике 🖼️
 
@@ -85,7 +85,7 @@
 - cb kontakt
 - cb galerija
 - cb dotfiles
-- ann 2 secret commands
+- ann **2** secret commands 👻
 
 ## Images 🖼️
 
