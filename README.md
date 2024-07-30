@@ -69,7 +69,9 @@
 ## How to Run the Project 🚀
 
 1. **[Click here](https://crnobog69.github.io/)**
-or
+   
+   or
+
 1. **[Click here - Codeberg](https://crnobog.codeberg.page/)**
 
 ## Project Structure 📁
