@@ -26,6 +26,7 @@
 
 - 🐙 - [Github](https://github.com/crnobog69)
 - 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
+- 🏔️ - [Codeberg](https://codeberg.org/crnobog)
 - 📟 - [Конзола](https://crnobog69.github.io/konzola)
 
 ## Конзола 📟 - Команде у конзоли
@@ -81,6 +82,7 @@ or
 
 - 🐙 - [Github](https://github.com/crnobog69)
 - 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
+- 🏔️ - [Codeberg](https://codeberg.org/crnobog)
 - 📟 - [Конзола](https://crnobog69.github.io/konzola)
 
 ## Console 📟 - Commands in console
