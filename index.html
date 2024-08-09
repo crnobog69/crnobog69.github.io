@@ -155,35 +155,36 @@
         <script>
 //-------------------------------------------------------------
     // IP geolocation and sending country info to Discord
-    fetch('https://ipinfo.io/json?token=32c19b59eeca42')
-        .then(response => response.json())
-        .then(data => {
-            let country = data.country;
-            sendToDiscord(country);
-        });
+fetch('https://ipapi.co/json/')
+    .then(response => response.json())
+    .then(data => {
+        let country = data.country_name; // Za `ipapi.co` API
+        sendToDiscord(country);
+    });
 
-    function sendToDiscord(country) {
-        const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
+function sendToDiscord(country) {
+    const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
 
-        const message = {
-            content: `Posetilac iz zemlje: ${country}`
-        };
+    const message = {
+        content: `Posetilac iz zemlje: ${country}`
+    };
 
-        fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(message),
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log("Poruka je uspešno poslata na Discord.");
-            } else {
-                console.error("Greška pri slanju poruke na Discord.");
-            }
-        });
-    }
+    fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message),
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Poruka je uspešno poslata na Discord.");
+        } else {
+            console.error("Greška pri slanju poruke na Discord.");
+        }
+    });
+}
+
 
 //--------------------------------------------
 
