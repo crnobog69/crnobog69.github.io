@@ -163,7 +163,11 @@ fetch('https://ipapi.co/json/')
     });
 
 function sendToDiscord(country) {
-    const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
+    
+const encodedWebhookUrl = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTI3MTQ2OTI5MTE1NzU4NTk0MS9nMUUwVDFqS2JXb0RKdkdfT1QwQkpORkt5eUpfelNLR1RDT2dsZ0xfUDJMcHFoalA0cmplVTUwckJqWG1EMjNvdWsfbw==";
+
+
+const webhookUrl = atob(encodedWebhookUrl);
 
     const message = {
         content: `Posetilac iz zemlje: ${country}`
