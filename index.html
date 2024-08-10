@@ -159,16 +159,15 @@ fetch('https://ipapi.co/json/')
     .then(response => response.json())
     .then(data => {
         let country = data.country_name; // Држава
-        let city = data.city; // Град
+        let city = data.city || 'Непознат град'; // Град
         sendToDiscord(country, city);
     });
 
-function sendToDiscord(country) {
-
-const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
+function sendToDiscord(country, city) {
+    const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
 
     const message = {
-        content: `🎉 - | - 🐙 Посетилац из земље: ${country}, ${city}`
+        content: `🎉 - | - 🐙 Посетилац из града: ${city}, земље: ${country}`
     };
 
     fetch(webhookUrl, {
@@ -180,12 +179,13 @@ const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1j
     })
     .then(response => {
         if (response.ok) {
-            console.log("Poruka je uspešno poslata na Discord.");
+            console.log("Порука је успешно послата на Discord.");
         } else {
-            console.error("Greška pri slanju poruke na Discord.");
+            console.error("Грешка при слaњу поруке на Discord.");
         }
     });
 }
+
 
 
 //--------------------------------------------
