@@ -159,7 +159,7 @@ fetch('https://ipapi.co/json/')
     .then(response => response.json())
     .then(data => {
         let country = data.country_name; // Држава
-        let city = data.city; // Град
+        let city = data.city_name; // Град
         sendToDiscord(country, city);
     });
 
