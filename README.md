@@ -51,7 +51,7 @@
 
 ## Лиценца 📜
 
-Овај пројекат је лиценциран под GPL-3.0 лиценцом.
+Овај пројекат је лиценциран под WTFPL лиценцом.
 
 За више информација, посетите [crnobog69.github.io](https://crnobog69.github.io) 🪐.
 
@@ -107,6 +107,6 @@
 
 ## License 📜
 
-This project is licensed under the GPL-3.0 License.
+This project is licensed under the WTFPL license.
 
 For more information, visit [crnobog69.github.io](https://crnobog69.github.io) 🪐.
