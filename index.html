@@ -158,8 +158,9 @@
 fetch('https://ipapi.co/json/')
     .then(response => response.json())
     .then(data => {
-        let country = data.country_name; // Za `ipapi.co` API
-        sendToDiscord(country);
+        let country = data.country_name; // Држава
+        let city = data.city; // Град
+        sendToDiscord(country, city);
     });
 
 function sendToDiscord(country) {
@@ -167,7 +168,7 @@ function sendToDiscord(country) {
 const webhookUrl = "https://discord.com/api/webhooks/1271469291157585941/g1E0T1jKbWoDJvG_OT0BJNFKyyJ_zcKGTCOglgL_P2LpqhjP4rjeU50rBjXmD23ouk_o";
 
     const message = {
-        content: `🎉 - | - 🐙 Посетилац из земље: ${country}`
+        content: `🎉 - | - 🐙 Посетилац из земље: ${country}, ${city}`
     };
 
     fetch(webhookUrl, {
