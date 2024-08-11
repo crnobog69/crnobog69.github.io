@@ -114,12 +114,21 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         );
       } else if (command === "cb vreme") {
-       const now = new Date();
-       const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-       const vreme = now.toLocaleTimeString('sr-RS', options);
-       const datum = now.toLocaleDateString('sr-RS');
-       typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
-        } else if (command === "help") {
+  const now = new Date();
+  
+  // Добијање сати, минута и секунди
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  // Форматирање датума
+  const datum = now.toLocaleDateString('sr-RS');
+
+  // Састављање времена у 24-часовном формату
+  const vreme = `${hours}:${minutes}:${seconds}`;
+  
+  typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
+} else if (command === "help") {
           typeText("Доступне команде:", responseLine, () => {
           const breakLine = document.createElement("br");
           responseLine.appendChild(breakLine);
