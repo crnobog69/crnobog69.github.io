@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "- cb preuzimanja",
             "- cb kontakt",
             "- cb galerija",
+            "- clear",
           ];
           commandsList.forEach((cmd) => {
             const cmdText = document.createTextNode(cmd);
