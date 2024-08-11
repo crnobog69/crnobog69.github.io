@@ -1,9 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://http.cat/404">
-    <title>Страница није пронађена</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>404 - Страница није пронађена</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #000; /* Црна позадина */
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Пун висина екрана */
+                text-align: center;
+            }
+            .container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+                max-width: 800px;
+            }
+            video {
+                max-width: 100%;
+                max-height: 60vh; /* Максимална висина видео записа */
+                border: 5px solid #fff; /* Беле границе */
+            }
+            h1 {
+                font-size: 2em;
+                margin-bottom: 0.5em;
+            }
+            p {
+                font-size: 1.2em;
+                margin-bottom: 1em;
+            }
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 1.5em;
+                }
+                p {
+                    font-size: 1em;
+                }
+                video {
+                    max-height: 50vh; /* Прилагођавање висине на малим екранима */
+                }
+            }
+        </style>
+    </head>
+    <body>
 <!--
 -------------------
 ----///////////----
@@ -13,8 +61,15 @@
 --------///--------
 ---------/---------
 -------------------
---!>
-</head>
-<body>
-</body>
+-->
+        <div class="container">
+            <h1>404 - Страница није пронађена</h1>
+            <p>Жао нам је, али страница коју сте тражили не постоји.</p>
+            <video controls autoplay muted>
+                <source src="Oznake/megumin.mp4" type="video/mp4" />
+                Ваш прегледач не подржава HTML5 видео.
+            </video>
+            <a href="index"><p>Назад</p></a>
+        </div>
+    </body>
 </html>
