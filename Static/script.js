@@ -83,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
         typeText("СЕКС ЖУРКА... --> ", responseLine, () => {
           responseLine.appendChild(link);
         });
+      } else if (command === "clear") {
+        outputElement.innerHTML = ""; // Чисти екран
+        typeText("", responseLine);
       } else if (command === "cb home") {
         link = document.createElement("a");
         link.href = "../index.html";
