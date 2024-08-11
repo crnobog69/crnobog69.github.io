@@ -113,6 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
             responseLine.appendChild(link);
           }
         );
+        else if (command === "cb vreme") {
+        const now = new Date();
+        const vreme = now.toLocaleTimeString();
+        const datum = now.toLocaleDateString();
+        typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
+        });
       } else if (command === "help") {
         typeText("Доступне команде:", responseLine, () => {
           const breakLine = document.createElement("br");
@@ -124,10 +130,12 @@ document.addEventListener("DOMContentLoaded", () => {
           responseLine.appendChild(extraBreakLine);
 
           const commandsList = [
+            "- cb home",
+            "- cb vreme",
+            "- cb dotfiles",
             "- cb preuzimanja",
             "- cb kontakt",
             "- cb galerija",
-            "- cb dotfiles",
           ];
           commandsList.forEach((cmd) => {
             const cmdText = document.createTextNode(cmd);
