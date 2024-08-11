@@ -38,6 +38,22 @@
                 font-size: 1.2em;
                 margin-bottom: 1em;
             }
+            button.veza {
+                color: #ffffff; /* Боја текста (бела) */
+                background-color: #ff5733; /* Боја позадине (наранџаста) */
+                padding: 8px 16px; /* Удаљеност текста од ивица (горња-доле, лево-десно) */
+                font-size: 1em; /* Величина фонта */
+                border: none; /* Уклањање оквира */
+                border-radius: 5px; /* Заобљене ивице */
+                line-height: 1.2; /* Висина реда да се текст центрира вертикално */
+                cursor: pointer; /* Промените курсор у руку при пређивању преко дугмета */
+                transition: background-color 0.3s ease; /* Глатка транзиција боје позадине */
+                text-align: center; /* Центрирање текста унутар дугмета */
+            }
+            button.veza:hover {
+                background-color: #c70039; /* Боја позадине када курсор пређе преко дугмета (тамно ружичаста) */
+            }
+
             @media (max-width: 600px) {
                 h1 {
                     font-size: 1.5em;
@@ -52,7 +68,7 @@
         </style>
     </head>
     <body>
-<!--
+        <!--
 -------------------
 ----///////////----
 -----/////////-----
@@ -69,7 +85,14 @@
                 <source src="Oznake/megumin.mp4" type="video/mp4" />
                 Ваш прегледач не подржава HTML5 видео.
             </video>
-            <a href="index"><p>Назад</p></a>
+
+            <br />
+
+            <button
+                class="veza"
+                onclick="window.location.href='https://crnobog69.github.io/';">
+                Назад
+            </button>
         </div>
     </body>
 </html>
