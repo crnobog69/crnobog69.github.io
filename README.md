@@ -20,9 +20,10 @@
 
 - `index.html`: Главна HTML страница
 - `konzola.html` : Страница конзоле
-- `Static/`: Фолдер са статичким фајловима (CSS, JavaScript, слике)
+- `Static/`: Фолдер са статичким фајловима (CSS, JavaScript)
 - `Stranice/`: Датотека са додатним HTML страницама
 - `404.html`: Страница за грешку (Страница није пронађена)
+- `Oznake.html`: Инсигније
 
 ## Почетна страница 🏠
 
@@ -78,9 +79,10 @@
 
 - `index.html`: Main HTML page
 - `konzola.html` : Console page
-- `Static/`: Folder with static files (CSS, JavaScript, images)
+- `Static/`: Folder with static files (CSS, JavaScript)
 - `Stranice/`: Folder with additional HTML pages
 - `404.html`: Error page (Page not found)
+- `Oznake.html`: Insignias
 
 ## Homepage 🏠
 
