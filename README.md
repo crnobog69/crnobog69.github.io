@@ -40,6 +40,7 @@
 - cb dotfiles
 - cb vreme
 - cb home
+- clear
 - и још **2** скривене команде 👻
 
 ## Слике 🖼️
@@ -101,6 +102,7 @@
 - cb dotfiles
 - cb vreme
 - cb home
+- clear
 - and **2** more secret commands 👻
 
 ## Images 🖼️
