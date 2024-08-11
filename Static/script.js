@@ -114,12 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         );
       } else if (command === "cb vreme") {
-        const now = new Date();
-        const vreme = now.toLocaleTimeString();
-        const datum = now.toLocaleDateString();
-        typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
-      } else if (command === "help") {
-        typeText("Доступне команде:", responseLine, () => {
+       const now = new Date();
+       const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+       const vreme = now.toLocaleTimeString('sr-RS', options);
+       const datum = now.toLocaleDateString('sr-RS');
+       typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
+        } else if (command === "help") {
+          typeText("Доступне команде:", responseLine, () => {
           const breakLine = document.createElement("br");
           responseLine.appendChild(breakLine);
 
