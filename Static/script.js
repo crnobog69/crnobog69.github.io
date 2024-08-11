@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Састављање времена у 24-часовном формату
   const vreme = `${hours}:${minutes}:${seconds}`;
   
-  typeText(`Тренутно време је ${vreme}, датум је ${datum}.`, responseLine);
+  typeText(`Тренутно време је ${vreme}, датум је ${datum}`, responseLine);
 } else if (command === "help") {
           typeText("Доступне команде:", responseLine, () => {
           const breakLine = document.createElement("br");
