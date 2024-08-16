@@ -6,7 +6,7 @@
 
 "СВИ БИ СВЕДОЧИЛИ ГОЛОЈ КОЖИ ОНОГА КОЈИ ЈЕ СЛОБОДАН. ОНОМЕ КОЈИ ЈЕ СВЕ ОСТАВИО ИЗА СЕБЕ И ЊЕГОВОЈ ПРЕПЛАВЉУЈУЋОЈ ИНТЕНЗИВНОСТИ!"
 
-**Јесени Господње // 2023 🍂**
+**Лета Господњег // 2024 🗼**
 
 ## Како покренути пројекат 🚀
 
@@ -14,44 +14,21 @@
     
   или
 
-1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)**
+1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)** (Стари сајт)
 
 ## Структура пројекта 📁
 
 - `index.html`: Главна HTML страница
-- `konzola.html` : Страница конзоле
-- `Static/`: Фолдер са статичким фајловима (CSS, JavaScript)
-- `Stranice/`: Датотека са додатним HTML страницама
+- `static/`: Фасцикла са статичким датотекама
+      - `styles`: CSS
+      - `script`: JavaScript
+- `pages/`: Фасцикла са додатним HTML страницама
 - `404.html`: Страница за грешку (Страница није пронађена)
-- `Oznake.html`: Ознаке
+- `assets/`: Средства
 
-## Почетна страница 🏠
+## Остала средства 📖 
 
-- 🐙 - [Github](https://github.com/crnobog69)
-- 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
-- 🏔️ - [Codeberg](https://codeberg.org/crnobog)
-- 📟 - [Конзола](https://crnobog69.github.io/konzola)
-
-## Конзола 📟 - Команде у конзоли
-
-- cb preuzimanja
-- cb kontakt
-- cb galerija
-- cb dotfiles
-- cb vreme
-- cb home
-- clear
-- и још **2** скривене команде 👻
-
-## Слике 🖼️
-
-- **Почетна страница 🏠**
-![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
-
-- **Конзола 📟**
-![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
-
-
+- Иконице које су коришћене: [Иконице](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
 
 ## Лиценца 📜
 
@@ -68,7 +45,7 @@
 
 "THEY WOULD ALL BEAR WITNESS TO THE BARE FLESH OF THE ONE WHO IS FREE. TO THE ONE WHO LEFT IT ALL BEHIND."
 
-**Lord's Autumn // 2023 🍂**
+**Lord's Summer // 2024 🗼.**
 
 ## How to Run the Project 🚀
 
@@ -76,42 +53,21 @@
    
    or
 
-1. **[Click here - Codeberg](https://crnobog.codeberg.page/)**
+1. **[Click here - Codeberg](https://crnobog.codeberg.page/)** (old website)
 
 ## Project Structure 📁
 
 - `index.html`: Main HTML page
-- `konzola.html` : Console page
-- `Static/`: Folder with static files (CSS, JavaScript)
-- `Stranice/`: Folder with additional HTML pages
-- `404.html`: Error page (Page not found)
-- `Oznake.html`: Insignias
+- `static/`: Folder with static files
+      - `styles`: CSS
+      - `script`: JavaScript
+- `pages/`: Folder with aditional HTML pages
+- `404.html`: Page for error (Page not found)
+- `assets/`: Assets
 
-## Homepage 🏠
+## Aditial assets 📖
 
-- 🐙 - [Github](https://github.com/crnobog69)
-- 🐘 - [Mastodon](https://mastodon.social/@prepungrad)
-- 🏔️ - [Codeberg](https://codeberg.org/crnobog)
-- 📟 - [Конзола](https://crnobog69.github.io/konzola)
-
-## Console 📟 - Commands in console
-
-- cb preuzimanja
-- cb kontakt
-- cb galerija
-- cb dotfiles
-- cb vreme
-- cb home
-- clear
-- and **2** more secret commands 👻
-
-## Images 🖼️
-
-- **Homepage 🏠**
-![image](https://github.com/user-attachments/assets/c84d210f-4780-49a1-a5a0-33b524eb9042)
-
-- **Console 📟**
-![image](https://github.com/user-attachments/assets/8621362a-3367-4f95-8451-ede51c94d548)
+- Icons that were used: [Icons](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
 
 ## License 📜
 
