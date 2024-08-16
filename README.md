@@ -28,8 +28,9 @@
 
 ## Остала средства 📖 
 
-- Иконице које су коришћене: [Иконице](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
-- Инспирисано од стране: [Text тема](https://github.com/spicetify/spicetify-themes/tree/master/text)
+- Иконице које су коришћене: [Иконице](https://www.svgrepo.com/collection/solar-broken-line-icons/1) 🖼️
+- Инспирисано од стране: [Text тема](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
+- Мачка : [oneko.js](https://github.com/adryd325/oneko.js)  🐱
 
 ## Лиценца 📜
 
@@ -68,8 +69,9 @@
 
 ## Aditial assets 📖
 
-- Icons that were used: [Icons](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
-- Ispired from: [Text theme](https://github.com/spicetify/spicetify-themes/tree/master/text)
+- Icons that were used: [Icons](https://www.svgrepo.com/collection/solar-broken-line-icons/1) 🖼️
+- Ispired from: [Text theme](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
+- The Cat : [oneko.js](https://github.com/adryd325/oneko.js) 🐱
 
 ## License 📜
 
