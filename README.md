@@ -20,8 +20,8 @@
 
 - `index.html`: Главна HTML страница
 - `static/`: Фасцикла са статичким датотекама
-      - `styles`: CSS
-      - `script`: JavaScript
+- `static/styles`: CSS
+- `static/script`: JavaScript
 - `pages/`: Фасцикла са додатним HTML страницама
 - `404.html`: Страница за грешку (Страница није пронађена)
 - `assets/`: Средства
@@ -29,6 +29,7 @@
 ## Остала средства 📖 
 
 - Иконице које су коришћене: [Иконице](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
+- Инспирисано од стране: [Text тема](https://github.com/spicetify/spicetify-themes/tree/master/text)
 
 ## Лиценца 📜
 
@@ -59,8 +60,8 @@
 
 - `index.html`: Main HTML page
 - `static/`: Folder with static files
-      - `styles`: CSS
-      - `script`: JavaScript
+- `static/styles`: CSS
+- `static/script`: JavaScript
 - `pages/`: Folder with aditional HTML pages
 - `404.html`: Page for error (Page not found)
 - `assets/`: Assets
@@ -68,6 +69,7 @@
 ## Aditial assets 📖
 
 - Icons that were used: [Icons](https://www.svgrepo.com/collection/solar-broken-line-icons/1)
+- Ispired from: [Text theme](https://github.com/spicetify/spicetify-themes/tree/master/text)
 
 ## License 📜
 
