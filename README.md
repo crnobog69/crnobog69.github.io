@@ -40,7 +40,7 @@
 
 ### Мачка
 
-- Мачка : [oneko.js](https://github.com/adryd325/oneko.js)  🐱 под [MIT](LICENSE.txt) лиценцом.
+- Мачка : [drag-oneko.js](https://github.com/crnobog69/drag-oneko.js/tree/main)  🐱 под [MIT](LICENSE.txt) лиценцом.
 
 ### Тема
 
@@ -95,7 +95,7 @@
 
 ### Cat
 
-- The Cat : [oneko.js](https://github.com/adryd325/oneko.js) 🐱 under [MIT](LICENSE.txt).
+- The Cat : [drag-oneko.js](https://github.com/crnobog69/drag-oneko.js/tree/main) 🐱 under [MIT](LICENSE.txt).
 
 ### Theme
 
