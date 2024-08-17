@@ -10,6 +10,14 @@
             --spacing: 10px;
         }
 
+        * {
+            user-select: none;         /* Standardno za sve moderne pregledače */
+            -webkit-user-select: none; /* Za WebKit pregledače kao što je Safari */
+            -moz-user-select: none;    /* Za Firefox */
+            -ms-user-select: none;     /* Za Internet Explorer i Edge */
+        }
+        
+
         body {
             background-color: var(--main);
             color: var(--text);
