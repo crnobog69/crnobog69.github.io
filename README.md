@@ -1,6 +1,6 @@
-# crnobog69.github.io 🪐
-
 ### README на српском 🇷🇸
+
+# crnobog69.github.io 🪐
 
 > [Read in English 🇬🇧](#readme-in-english-)
 
@@ -57,9 +57,9 @@
 
 ---
 
-# crnobog69.github.io 🪐
-
 ### README in English 🇬🇧
+
+# crnobog69.github.io 🪐
 
 > [Читај на српском 🇷🇸](#readme-на-српском-)
 
