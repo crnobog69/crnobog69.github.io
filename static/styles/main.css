@@ -152,7 +152,7 @@
             color: var(--accent);
             margin: 0;
             font-family: "Noto Serif", serif;
-            font-size: 3rem;
+            font-size: 1rem;
         }
 
         .subheader {
@@ -329,5 +329,8 @@
             .content-item {
                 flex: 1 1 100%;
                 max-width: 100%;
+            }
+            h1{
+                font-size: 0.7rem;
             }
         }
