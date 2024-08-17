@@ -34,8 +34,6 @@
 - Оригинарли креатор: [480 Design](https://github.com/480-Design)
 - Модификовано од стране [crnobog69](https://github.com/crnobog69). Црна боја коница промењена у зелену.
 
----
-
 ### Инспирација
 
 - Инспирисано од стране: [Text тема](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
@@ -85,14 +83,22 @@
 
 ## Aditial assets 📖
 
+### Icons
+
 - Icons that were used: [Icons - Broken variant](https://github.com/480-Design/Solar-Icon-Set) 🖼️ under [Creative Commons Attribution 4.0 International](LICENSE.md) license.
 - Original creator: [408 Design](https://github.com/480-Design)
 - Modified by [crnobog69](https://github.com/crnobog69). Black color of icons changed to green.
 
----
+### Inspiration
 
 - Ispired from: [Text theme](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
+
+### Cat
+
 - The Cat : [oneko.js](https://github.com/adryd325/oneko.js) 🐱 under [MIT](LICENSE.txt).
+
+### Theme
+
 - Theme colors : [Catppuccin Mocha - Green](https://github.com/catppuccin/catppuccin) 🐈 under [MIT](LICENSE.txt) license.
 
 ## License 📜
