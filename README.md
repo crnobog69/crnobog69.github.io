@@ -28,14 +28,24 @@
 
 ## Остала средства 📖 
 
+### Иконице
+
 - Иконице које су коришђене: [Icons - Broken vваријанја](https://github.com/480-Design/Solar-Icon-Set) 🖼️ под [Creative Commons Attribution 4.0 International](LICENSE.md) лиценцом. 
-<br>
 - Оригинарли креатор: [480 Design](https://github.com/480-Design)
-<br>
 - Модификовано од стране [crnobog69](https://github.com/crnobog69). Црна боја коница промењена у зелену.
-<br>
+
+---
+
+### Инспирација
+
 - Инспирисано од стране: [Text тема](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
+
+### Мачка
+
 - Мачка : [oneko.js](https://github.com/adryd325/oneko.js)  🐱 под [MIT](LICENSE.txt) лиценцом.
+
+### Тема
+
 - Theme colors : [Catppuccin Mocha - Green](https://github.com/catppuccin/catppuccin) 🐈 под [MIT](LICENSE.txt) лиценцом.
 
 ## Лиценца 📜
@@ -76,11 +86,11 @@
 ## Aditial assets 📖
 
 - Icons that were used: [Icons - Broken variant](https://github.com/480-Design/Solar-Icon-Set) 🖼️ under [Creative Commons Attribution 4.0 International](LICENSE.md) license.
-<br>
 - Original creator: [408 Design](https://github.com/480-Design)
-<br>
 - Modified by [crnobog69](https://github.com/crnobog69). Black color of icons changed to green.
-<br>
+
+---
+
 - Ispired from: [Text theme](https://github.com/spicetify/spicetify-themes/tree/master/text) 📚
 - The Cat : [oneko.js](https://github.com/adryd325/oneko.js) 🐱 under [MIT](LICENSE.txt).
 - Theme colors : [Catppuccin Mocha - Green](https://github.com/catppuccin/catppuccin) 🐈 under [MIT](LICENSE.txt) license.
