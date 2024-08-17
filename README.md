@@ -1,5 +1,8 @@
 # crnobog69.github.io 🪐
 
+### README на српском 🇷🇸
+
+> [Read in English 🇬🇧](#readme-in-english-)
 
 > [!NOTE]
 > Ово је репозиторијум за мој лични веб сајт, направљен коришћењем HTML, CSS и JavaScript технологија.
@@ -55,6 +58,10 @@
 ---
 
 # crnobog69.github.io 🪐
+
+### README in English 🇬🇧
+
+> [Читај на српском 🇷🇸](#readme-на-српском-)
 
 > [!NOTE]
 > This is the repository for my personal website, built using HTML, CSS, and JavaScript technologies.
