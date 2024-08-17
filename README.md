@@ -32,7 +32,7 @@
 
 - Иконице које су коришђене: [Icons - Broken vваријанја](https://github.com/480-Design/Solar-Icon-Set) 🖼️ под [Creative Commons Attribution 4.0 International](LICENSE.md) лиценцом. 
 - Оригинарли креатор: [480 Design](https://github.com/480-Design)
-- Модификовано од стране [crnobog69](https://github.com/crnobog69). Црна боја коница промењена у зелену.
+- Модификовано од стране: [crnobog69](https://github.com/crnobog69). Црна боја коница промењена у зелену.
 
 ### Инспирација
 
@@ -87,7 +87,7 @@
 
 - Icons that were used: [Icons - Broken variant](https://github.com/480-Design/Solar-Icon-Set) 🖼️ under [Creative Commons Attribution 4.0 International](LICENSE.md) license.
 - Original creator: [408 Design](https://github.com/480-Design)
-- Modified by [crnobog69](https://github.com/crnobog69). Black color of icons changed to green.
+- Modified by: [crnobog69](https://github.com/crnobog69). Black color of icons changed to green.
 
 ### Inspiration
 
