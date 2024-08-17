@@ -77,7 +77,7 @@
 
 - Icons that were used: [Icons - Broken variant](https://github.com/480-Design/Solar-Icon-Set) 🖼️ under [Creative Commons Attribution 4.0 International](LICENSE.md) license.
 <br>
-- Original creator: [480 Design](https://github.com/480-Design)
+- Original creator: [408 Design](https://github.com/480-Design)
 <br>
 - Modified by [crnobog69](https://github.com/crnobog69). Black color of icons changed to green.
 <br>
@@ -90,5 +90,3 @@
 This project is licensed under the WTFPL license.
 
 For more information, visit [crnobog69.github.io](https://crnobog69.github.io) 🪐.
-
-[MUDJA](mudja.rs)
