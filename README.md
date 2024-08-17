@@ -95,7 +95,7 @@
 
 ### Cat
 
-- The Cat : [drag-oneko.js](https://github.com/crnobog69/drag-oneko.js/tree/main) 🐱 under [MIT](LICENSE.txt).
+- The Cat : [drag-oneko.js](https://github.com/crnobog69/drag-oneko.js/tree/main) 🐱 under [MIT](LICENSE.txt) license.
 
 ### Theme
 
