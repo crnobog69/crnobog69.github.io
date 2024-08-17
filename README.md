@@ -4,6 +4,8 @@
 
 > [Read in English 🇬🇧](#readme-in-english-)
 
+<br>
+
 > [!NOTE]
 > Ово је репозиторијум за мој лични веб сајт, направљен коришћењем HTML, CSS и JavaScript технологија.
 
@@ -62,6 +64,8 @@
 # crnobog69.github.io 🪐
 
 > [Читај на српском 🇷🇸](#readme-на-српском-)
+
+<br>
 
 > [!NOTE]
 > This is the repository for my personal website, built using HTML, CSS, and JavaScript technologies.
