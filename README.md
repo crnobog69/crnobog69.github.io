@@ -90,3 +90,5 @@
 This project is licensed under the WTFPL license.
 
 For more information, visit [crnobog69.github.io](https://crnobog69.github.io) 🪐.
+
+[MUDJA](mudja.rs)
