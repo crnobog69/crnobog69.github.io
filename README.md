@@ -17,7 +17,7 @@
 
 1. **[Клоком овде](https://crnobog69.github.io/)**
     
-  или
+    или
 
 1. **[Кликом овде - Codeberg](https://crnobog.codeberg.page/)** (Стари сајт)
 
