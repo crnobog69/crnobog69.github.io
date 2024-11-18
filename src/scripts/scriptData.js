@@ -3,7 +3,7 @@ const scriptData = {
         title: 'backup.sh',
         description: 'Једноставна скрипта која прави дневне резервне копије важних директоријума.',
         language: 'Bash',
-        url: 'https://raw.githubusercontent.com/crnobog69/scripts/main/backup.sh',
+        url: 'https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/backup.sh',
         github: 'https://github.com/crnobog69/scripts/blob/main/backup.sh',
         content: `#!/bin/bash
 # Backup script for important files
@@ -32,7 +32,7 @@ echo "Backup completed: $backup_dir"`
         title: 'update.sh',
         description: 'Скрипта за ажурирање система на Arch Linux-у. Ажурира пакете и чисти кеш пакета',
         language: 'Bash',
-        url: 'https://raw.githubusercontent.com/crnobog69/scripts/main/update.sh',
+        url: 'https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/update.sh',
         github: 'https://github.com/crnobog69/scripts/blob/main/update.sh',
         content: `#!/bin/bash
 # System update script
@@ -59,8 +59,8 @@ echo "Update complete!"`
         title: 'clean.sh',
         description: 'Скрипта за чишћење система која брише некоришћене пакете и одржава систем.',
         language: 'Bash',
-        url: 'https://raw.githubusercontent.com/crnobog69/dotfiles/main/clean.sh',
-        github: 'https://github.com/crnobog69/dotfiles/blob/main/clean.sh',
+        url: 'https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/clean.sh',
+        github: 'https://github.com/crnobog69/scripts/blob/main/clean.sh',
         content: `#!/bin/bash
 # System cleanup script
 
@@ -87,6 +87,15 @@ echo "Clearing systemd journal..."
 sudo journalctl --vacuum-time=7d
 
 echo "Cleanup complete!"`
+    },
+    echo: {
+        title: 'echo.sh',
+        description: 'Скрипта која исписује текст на екран.',
+        language: 'Bash',
+        url: 'https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/echo.sh',
+        github: 'https://github.com/crnobog69/dotfiles/blob/main/echo.sh',
+        content: `#!/bin/bash
+echo "Велики поздрав за свет!"`
     }
 };
 
