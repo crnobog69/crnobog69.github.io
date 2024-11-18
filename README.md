@@ -13,4 +13,32 @@
 </p>
 </div>
 
+<br>
+  
+```
+├── assets
+│   └── icon.svg
+├── fonts
+│   └── JetBrainsMonoNerdFont-Regular.ttf
+├── pages
+│   ├── about.html
+│   ├── contact.html
+│   ├── projects.html
+│   └── scripts.html
+├── src
+│   └── scripts
+│       ├── scriptCards.js
+│       └── scriptData.js
+├── styles
+│   └── style.css
+├── .directory
+├── LICENSE
+├── LICENSE.md
+├── LICENSE.txt
+├── README.md
+├── index.html
+├── push.ps1
+└── push.sh
+```
+
 #### <p align="center">🍂 Јесени господње 2024</p>
