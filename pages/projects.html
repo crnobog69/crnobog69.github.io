@@ -12,11 +12,22 @@
       <a href="../index.html">Почетна</a>
       <a href="about.html">О мени</a>
       <a href="projects.html" class="active">Пројекти</a>
+      <a href="scripts.html">Скрипте</a>
       <a href="contact.html">Контакт</a>
     </nav>
     <main>
       <div class="content">
         <h1 class="fade-in">Пројекти</h1>
+        
+        <div class="search-container fade-in">
+            <input 
+                type="text" 
+                class="search-input" 
+                placeholder="Претражите пројекте..."
+                id="projectSearch"
+            >
+        </div>
+
         <div class="project-grid">
           <a
             href="https://github.com/crnobog69/dotfiles"
@@ -219,7 +230,7 @@
             class="project-card slide-in hover-lift"
           >
             <h2>spicetify-bat-installer-autoupdater</h2>
-            <p>Spicetify bat installer и аутоматска ажурирања за Windows 11</p>
+            <p>Spicetify bat installer и аутоматска ажурирањ за Windows 11</p>
             <div class="project-tech">Batchfile</div>
           </a>
 
@@ -315,5 +326,54 @@
         </div>
       </div>
     </main>
+
+    <script>
+    const searchInput = document.getElementById('projectSearch');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        // If search is empty, show all cards with animation
+        if (!searchTerm) {
+            // First hide all cards
+            projectCards.forEach(card => {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+            });
+            
+            // Then show all with animation
+            setTimeout(() => {
+                projectCards.forEach(card => {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 1.3s ease forwards';
+                });
+            }, 50);
+            return;
+        }
+        
+        // First hide all cards
+        projectCards.forEach(card => {
+            card.style.display = 'none';
+            card.style.opacity = '0';
+        });
+        
+        // After a small delay, show matching cards with animation
+        setTimeout(() => {
+            projectCards.forEach(card => {
+                const content = [
+                    card.querySelector('h2').textContent,
+                    card.querySelector('p').textContent,
+                    card.querySelector('.project-tech').textContent
+                ].join(' ').toLowerCase();
+                
+                if (content.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    card.style.animation = 'fadeIn 1.3s ease forwards';
+                }
+            });
+        }, 50);
+    });
+    </script>
   </body>
 </html>
