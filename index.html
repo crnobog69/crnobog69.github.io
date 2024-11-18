@@ -1,197 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="sr">
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Црнобог</title>
-    <link rel="icon" href="assets/ikonica-zelena.svg" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="static/styles/main.css">
-    
-</head>
-
-<body>
-    <div class="sidebar">
-        <div class="sidebar-button">
-            <a href="index"><img src="assets/home.svg" alt="Home Icon" /></a>
-            <span></span>
+    <link rel="icon" type="image/png" href="assets/icon.svg" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+  </head>
+  <body>
+    <nav class="nav-menu">
+      <a href="index.html" class="active">Почетна</a>
+      <a href="pages/about.html">О мени</a>
+      <a href="pages/projects.html">Пројекти</a>
+      <a href="pages/contact.html">Контакт</a>
+    </nav>
+    <main>
+      <div class="content">
+        <div class="title-container">
+          <div class="large-text fade-in hover-effect">Црнобог</div>
+          <div class="small-text fade-up">(crnobog)</div>
         </div>
-
-        <div class="folder" onclick="toggleFolder(this)">
-            <img src="assets/projekti.svg" alt="Ikonica za projekte" class="folder-icon">
-            <span>Пројекти</span>
-            <span>▼</span>
-        </div>
-
-        <div class="subfolder">
-            <ul>
-                <li><a href="https://github.com/crnobog69/dotfiles">Dotfiles</a></li>
-                <li><a href="https://github.com/crnobog69/py-ffmpeg">PyFFmpeg</a></li>
-                <li><a href="https://github.com/crnobog69/arch-maintenance">arch-maintenance</a></li>
-                <li><a href="pages/projekti-odabir">Остали пројекти</a></li>
-            </ul>
-        </div>
-
-        <div class="folder" onclick="toggleFolder(this)">
-            <img src="assets/kontakt.svg" alt="Ikonica za kontakt" class="folder-icon">
-            <span>Контакт</span>
-            <span>▼</span>
-        </div>
-
-        <div class="subfolder">
-            <ul>
-                <li><a href="pages/kontakt">Контакт</a></li>
-            </ul>
-        </div>
-        <div class="folder" onclick="toggleFolder(this)">
-            <img src="assets/ostalo.svg" alt="Ikonica za ostalo" class="folder-icon">
-            <span>Остало</span>
-            <span>▼</span>
-        </div>
-        <div class="subfolder">
-            <ul>
-                <li><a href="pages/ostalo">Остало</a></li>
-            </ul>
-        </div>
-    </div>
-
-
-
-    <div class="content">
-        <header>
-            <p class="subheader">Главна страница</p>
-            <h1>
-                <pre>
- _  _  ____  _  _   __  ____   __   ____ 
-/ \( \(  _ \/ )( \ /  \(  __) /  \ /  __)
-) (/ ( ) __/) __ ((  O )) _ \(  O )) (   
-\___\/(__)  \_)(_/ \__/(____/ \__/ \_/                                      
-                </pre>
-            </h1>
-            <p class="subheader"><a href="http://ipa-reader.xyz/?text=%2Fts%C9%B9%CC%A9nobo%C9%A1%2F&voice=Maja"
-                    class="citanje">/tsɹ̩noboɡ/<a> • <span id="current-time"></span></p>
-        </header>
-
-        <div class="main-header">Главно</div>
-
-        <div class="content-container">
-
-            <a class="content-item" href="https://github.com/crnobog69/">
-                <img src="assets/github.svg" alt="1. Image" />
-                <div>
-                    <span>GitHub</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://codeberg.org/crnobog">
-                <img src="assets/codeberg.svg" alt="2. Image" />
-                <div>
-                    <span>Codeberg</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://mastodon.social/@prepungrad/">
-                <img src="assets/gitlab.svg" alt="3. Image" />
-                <div>
-                    <span>GitLab</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://mastodon.social/@prepungrad/">
-                <img src="assets/mastodon.svg" alt="4. Image" />
-                <div>
-                    <span>Mastodon</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://x.com/prepungrad/">
-                <img src="assets/x.svg" alt="5. Image" />
-                <div>
-                    <span>X</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://kitsu.app/users/crnobog">
-                <img src="assets/kitsu.svg" alt="6. Image" />
-                <div>
-                    <span>Kitsu</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://anilist.co/user/crnobog/">
-                <img src="assets/anilist.svg" alt="7. Image" />
-                <div>
-                    <span>AniList</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://ko-fi.com/crnobog/">
-                <img src="assets/ko-fi.svg" alt="8. Image" />
-                <div>
-                    <span>Ko-Fi</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://last.fm/user/prepungrad">
-                <img src="assets/lastfm.svg" alt="9. Image" />
-                <div>
-                    <span>Last.fm</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://stats.fm/prepungrad">
-                <img src="assets/stats-fm.svg" alt="10. Image" />
-                <div>
-                    <span>Stats.fm</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://gravatar.com/crnobog69/">
-                <img src="assets/gravatar.svg" alt="11. Image" />
-                <div>
-                    <span>Gravatar</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://matrix.to/#/@krematorijum:matrix.org">
-                <img src="assets/matrix.svg" alt="12. Image" />
-                <div>
-                    <span>Matrix</span>
-                </div>
-            </a>
-
-            <a class="content-item" href="https://t.me/szp69">
-                <img src="assets/t-me.svg" alt="13. Image" />
-                <div>
-                    <span>Telegram</span>
-                </div>
-            </a>
-            
-            <a class="content-item" href="https://myanimelist.net/profile/crnobog">
-                <img src="assets/mal.svg" alt="14. Image" />
-                <div>
-                    <span>MyAnimeList</span>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-    <div class="bottom-nav">
-        <a href="#" class="nav-item" id="home-button">
-            <img src="assets/home.svg" alt="Home Icon" class="nav-icon">
-        </a>
-        <a href="#" class="nav-item" id="projects-button">
-            <img src="assets/projekti.svg" alt="Projects Icon" class="nav-icon">
-        </a>
-        <a href="#" class="nav-item" id="others-button">
-            <img src="assets/ostalo.svg" alt="Others Icon" class="nav-icon">
-        </a>
-    </div>
-
-    <script src="static/script/posete.js"></script>
-    <script src="static/script/main.js"></script>
-    <script src="static/uklonjeno.oneko.js"></script>
-</body>
-
+      </div>
+    </main>
+  </body>
 </html>
