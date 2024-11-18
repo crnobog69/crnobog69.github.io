@@ -14,7 +14,7 @@
 </div>
 
 <br>
-  
+
 ```
 ├── assets
 │   └── icon.svg
