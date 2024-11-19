@@ -23,7 +23,7 @@ const scriptData = {
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/crc.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/crc.sh",
-    content: `Прилагођена скирпта за компајлирање програма написаних у C програмском језику уз помоћ gcc`,
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   zap: {
     title: "zap.sh",
@@ -31,7 +31,7 @@ const scriptData = {
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/zap.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/zap.sh",
-    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   trash: {
     title: "trash.sh",
@@ -39,7 +39,7 @@ const scriptData = {
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/trash.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/trash.sh",
-    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   ftn: {
     title: "ftn.sh",
@@ -48,7 +48,7 @@ const scriptData = {
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/ftn.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/ftn.sh",
-    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   pkg: {
     title: "pkg.sh",
@@ -57,7 +57,7 @@ const scriptData = {
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/pkg.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/pkg.sh",
-    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   backup: {
     title: "backup.sh",
