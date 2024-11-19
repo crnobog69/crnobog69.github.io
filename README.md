@@ -43,9 +43,6 @@
 │
 ├── LICENSE
 │
-├── LICENSE.md
-│
-├── LICENSE.txt
 │
 ├── README.md
 │
