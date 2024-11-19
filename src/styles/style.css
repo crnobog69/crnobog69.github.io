@@ -1285,3 +1285,53 @@ main {
   color: #f38ba8; /* Catppuccin Mocha Red */
   font-weight: bold;
 }
+
+/* Update modal styles for mobile */
+@media (max-width: 768px) {
+  /* Existing mobile styles... */
+
+  /* Update modal header layout */
+  .modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .modal-actions {
+    margin-right: 0;
+    width: 100%;
+    justify-content: flex-start;
+    padding-right: 2rem; /* Make space for close button */
+  }
+
+  /* Adjust close button position */
+  .modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  /* Make modal content take less width on mobile */
+  .modal-content {
+    width: 95%;
+    margin: 1rem;
+  }
+
+  /* Adjust modal description padding */
+  .modal-description {
+    padding: 1rem;
+  }
+
+  /* Adjust modal body padding */
+  .modal-body {
+    padding: 1rem;
+  }
+
+  /* Make code content more readable on mobile */
+  .script-content {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+}
