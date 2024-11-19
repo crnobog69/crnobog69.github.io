@@ -16,9 +16,8 @@
 <br>
 
 ```
-┌── crnobog69.github.io
-│
-├── assets
+
+┌── assets
 │   └── icon.svg
 │
 ├── fonts
