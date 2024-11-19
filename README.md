@@ -38,19 +38,12 @@
 │   └── style.css
 │
 ├── .directory
-│
 ├── 404.html
-│
 ├── LICENSE
-│
 ├── README.md
-│
 ├── index.html
-│
 ├── push.ps1
-│
 ├── push.sh
-│
 └── start.html
 
 ```
