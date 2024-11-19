@@ -33,6 +33,14 @@ const scriptData = {
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/zap.sh",
     content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
   },
+  trash: {
+    title: "trash.sh",
+    description: "Прилагођена скрипта за чишћење канте",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/trash.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/trash.sh",
+    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+  },
   ftn: {
     title: "ftn.sh",
     description:
