@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Нова картица</title>
+    <style>
+      @font-face {
+        font-family: "JetBrainsMono Nerd Font";
+        src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #181825;
+        color: #a6e3a1;
+        font-family: "JetBrainsMono Nerd Font", monospace;
+      }
+
+      .container {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .time {
+        font-size: 6rem;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      .date {
+        font-size: 1.5rem;
+        margin: 1rem 0 3rem;
+        opacity: 0.8;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: rgba(166, 227, 161, 0.05);
+        border: 1px solid rgba(166, 227, 161, 0.1);
+        border-radius: 12px;
+        color: #a6e3a1;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .link:hover {
+        background: rgba(166, 227, 161, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .link svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .weather {
+        font-size: 1.25rem;
+        margin: 1rem 0 3rem;
+        padding: 1rem;
+        background: rgba(166, 227, 161, 0.05);
+        border: 1px solid rgba(166, 227, 161, 0.1);
+        border-radius: 12px;
+      }
+
+      @media (max-width: 768px) {
+        .time {
+          font-size: 4rem;
+        }
+
+        .date {
+          font-size: 1.25rem;
+        }
+
+        .links {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .weather {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="time" id="time">00:00:00</div>
+      <div class="date" id="date">Учитавање...</div>
+      <div class="weather" id="weather">...</div>
+
+      <div class="links">
+        <a
+          href="https://mobalytics.gg/lol?int_source=homepage&int_medium=header"
+          class="link"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0L1.815 6v12L12 24l10.185-6V6L12 0zm6 16.5l-6 3.5-6-3.5v-9l6-3.5 6 3.5v9z"
+            />
+          </svg>
+          Mobalytics
+        </a>
+
+        <a href="https://open.spotify.com" class="link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+            />
+          </svg>
+          Spotify
+        </a>
+
+        <a href="https://youtube.com" class="link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+            />
+          </svg>
+          YouTube
+        </a>
+
+        <a href="https://x.com/stabilitatspakt" class="link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            />
+          </svg>
+          Twitter
+        </a>
+
+        <a href="https://www.last.fm/user/prepungrad" class="link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M10.599 17.211l-.881-2.393s-1.433 1.596-3.579 1.596c-1.9 0-3.249-1.652-3.249-4.296 0-3.385 1.708-4.596 3.388-4.596 2.418 0 3.184 1.568 3.845 3.578l.871 2.751c.871 2.672 2.523 4.818 7.285 4.818 3.41 0 5.722-1.045 5.722-3.801 0-2.227-1.276-3.383-3.635-3.935l-1.757-.384c-1.217-.274-1.577-.771-1.577-1.597 0-.936.736-1.487 1.952-1.487 1.323 0 2.028.495 2.147 1.679l2.749-.33c-.225-2.479-1.937-3.494-4.745-3.494-2.479 0-4.897.936-4.897 3.934 0 1.873.902 3.058 3.185 3.605l1.862.443c1.397.33 1.863.916 1.863 1.713 0 1.021-.992 1.441-2.869 1.441-2.779 0-3.936-1.457-4.597-3.469l-.901-2.75c-1.156-3.574-3.004-4.896-6.669-4.896C2.147 5.327 0 7.879 0 12.235c0 4.179 2.147 6.445 6.003 6.445 3.108 0 4.596-1.457 4.596-1.457v-.012z"
+            />
+          </svg>
+          Last.fm
+        </a>
+
+        <a href="https://stats.fm/user/prepungrad?range=lifetime" class="link">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M3 3v18h18V3H3zm16 16H5V5h14v14zM7 10h2v7H7v-7zm4-3h2v10h-2V7zm4 6h2v4h-2v-4z"
+            />
+          </svg>
+          Stats.fm
+        </a>
+
+        <a href="https://notesnook.com" class="link">
+          <svg viewBox="0 0 1024 1024" fill="currentColor">
+            <g clip-path="url(#clip0_24_33)">
+              <path
+                d="M724.985 682.919C707.73 733.33 673.15 775.984 627.397 803.291C581.645 830.598 527.687 840.787 475.128 832.044C422.568 823.301 374.814 796.194 340.365 755.546C305.916 714.898 287.006 663.347 287 610.064V499.814L366.121 532.867V610.019C366.114 630.798 370.555 651.337 379.145 670.256C387.735 689.176 400.276 706.037 415.925 719.707C418.895 722.294 421.978 724.814 425.161 727.166C448.518 744.554 476.563 754.518 505.655 755.763C506.645 755.763 507.601 755.842 508.58 755.864C509.559 755.887 510.83 755.864 511.955 755.864C513.08 755.864 514.205 755.864 515.33 755.864C516.455 755.864 517.265 755.864 518.255 755.763C547.336 754.515 575.371 744.56 598.726 727.188C601.899 724.837 604.981 722.328 607.963 719.741C628.519 701.761 643.619 678.375 651.545 652.241L724.985 682.919Z"
+              />
+              <path
+                d="M737 414V610.065C737 612.596 737 615.139 736.842 617.67L657.879 584.651V414C657.866 376.316 643.272 340.099 617.154 312.934C591.035 285.77 555.419 269.766 517.765 268.274C480.11 266.782 443.339 279.918 415.154 304.931C386.968 329.944 369.554 364.893 366.56 402.457C366.279 406.26 366.121 410.119 366.121 414V462.712L287 429.637V189H512C571.674 189 628.903 212.705 671.099 254.901C713.295 297.097 737 354.326 737 414Z"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_24_33">
+                <rect width="1024" height="1024" rx="200" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          Notesnook
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Update time and date
+      function updateDateTime() {
+        const now = new Date();
+
+        // Update time
+        const timeElement = document.getElementById("time");
+        timeElement.textContent = now.toLocaleTimeString("sr-RS", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+
+        // Update date
+        const dateElement = document.getElementById("date");
+        dateElement.textContent = now.toLocaleDateString("sr-RS", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      }
+
+      // Update weather using Open-Meteo
+      async function updateWeather() {
+        // Coordinates for Kosovska Mitrovica
+        const lat = 42.8904;
+        const lon = 20.866;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&timezone=auto`;
+
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          // Convert weather code to description
+          const weatherCodes = {
+            0: "Ведро",
+            1: "Претежно ведро",
+            2: "Делимично облачно",
+            3: "Облачно",
+            45: "Магла",
+            48: "Магла која се леди",
+            51: "Слаба киша",
+            53: "Умерена киша",
+            55: "Јака киша",
+            56: "Слаба ледена киша",
+            57: "Јака ледена киша",
+            61: "Слаба киша",
+            63: "Умерена киша",
+            65: "Јака киша",
+            66: "Слаба ледена киша",
+            67: "Јака ледена киша",
+            71: "Слаб снег",
+            73: "Умерен снег",
+            75: "Јак снег",
+            77: "Снежна зрна",
+            80: "Слаб пљусак",
+            81: "Умерен пљусак",
+            82: "Јак пљусак",
+            85: "Слаб снежни пљусак",
+            86: "Јак снежни пљусак",
+            95: "Грмљавина",
+            96: "Грмљавина са слабим градом",
+            99: "Грмљавина са јаким градом",
+          };
+
+          const weatherElement = document.getElementById("weather");
+          const temp = Math.round(data.current.temperature_2m);
+          const description =
+            weatherCodes[data.current.weather_code] || "Непознато";
+          weatherElement.textContent = `Косовска Митровица: ${temp}°C, ${description}`;
+        } catch (error) {
+          console.error("Error fetching weather:", error);
+        }
+      }
+
+      // Initial updates
+      updateDateTime();
+      updateWeather();
+
+      // Update intervals
+      setInterval(updateDateTime, 1000);
+      setInterval(updateWeather, 30 * 60 * 1000);
+    </script>
+  </body>
+</html>
