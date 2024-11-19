@@ -1,4 +1,55 @@
 const scriptData = {
+  kolo: {
+    title: "kolo.sh",
+    description:
+      "Скрипта за претрагу Arch Linux репозиторијума (укључујући AUR)",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/kolo.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/kolo.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
+  entropy: {
+    title: "entropy.sh",
+    description: "Прилагођена скрипта за чишћење система",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/entropy.sh",
+    github:
+      "https://github.com/crnobog69/dotfiles/blob/main/scripts/entropy.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
+  crc: {
+    title: "crc.sh",
+    description: "Једноставна скрипта за компајлирање C програма.",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/crc.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/crc.sh",
+    content: `Прилагођена скирпта за компајлирање програма написаних у C програмском језику уз помоћ gcc`,
+  },
+  zap: {
+    title: "zap.sh",
+    description: "Скрипта за ажурирање система, више система",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/zap.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/zap.sh",
+    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+  },
+  ftn: {
+    title: "ftn.sh",
+    description: "Скрипта за претрагу файлова",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/ftn.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/ftn.sh",
+    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+  },
+  pkg: {
+    title: "pkg.sh",
+    description:
+      "Скрипта за инсталирање пакета/програма које користим, постоје две верзије - на српском језику и енглеском језику.",
+    language: "Bash",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/pkg.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/pkg.sh",
+    content: `Прилагођена скрипта за ажурирање система са подршком за више операцисних система`,
+  },
   backup: {
     title: "backup.sh",
     description:
@@ -99,14 +150,6 @@ echo "Cleanup complete!"`,
     github: "https://github.com/crnobog69/dotfiles/blob/main/echo.sh",
     content: `#!/bin/bash
 echo "Велики поздрав за свет!"`,
-  },
-  crc: {
-    title: "crc.sh",
-    description: "Једноставна скрипта за компајлирање C програма.",
-    language: "Bash",
-    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/crc.sh",
-    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/crc.sh",
-    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
 };
 
