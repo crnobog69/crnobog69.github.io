@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Страница није пронађена</title>
+    <link rel="icon" type="image/png" href="assets/icon.svg" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 100px);
+        text-align: center;
+        gap: 1.5rem;
+      }
+
+      .error-code {
+        font-size: 120px;
+        font-weight: 700;
+        line-height: 1;
+        animation: glitch 1s linear infinite;
+      }
+
+      .error-message {
+        font-size: 24px;
+        opacity: 0.8;
+      }
+
+      .error-link {
+        margin-top: 1rem;
+        color: #a6e3a1;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid rgba(166, 227, 161, 0.2);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        background: rgba(166, 227, 161, 0.05);
+      }
+
+      .error-link:hover {
+        background: rgba(166, 227, 161, 0.1);
+        transform: translateY(-2px);
+      }
+
+      @keyframes glitch {
+        0% {
+          text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        14% {
+          text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        15% {
+          text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        49% {
+          text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        50% {
+          text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        99% {
+          text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+        100% {
+          text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .error-code {
+          font-size: 80px;
+        }
+
+        .error-message {
+          font-size: 20px;
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav-menu">
+      <a href="index.html">Почетна</a>
+      <a href="pages/about.html">О мени</a>
+      <a href="pages/projects.html">Пројекти</a>
+      <a href="pages/scripts.html">Скрипте</a>
+      <a href="pages/contact.html">Контакт</a>
+    </nav>
+    <main>
+      <div class="content">
+        <div class="error-container">
+          <div class="error-code fade-in">404</div>
+          <div class="error-message fade-in">
+            Страница коју тражите није пронађена
+          </div>
+          <a href="index.html" class="error-link fade-in hover-lift"
+            >Назад на почетну</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
