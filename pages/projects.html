@@ -18,14 +18,14 @@
     <main>
       <div class="content">
         <h1 class="fade-in">Пројекти</h1>
-        
+
         <div class="search-container fade-in">
-            <input 
-                type="text" 
-                class="search-input" 
-                placeholder="Претражите пројекте..."
-                id="projectSearch"
-            >
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Претражите пројекте..."
+            id="projectSearch"
+          />
         </div>
 
         <div class="project-grid">
@@ -121,6 +121,15 @@
             <h2>disguise</h2>
             <p>Discord Webhook Messanger</p>
             <div class="project-tech">Rust</div>
+          </a>
+
+          <a
+            href="https://github.com/crnobog69/c"
+            class="project-card slide-in hover-lift"
+          >
+            <h2>c</h2>
+            <p>Задаци из програмског језика `C`</p>
+            <div class="project-tech">C</div>
           </a>
 
           <a
@@ -328,52 +337,54 @@
     </main>
 
     <script>
-    const searchInput = document.getElementById('projectSearch');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    searchInput.addEventListener('input', function() {
+      const searchInput = document.getElementById("projectSearch");
+      const projectCards = document.querySelectorAll(".project-card");
+
+      searchInput.addEventListener("input", function () {
         const searchTerm = this.value.toLowerCase().trim();
-        
+
         // If search is empty, show all cards with animation
         if (!searchTerm) {
-            // First hide all cards
-            projectCards.forEach(card => {
-                card.style.display = 'none';
-                card.style.opacity = '0';
+          // First hide all cards
+          projectCards.forEach((card) => {
+            card.style.display = "none";
+            card.style.opacity = "0";
+          });
+
+          // Then show all with animation
+          setTimeout(() => {
+            projectCards.forEach((card) => {
+              card.style.display = "flex";
+              card.style.animation = "fadeIn 1.3s ease forwards";
             });
-            
-            // Then show all with animation
-            setTimeout(() => {
-                projectCards.forEach(card => {
-                    card.style.display = 'flex';
-                    card.style.animation = 'fadeIn 1.3s ease forwards';
-                });
-            }, 50);
-            return;
+          }, 50);
+          return;
         }
-        
+
         // First hide all cards
-        projectCards.forEach(card => {
-            card.style.display = 'none';
-            card.style.opacity = '0';
+        projectCards.forEach((card) => {
+          card.style.display = "none";
+          card.style.opacity = "0";
         });
-        
+
         // After a small delay, show matching cards with animation
         setTimeout(() => {
-            projectCards.forEach(card => {
-                const content = [
-                    card.querySelector('h2').textContent,
-                    card.querySelector('p').textContent,
-                    card.querySelector('.project-tech').textContent
-                ].join(' ').toLowerCase();
-                
-                if (content.includes(searchTerm)) {
-                    card.style.display = 'flex';
-                    card.style.animation = 'fadeIn 1.3s ease forwards';
-                }
-            });
+          projectCards.forEach((card) => {
+            const content = [
+              card.querySelector("h2").textContent,
+              card.querySelector("p").textContent,
+              card.querySelector(".project-tech").textContent,
+            ]
+              .join(" ")
+              .toLowerCase();
+
+            if (content.includes(searchTerm)) {
+              card.style.display = "flex";
+              card.style.animation = "fadeIn 1.3s ease forwards";
+            }
+          });
         }, 50);
-    });
+      });
     </script>
   </body>
 </html>
