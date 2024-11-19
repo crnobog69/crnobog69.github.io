@@ -50,6 +50,10 @@ main {
   color: #a6e3a1;
   text-decoration: none;
   font-size: 18px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .nav-menu a.active {
@@ -1319,4 +1323,17 @@ main {
     overflow-x: hidden;
     width: 100%;
   }
+}
+
+/* Add these rules to remove tap highlight on mobile */
+.nav-menu a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Also add this to the general styles to prevent tap highlights everywhere */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
