@@ -35,7 +35,8 @@ const scriptData = {
   },
   ftn: {
     title: "ftn.sh",
-    description: "Скрипта за претрагу файлова",
+    description:
+      "Прилагођена скрипта која приказује да ли је недеља парна или непарна",
     language: "Bash",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/ftn.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/ftn.sh",
