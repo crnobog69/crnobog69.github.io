@@ -24,8 +24,7 @@
 
       .container {
         text-align: center;
-        padding: 2rem;istory restored
-
+        padding: 2rem;
       }
 
       .time {
@@ -80,6 +79,31 @@
         background: rgba(166, 227, 161, 0.05);
         border: 1px solid rgba(166, 227, 161, 0.1);
         border-radius: 12px;
+      }
+
+      .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.3s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUpNav {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
       }
 
       @media (max-width: 768px) {
@@ -154,87 +178,6 @@
 
         .nav-menu a[href*="contact"]::before {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7' stroke='%23a6e3a1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3Cpath d='M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z' stroke='%23a6e3a1' stroke-width='2' stroke-linecap='round'%3E%3C/path%3E%3C/svg%3E");
-        }
-      }
-
-      .search-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(24, 24, 37, 0.95);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        backdrop-filter: blur(8px);
-      }
-
-      .search-container {
-        width: 90%;
-        max-width: 600px;
-        animation: slideDown 0.3s ease;
-      }
-
-      .search-form {
-        position: relative;
-        width: 100%;
-      }
-
-      .search-input {
-        width: 100%;
-        padding: 1.2rem;
-        font-size: 1.2rem;
-        background: rgba(166, 227, 161, 0.05);
-        border: 1px solid rgba(166, 227, 161, 0.1);
-        border-radius: 12px;
-        color: #a6e3a1;
-        font-family: inherit;
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-      }
-
-      .search-input:focus {
-        outline: none;
-        background: rgba(166, 227, 161, 0.1);
-        border-color: rgba(166, 227, 161, 0.2);
-      }
-
-      .search-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        color: #a6e3a1;
-        font-size: 1.5rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-      }
-
-      .search-close:hover {
-        background: rgba(166, 227, 161, 0.1);
-      }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .search-trigger {
-          bottom: 5rem;
-          padding: 0.6rem 1.2rem;
-          font-size: 1rem;
         }
       }
     </style>
@@ -460,43 +403,6 @@
       </div>
     </div>
 
-    <!-- Search button -->
-    <button class="search-trigger fade-in" onclick="openSearch()">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path
-          d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </button>
-
-    <!-- Search overlay -->
-    <div class="search-overlay" id="searchOverlay">
-      <button class="search-close" onclick="closeSearch()">&times;</button>
-      <div class="search-container">
-        <form
-          action="https://search.brave.com/search"
-          method="get"
-          class="search-form"
-        >
-          <input
-            type="text"
-            name="q"
-            class="search-input"
-            placeholder="Претражите веб..."
-            autocomplete="off"
-            autofocus
-          />
-        </form>
-      </div>
-    </div>
-
     <script>
       // Update time and date
       function updateDateTime() {
@@ -581,79 +487,6 @@
       // Update intervals
       setInterval(updateDateTime, 1000);
       setInterval(updateWeather, 30 * 60 * 1000);
-
-      // Add search functionality
-      const searchInput = document.getElementById("linkSearch");
-      const links = document.querySelectorAll(".link");
-
-      searchInput.addEventListener("input", function () {
-        const searchTerm = this.value.toLowerCase().trim();
-
-        // If search is empty, show all links with animation
-        if (!searchTerm) {
-          // First hide all links
-          links.forEach((link) => {
-            link.style.display = "none";
-            link.style.opacity = "0";
-          });
-
-          // Then show all with animation
-          setTimeout(() => {
-            links.forEach((link) => {
-              link.style.display = "flex";
-              link.style.animation = "fadeIn 1.3s ease forwards";
-            });
-          }, 50);
-          return;
-        }
-
-        // First hide all links
-        links.forEach((link) => {
-          link.style.display = "none";
-          link.style.opacity = "0";
-        });
-
-        // After a small delay, show matching links with animation
-        setTimeout(() => {
-          links.forEach((link) => {
-            const content = link.textContent.toLowerCase();
-            if (content.includes(searchTerm)) {
-              link.style.display = "flex";
-              link.style.animation = "fadeIn 1.3s ease forwards";
-            }
-          });
-        }, 50);
-      });
-
-      // Add search overlay functions
-      function openSearch() {
-        const overlay = document.getElementById("searchOverlay");
-        overlay.style.display = "flex";
-        document.querySelector(".search-input").focus();
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeSearch() {
-        const overlay = document.getElementById("searchOverlay");
-        overlay.style.display = "none";
-        document.body.style.overflow = "";
-      }
-
-      // Close search on escape key
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") {
-          closeSearch();
-        }
-      });
-
-      // Close search when clicking outside the search container
-      document
-        .getElementById("searchOverlay")
-        .addEventListener("click", function (e) {
-          if (e.target === this) {
-            closeSearch();
-          }
-        });
     </script>
   </body>
 </html>
