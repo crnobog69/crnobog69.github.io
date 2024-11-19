@@ -43,7 +43,6 @@
 │
 ├── LICENSE
 │
-│
 ├── README.md
 │
 ├── index.html
