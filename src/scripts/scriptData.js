@@ -43,7 +43,7 @@ const scriptData = {
   },
   catbox: {
     title: "catbox.sh",
-    description: "Прилагођена скрипта за коришћење `catbox.moe",
+    description: "Прилагођена скрипта за коришћење `catbox.moe`",
     language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/catbox.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/catbox.sh",
