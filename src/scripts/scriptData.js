@@ -3,7 +3,7 @@ const scriptData = {
     title: "kolo.sh",
     description:
       "Скрипта за претрагу Arch Linux репозиторијума (укључујући AUR)",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/kolo.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/kolo.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
@@ -11,7 +11,7 @@ const scriptData = {
   entropy: {
     title: "entropy.sh",
     description: "Прилагођена скрипта за чишћење система",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/entropy.sh",
     github:
       "https://github.com/crnobog69/dotfiles/blob/main/scripts/entropy.sh",
@@ -20,7 +20,7 @@ const scriptData = {
   crc: {
     title: "crc.sh",
     description: "Једноставна скрипта за компајлирање C програма.",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/crc.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/crc.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
@@ -28,7 +28,7 @@ const scriptData = {
   zap: {
     title: "zap.sh",
     description: "Скрипта за ажурирање система, више система",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/zap.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/zap.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
@@ -36,16 +36,33 @@ const scriptData = {
   trash: {
     title: "trash.sh",
     description: "Прилагођена скрипта за чишћење канте",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/trash.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/trash.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
+  catbox: {
+    title: "catbox.sh",
+    description: "Прилагођена скрипта за коришћење `catbox.moe",
+    language: "Shell",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/catbox.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/catbox.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
+  litterbox: {
+    title: "litterbox.sh",
+    description: "Прилагођена скрипта за коришћење `litterbox.moe`",
+    language: "Shell",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/litterbox.sh",
+    github:
+      "https://github.com/crnobog69/dotfiles/blob/main/scripts/litterbox.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   ftn: {
     title: "ftn.sh",
     description:
       "Прилагођена скрипта која приказује да ли је недеља парна или непарна",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/ftn.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/ftn.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
@@ -54,7 +71,7 @@ const scriptData = {
     title: "pkg.sh",
     description:
       "Скрипта за инсталирање пакета/програма које користим, постоје две верзије - на српском језику и енглеском језику.",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/pkg.sh",
     github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/pkg.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
@@ -63,7 +80,7 @@ const scriptData = {
     title: "backup.sh",
     description:
       "Једноставна скрипта која прави дневне резервне копије важних директоријума.",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/backup.sh",
     github: "https://github.com/crnobog69/scripts/blob/main/backup.sh",
     content: `#!/bin/bash
@@ -93,7 +110,7 @@ echo "Backup completed: $backup_dir"`,
     title: "update.sh",
     description:
       "Скрипта за ажурирање система на Arch Linux-у. Ажурира пакете и чисти кеш пакета",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/update.sh",
     github: "https://github.com/crnobog69/scripts/blob/main/update.sh",
     content: `#!/bin/bash
@@ -121,7 +138,7 @@ echo "Update complete!"`,
     title: "clean.sh",
     description:
       "Скрипта за чишћење система која брише некоришћене пакете и одржава систем.",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/clean.sh",
     github: "https://github.com/crnobog69/scripts/blob/main/clean.sh",
     content: `#!/bin/bash
@@ -154,9 +171,9 @@ echo "Cleanup complete!"`,
   echo: {
     title: "echo.sh",
     description: "Скрипта која исписује текст на екран.",
-    language: "Bash",
+    language: "Shell",
     url: "https://raw.githubusercontent.com/crnobog69/scripts/refs/heads/main/echo.sh",
-    github: "https://github.com/crnobog69/dotfiles/blob/main/echo.sh",
+    github: "https://github.com/crnobog69/scripts/blob/main/echo.sh",
     content: `#!/bin/bash
 echo "Велики поздрав за свет!"`,
   },
