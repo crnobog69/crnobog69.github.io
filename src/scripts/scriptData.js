@@ -76,6 +76,16 @@ const scriptData = {
       "https://github.com/crnobog69/dotfiles/blob/main/scripts/desktopify.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
+  papirus: {
+    title: "papirus.sh",
+    description:
+      "Персонализована скрипта за прилагођавање Papirus теме за иконице",
+    language: "Shell",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/papirus.sh",
+    github:
+      "https://github.com/crnobog69/dotfiles/blob/main/scripts/papirus.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
   ftn: {
     title: "ftn.sh",
     description:
