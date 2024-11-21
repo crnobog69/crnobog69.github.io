@@ -58,6 +58,24 @@ const scriptData = {
       "https://github.com/crnobog69/dotfiles/blob/main/scripts/litterbox.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
+  cgit: {
+    title: "cgit.sh",
+    description: "Персонализована скрипта за `git`",
+    language: "Shell",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/cgit.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/cgit.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
+  desktopify: {
+    title: "desktopify.sh",
+    description:
+      "Персонализована скрипта за креирање `.desktop` датотеке за AppImage апликације",
+    language: "Shell",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/desktopify.sh",
+    github:
+      "https://github.com/crnobog69/dotfiles/blob/main/scripts/desktopify.sh",
+    content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
+  },
   ftn: {
     title: "ftn.sh",
     description:
