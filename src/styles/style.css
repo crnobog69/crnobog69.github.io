@@ -1,6 +1,11 @@
-@font-face {
-  font-family: "JetBrainsMono Nerd Font";
-  src: url("../../fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
+/* Import JetBrains Mono from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,7 +15,9 @@ body {
   flex-direction: column;
   background-color: #11111b;
   color: #a6e3a1;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
 }
 
 main {
@@ -944,7 +951,7 @@ main {
   border-radius: 8px;
   padding: 1rem;
   margin: 0;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
   line-height: 1.5;
   color: #cdd6f4;
@@ -1266,7 +1273,7 @@ main {
   border-radius: 8px;
   padding: 1rem;
   margin: 0;
-  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
   line-height: 1.5;
   color: #cdd6f4;

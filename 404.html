@@ -6,10 +6,7 @@
     <title>404 - Страница није пронађена</title>
     <link rel="icon" type="image/png" href="/assets/icon.svg" />
     <style>
-      @font-face {
-        font-family: "JetBrainsMono Nerd Font";
-        src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
-      }
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
       body {
         margin: 0;
@@ -18,7 +15,9 @@
         flex-direction: column;
         background-color: #11111b;
         color: #a6e3a1;
-        font-family: "JetBrainsMono Nerd Font", monospace;
+        font-family: "JetBrains Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
       }
 
       main {

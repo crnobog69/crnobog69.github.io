@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Почетна</title>
     <style>
-      @font-face {
-        font-family: "JetBrainsMono Nerd Font";
-        src: url("/fonts/JetBrainsMonoNerdFont-Regular.ttf") format("truetype");
-      }
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 
       body {
         margin: 0;
@@ -19,7 +16,9 @@
         justify-content: center;
         background-color: #181825;
         color: #f38ba8;
-        font-family: "JetBrainsMono Nerd Font", monospace;
+        font-family: "JetBrains Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
       }
 
       .container {
@@ -531,7 +530,7 @@
           // Convert weather code to description
           const weatherCodes = {
             0: "Ведро",
-            1: "Претежн�� ведро",
+            1: "Претежн ведро",
             2: "Делимично облачно",
             3: "Облачно",
             45: "Магла",
