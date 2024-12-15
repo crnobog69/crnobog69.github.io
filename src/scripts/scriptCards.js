@@ -1,51 +1,57 @@
 function createCodeElement(code) {
-    const lines = code.split('\n');
-    let html = '';
-    
-    for (const line of lines) {
-        // Handle comments
-        if (line.trim().startsWith('#')) {
-            html += `<span class="sh-comment">${line}</span>\n`;
-            continue;
-        }
-        
-        // Handle command and arguments
-        const parts = line.split(' ');
-        if (parts[0]) {
-            const command = parts[0];
-            const rest = parts.slice(1).join(' ');
-            
-            // Highlight command
-            html += `<span class="sh-command">${command}</span>`;
-            
-            // Process the rest of the line
-            if (rest) {
-                let processed = rest;
-                // Handle variables
-                processed = processed.replace(/\$[\w{}()]+/g, '<span class="sh-variable">$&</span>');
-                // Handle strings
-                processed = processed.replace(/"([^"]+)"/g, '<span class="sh-string">"$1"</span>');
-                html += ' ' + processed;
-            }
-            
-            html += '\n';
-        } else {
-            html += line + '\n';
-        }
+  const lines = code.split("\n");
+  let html = "";
+
+  for (const line of lines) {
+    // Handle comments
+    if (line.trim().startsWith("#")) {
+      html += `<span class="sh-comment">${line}</span>\n`;
+      continue;
     }
-    
-    return html;
+
+    // Handle command and arguments
+    const parts = line.split(" ");
+    if (parts[0]) {
+      const command = parts[0];
+      const rest = parts.slice(1).join(" ");
+
+      // Highlight command
+      html += `<span class="sh-command">${command}</span>`;
+
+      // Process the rest of the line
+      if (rest) {
+        let processed = rest;
+        // Handle variables
+        processed = processed.replace(
+          /\$[\w{}()]+/g,
+          '<span class="sh-variable">$&</span>'
+        );
+        // Handle strings
+        processed = processed.replace(
+          /"([^"]+)"/g,
+          '<span class="sh-string">"$1"</span>'
+        );
+        html += " " + processed;
+      }
+
+      html += "\n";
+    } else {
+      html += line + "\n";
+    }
+  }
+
+  return html;
 }
 
 export function generateScriptCards(data) {
-    const container = document.querySelector('.scripts-grid');
-    
-    Object.entries(data).forEach(([id, script], index) => {
-        const card = document.createElement('div');
-        card.className = 'script-card fade-in';
-        card.style.animationDelay = `${index * 0.05}s`;
-        
-        card.innerHTML = `
+  const container = document.querySelector(".scripts-grid");
+
+  Object.entries(data).forEach(([id, script], index) => {
+    const card = document.createElement("div");
+    card.className = "script-card fade-in";
+    card.style.animationDelay = `${index * 0.05}s`;
+
+    card.innerHTML = `
             <div class="script-header">
                 <div class="script-title-row">
                     <h2>${script.title}</h2>
@@ -63,12 +69,12 @@ export function generateScriptCards(data) {
             </div>
             <div class="script-tech">${script.language}</div>
         `;
-        
-        container.appendChild(card);
-    });
+
+    container.appendChild(card);
+  });
 }
 
 export function showScript(script) {
-    const codeHtml = createCodeElement(script.content);
-    return `<pre class="script-content"><code>${codeHtml}</code></pre>`;
-} 
+  const codeHtml = createCodeElement(script.content);
+  return `<pre class="script-content"><code>${codeHtml}</code></pre>`;
+}

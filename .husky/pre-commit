@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Додавање свих измењених датотека у git
+git add .
+
+# Покретање Prettier на свим датотекама
+bun prettier --write .
