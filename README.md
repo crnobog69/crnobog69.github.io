@@ -20,8 +20,10 @@
 ┌── .github
 │   └── workflows
 │       └── dependabot.yml
+│
 ├── .husky
 │   └── pre-commit
+│
 ├── assets
 │   ├── ftn.svg
 │   ├── icon.svg
