@@ -17,15 +17,19 @@
 
 ```
 
-┌── assets
-│   └── icon.svg
-│
-├── fonts
-│   └── JetBrainsMonoNerdFont-Regular.ttf
+┌── .github
+│   └── workflows
+│       └── dependabot.yml
+├── .husky
+│   └── pre-commit
+├── assets
+│   ├── ftn.svg
+│   ├── icon.svg
+│   └── uup.svg
 │
 ├── pages
 │   ├── about.html
-│   ├── contact.html
+│   ├── contact.html│
 │   ├── projects.html
 │   └── scripts.html
 │
@@ -38,15 +42,22 @@
 │   └── style.css
 │
 ├── .directory
+├── .gitignore
+├── .prettierrc
 ├── 404.html
 ├── LICENSE
 ├── README.md
+├── bun.lockb
 ├── index.html
+├── package.json
 ├── push.ps1
 ├── push.sh
 ├── start.html
 ├── start-dev.html
-└── start-ftn.html
+├── start-ftn.html
+├── start-igr.html
+└── vercel.json
+
 
 ```
 
