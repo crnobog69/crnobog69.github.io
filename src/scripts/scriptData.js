@@ -26,11 +26,11 @@ const scriptData = {
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   zap: {
-    title: "zap.sh",
+    title: "up.sh",
     description: "Скрипта за ажурирање система, више система",
     language: "Shell",
-    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/zap.sh",
-    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/zap.sh",
+    url: "https://raw.githubusercontent.com/crnobog69/dotfiles/refs/heads/main/scripts/up.sh",
+    github: "https://github.com/crnobog69/dotfiles/blob/main/scripts/up.sh",
     content: `Скрипта је превише дугачка за приказ. Посетите GitHub страницу за детаље.`,
   },
   trash: {
