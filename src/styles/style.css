@@ -79,6 +79,7 @@ main {
   font-size: 100px;
   font-weight: 700;
   font-family: "Pixelify Sans", cursive;
+  font-display: swap;
 }
 
 .small-text {
