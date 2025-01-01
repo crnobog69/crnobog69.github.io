@@ -80,6 +80,8 @@ main {
   font-weight: 700;
   font-family: "Pixelify Sans", cursive;
   font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .small-text {
