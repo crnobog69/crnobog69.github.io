@@ -1,5 +1,6 @@
 /* Import JetBrains Mono from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
 
 /* Reset default styles */
 * {
@@ -77,6 +78,7 @@ main {
 .large-text {
   font-size: 100px;
   font-weight: 700;
+  font-family: "Pixelify Sans", cursive;
 }
 
 .small-text {
