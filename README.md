@@ -13,6 +13,8 @@
 </p>
 </div>
 
+### <p align="center">[Vercel](https://crnobog.vercel.app/) | [Cloudflare](https://crnobog.pages.dev/)</p>
+
 <br>
 
 ```
@@ -63,6 +65,6 @@
 
 ```
 
-Садржај је хостован на [Supabase](https://supabase.com/)
+Садржај је хостован на [Supabase](https://supabase.com/).
 
 #### <p align="center">🍂 Јесени господње 2024</p>
