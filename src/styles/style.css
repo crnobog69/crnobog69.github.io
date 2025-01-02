@@ -437,6 +437,22 @@ main {
 .project-card:nth-child(45) {
   animation-delay: 2.3s;
 }
+.project-card:nth-child(46) {
+  animation-delay: 2.35s;
+}
+.project-card:nth-child(47) {
+  animation-delay: 2.4s;
+}
+.project-card:nth-child(48) {
+  animation-delay: 2.45s;
+}
+.project-card:nth-child(49) {
+  animation-delay: 2.5s;
+}
+.project-card:nth-child(50) {
+  animation-delay: 2.55s;
+}
+
 
 .social-link:nth-child(1) {
   animation-delay: 0.05s;
