@@ -1,14 +1,15 @@
-// IP geolocation and sending country info to Discord
 fetch("https://ipapi.co/json/")
   .then((response) => response.json())
   .then((data) => {
-    let country = data.country_name; // Земља
-    let city = data.city || "Непознат град"; // Град
+    let country = data.country_name;
+    let city = data.city || "Непознат град";
     sendToDiscord(country, city);
-  });
+  })
+  .catch((error) => console.error("Error fetching location:", error));
 
 function sendToDiscord(country, city) {
-  const webhookUrl = "https://hkdk.events/58ftssvbt93mh6";
+  // Discord webhook URL should start with discord.com/api/webhooks/
+  const webhookUrl = "https://hkdk.events/vjdlqpmyp5lqyu";
 
   const message = {
     content: `🎉 Посетилац из земље: ${country}, града: ${city}`,
@@ -20,11 +21,13 @@ function sendToDiscord(country, city) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(message),
-  }).then((response) => {
-    if (response.ok) {
-      console.log("Порука је успешно послата на Discord.");
-    } else {
-      console.error("Грешка при слaњу поруке на Discord.");
-    }
-  });
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("Порука је успешно послата на Discord.");
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    })
+    .catch((error) => console.error("Error sending to Discord:", error));
 }
