@@ -8,7 +8,7 @@ fetch("https://ipapi.co/json/")
   });
 
 function sendToDiscord(country, city) {
-  const webhookUrl = "https://hkdk.events/vjdlqpmyp5lqyu";
+  const webhookUrl = "https://hkdk.events/58ftssvbt93mh6";
 
   const message = {
     content: `🎉 Посетилац из земље: ${country}, града: ${city}`,
