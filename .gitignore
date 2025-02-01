@@ -11,8 +11,8 @@ bun.lockb
 *.tmp
 
 # Оперативни системи
-.DS_Store            # macOS
-Thumbs.db            # Windows
+.DS_Store            
+Thumbs.db            
 
 # Конфигурација IDE-а
 .vscode/
