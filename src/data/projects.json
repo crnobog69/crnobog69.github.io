@@ -1,0 +1,311 @@
+{
+  "projects": [
+    {
+      "title": "dotfiles",
+      "description": "dotfiles за Linux и macOS",
+      "technologies": ["Markdown", "Bash", "Rust", "Lua", "Python"],
+      "url": "https://github.com/crnobog69/dotfiles"
+    },
+    {
+      "title": "extra",
+      "description": "Додатни dotfiles за Linux, macOS, Windows",
+      "technologies": [
+        "Markdown",
+        "JavaScript",
+        "CSS",
+        "Stylus",
+        "Shell",
+        "PowerShell"
+      ],
+      "url": "https://github.com/crnobog69/extra"
+    },
+    {
+      "title": "dotwin",
+      "description": "dotfiles за Windows",
+      "technologies": ["Lua", "PowerShell", "Shell"],
+      "url": "https://github.com/crnobog69/dotwin"
+    },
+    {
+      "title": "Свето писмо",
+      "description": "Свето Писмо у .txt формату",
+      "technologies": ["Python", "TXT"],
+      "url": "https://github.com/crnobog69/biblija"
+    },
+    {
+      "title": "DotDocs",
+      "description": "Dotfiles Документација",
+      "technologies": ["Vitepress", "Vue", "CSS"],
+      "url": "https://dotdocs.vercel.app/"
+    },
+    {
+      "title": "galerija",
+      "description": "Галерија",
+      "technologies": ["Astro", "Tailwind", "React"],
+      "url": "https://cgalerija.vercel.app/"
+    },
+    {
+      "title": "bitarctic-re",
+      "description": "Самохостујући Pastebin",
+      "technologies": ["Astro", "Tailwind", "Supabase"],
+      "url": "https://bitarctic.vercel.app/"
+    },
+    {
+      "title": "start",
+      "description": "Прилагођена почетна страница за веб претраживаче",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://crnobog.vercel.app/start"
+    },
+    {
+      "title": "start-dev",
+      "description": "Прилагођена почетна страница за веб претраживаче",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://crnobog.vercel.app/start-dev"
+    },
+    {
+      "title": "start-igr",
+      "description": "Прилагођена почетна страница за веб претраживаче",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://crnobog.vercel.app/start-igr"
+    },
+    {
+      "title": "start-ftn",
+      "description": "Прилагођена почетна страница за веб претраживаче",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://crnobog.vercel.app/start-ftn"
+    },
+    {
+      "title": "proto-orbita",
+      "description": "Блог",
+      "technologies": ["Astro", "Tailwind", "TypeScript"],
+      "url": "https://proto-orbita.vercel.app"
+    },
+    {
+      "title": "cbrss",
+      "description": "RSS читрач за веб претраживаче",
+      "technologies": ["Astro", "Tailwind", "TypeScript"],
+      "url": "https://cbrss.vercel.app"
+    },
+    {
+      "title": "cobaltium",
+      "description": "Неофицијално проширење за претраживач за `Cobalt.tools`",
+      "technologies": ["JavaScript"],
+      "url": "https://github.com/crnobog69/cobaltium"
+    },
+    {
+      "title": "gptium",
+      "description": "Шаљите изабрани текст ChatGPT-у",
+      "technologies": ["JavaScript"],
+      "url": "https://github.com/crnobog69/gptium"
+    },
+    {
+      "title": "kolo",
+      "description": "Arch Linux скрипта за претраживање пакета",
+      "technologies": ["Shell"],
+      "url": "https://github.com/crnobog69/kolo"
+    },
+    {
+      "title": "discord-profile",
+      "description": "Сајт за приказивање Discord профила",
+      "technologies": ["Astro", "Tailwind", "TypeScript"],
+      "url": "https://github.com/crnobog69/discord-profile"
+    },
+    {
+      "title": "arch-maintenance",
+      "description": "Arch Linux упутства за одржавање",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/arch-maintenance"
+    },
+    {
+      "title": "py-ffmpeg",
+      "description": "FFmpeg GUI у Python-у",
+      "technologies": ["Python"],
+      "url": "https://github.com/crnobog69/py-ffmpeg"
+    },
+    {
+      "title": "crnobog69.github.io",
+      "description": "Овај веб-сајт",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://github.com/crnobog69/crnobog69.github.io"
+    },
+    {
+      "title": "disspam",
+      "description": "Discord Webhook + Interval = Spam?",
+      "technologies": ["Rust"],
+      "url": "https://github.com/crnobog69/disspam"
+    },
+    {
+      "title": "disguise",
+      "description": "Discord Webhook Messanger",
+      "technologies": ["Rust"],
+      "url": "https://github.com/crnobog69/disguise"
+    },
+    {
+      "title": "py",
+      "description": "Задаци из програмског језика `Python`",
+      "technologies": ["Python", "Ruby"],
+      "url": "https://github.com/crnobog69/py"
+    },
+    {
+      "title": "c",
+      "description": "Задаци из програмског језика `C`",
+      "technologies": ["C", "Ruby"],
+      "url": "https://github.com/crnobog69/c"
+    },
+    {
+      "title": "scripts",
+      "description": "Колекција скрипти",
+      "technologies": ["Shell", "PowerShell"],
+      "url": "https://github.com/crnobog69/scripts"
+    },
+    {
+      "title": "cbpaste",
+      "description": "Слање текста преко Discord Webhook-а",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://cbpaste.vercel.app"
+    },
+    {
+      "title": "w2e",
+      "description": "Word (*.docx) > Excel (*.xlsx)",
+      "technologies": ["Python"],
+      "url": "https://github.com/crnobog69/w2e"
+    },
+    {
+      "title": "pasters-terminal",
+      "description": "paste.rs CLI",
+      "technologies": ["Rust"],
+      "url": "https://github.com/crnobog69/pasters-terminal"
+    },
+    {
+      "title": "pasters-user",
+      "description": "paste.rs CLI",
+      "technologies": ["Rust"],
+      "url": "https://github.com/crnobog69/pasters-user"
+    },
+    {
+      "title": "violentmonkey-themes",
+      "description": "Violentmonkey теме",
+      "technologies": ["CSS"],
+      "url": "https://github.com/crnobog69/violentmonkey-themes"
+    },
+    {
+      "title": "git",
+      "description": "Git | Шаблони",
+      "technologies": ["Shell", "PowerShell"],
+      "url": "https://github.com/crnobog69/git"
+    },
+    {
+      "title": "matrix.js",
+      "description": "Матрикс анимација",
+      "technologies": ["JavaScript", "Node.js"],
+      "url": "https://github.com/crnobog69/matrix.js"
+    },
+    {
+      "title": "hyprland",
+      "description": "видео материјали за hyprland",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/hyprland"
+    },
+    {
+      "title": "notesnook",
+      "description": "Catppuccin Mocha Green тема за Notesnook",
+      "technologies": ["CSS"],
+      "url": "https://github.com/crnobog69/notesnook"
+    },
+    {
+      "title": "nixdotfiles",
+      "description": "NixOS dotfiles",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/nixdotfiles"
+    },
+    {
+      "title": "vhs",
+      "description": "Скрипта за обраду видеа",
+      "technologies": ["Shell"],
+      "url": "https://github.com/crnobog69/vhs"
+    },
+    {
+      "title": "miruro-catppuccin",
+      "description": "Catppuccin Mocha тема за Miruro",
+      "technologies": ["Markdown", "Stylus"],
+      "url": "https://github.com/crnobog69/miruro-catppuccin"
+    },
+    {
+      "title": "windows",
+      "description": "Како да претворите MBR у GPT приликом инсталације Windows 11/10/8/7",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/windows"
+    },
+    {
+      "title": "mangadex",
+      "description": "Catppuccin Mocha Green тема за Mangadex",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/mangadex"
+    },
+    {
+      "title": "spicetify-bat-installer-autoupdater",
+      "description": "Spicetify bat installer и аутоматска ажурирањ за Windows 11",
+      "technologies": ["Batchfile"],
+      "url": "https://github.com/crnobog69/spicetify-bat-installer-autoupdater"
+    },
+    {
+      "title": "api-list",
+      "description": "Листа занимљибих API-ја",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/api-list"
+    },
+    {
+      "title": "html-tags",
+      "description": "Листа занимљивих HTML тагова",
+      "technologies": ["Markdown"],
+      "url": "https://github.com/crnobog69/html-tags"
+    },
+    {
+      "title": "drag-oneko.js",
+      "description": "Прилагођена oneko.js",
+      "technologies": ["HTML", "JavaScript"],
+      "url": "https://github.com/crnobog69/drag-oneko.js"
+    },
+    {
+      "title": "wallpaper-v2",
+      "description": "wallpaper theme converter version 2",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://github.com/crnobog69/wallpaper-v2"
+    },
+    {
+      "title": "andromeda",
+      "description": "Преусмеравање",
+      "technologies": ["HTML"],
+      "url": "https://github.com/crnobog69/andromeda"
+    },
+    {
+      "title": "lunatic",
+      "description": "Анимација месеца у терминалу",
+      "technologies": ["Python"],
+      "url": "https://github.com/crnobog69/lunatic"
+    },
+    {
+      "title": "wallpaper",
+      "description": "Wallpaper Theme Converter",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "url": "https://github.com/crnobog69/wallpaper"
+    },
+    {
+      "title": "pdf-viewer",
+      "description": "PDF прегледач у HTML-у",
+      "technologies": ["HTML"],
+      "url": "https://github.com/crnobog69/pdf-viewer"
+    },
+    {
+      "title": "tezerakt",
+      "description": "4D Тесеракт Визуализација",
+      "technologies": ["HTML"],
+      "url": "https://github.com/crnobog69/tezerakt"
+    },
+    {
+      "title": "interstellar-name-generator-serbian",
+      "description": "Генератор Имена Звезда, Галаксија и Планета",
+      "technologies": ["HTML"],
+      "url": "https://github.com/crnobog69/interstellar-name-generator-serbian"
+    }
+  ]
+}

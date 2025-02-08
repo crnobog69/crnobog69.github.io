@@ -1,0 +1,54 @@
+{
+  "contact": {
+    "social_links": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/crnobog69"
+      },
+      {
+        "name": "Codeberg",
+        "url": "https://codeberg.org/crnobog"
+      },
+      {
+        "name": "GitLab",
+        "url": "https://gitlab.com/crnobog"
+      },
+      {
+        "name": "Mastodon",
+        "url": "https://mastodon.social/@prepungrad"
+      },
+      {
+        "name": "X",
+        "url": "https://x.com/prepungrad"
+      },
+      {
+        "name": "Ko-fi",
+        "url": "https://ko-fi.com/crnobog"
+      },
+      {
+        "name": "Last.fm",
+        "url": "https://www.last.fm/user/prepungrad"
+      },
+      {
+        "name": "Stats-FM",
+        "url": "https://stats.fm/prepungrad"
+      },
+      {
+        "name": "Bluesky",
+        "url": "https://bsky.app/profile/crnbg.bsky.social"
+      },
+      {
+        "name": "Matrix",
+        "url": "https://matrix.to/#/@krematorijum:matrix.org"
+      },
+      {
+        "name": "Telegram",
+        "url": "https://t.me/szp69"
+      },
+      {
+        "name": "Discord",
+        "url": "https://cbdiscord.vercel.app/"
+      }
+    ]
+  }
+}

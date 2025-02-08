@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Next.js 15",
+      "excerpt": "Сајт је направљен уз Next.js 15.",
+      "url": "#",
+      "date": "07.02.2025"
+    },
+    {
+      "id": 2,
+      "title": "TypeScript и TypeScript",
+      "excerpt": "Објашњење о TypeScript и TypeScript.",
+      "url": "#",
+      "date": "07.02.2025"
+    }
+  ]
+}
