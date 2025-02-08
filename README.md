@@ -17,7 +17,9 @@
 
 <br>
 
-> [!NOTE] > **_Cloudflare_** верзија сајта тренутно не ради.
-> <br> > **_Cloudflare_** version of the site is currently not working.
+> [!NOTE] 
+> **_Cloudflare_** верзија сајта тренутно не ради.
+> <br> 
+> **_Cloudflare_** version of the site is currently not working.
 
 #### <p align="center">🍂 Јесени господње 2024</p>
