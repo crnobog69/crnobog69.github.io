@@ -13,7 +13,7 @@ import { fr } from "@/data/lang/fr";
 import { de } from "@/data/lang/de";
 import { en } from "@/data/lang/en";
 
-type Language =
+export type Language =
   | "sr"
   | "srLatn"
   | "ru"

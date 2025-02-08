@@ -1,17 +1,31 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Command, CommandInput, CommandItem, CommandGroup, CommandList } from "@/components/ui/command";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Command,
+  CommandInput,
+  CommandItem,
+  CommandGroup,
+  CommandList,
+} from "@/components/ui/command";
 import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/contexts/LanguageContext";
 import { Languages } from "lucide-react";
 import { languageNames } from "@/contexts/LanguageContext";
 
 export function LanguageToggle() {
-  const { language, setLanguage } = useLanguage();
+  const { setLanguage } = useLanguage();
 
   const normalize = (str: string) =>
-    str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
 
   return (
     <Popover>
@@ -31,7 +45,7 @@ export function LanguageToggle() {
                   key={code}
                   value={code}
                   data-text-value={normalize(name)}
-                  onSelect={(value) => setLanguage(value as any)}
+                  onSelect={(value: string) => setLanguage(value as Language)}
                 >
                   {name}
                 </CommandItem>
