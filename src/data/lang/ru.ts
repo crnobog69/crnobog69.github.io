@@ -6,7 +6,7 @@ export const ru = {
     home: "Главная",
     projects: "Проекты",
     writing: "Блог",
-    contact: "Контакты"
+    contact: "Контакты",
   },
   home: {
     currentFocus: "Текущий фокус",
@@ -16,20 +16,20 @@ export const ru = {
     interests: "Интересы",
     interestsText: "Системный дизайн, UI/UX, Open source, Linux",
     location: "Местоположение",
-    locationText: "Сербия, Европа"
+    locationText: "Сербия, Европа",
   },
   buttons: {
     viewProjects: "Просмотр проектов",
-    contact: "Контакты"
+    contact: "Контакты",
   },
   contact: {
     code: "Код",
     social: "Социальные сети",
     communication: "Общение",
-    other: "Другое"
+    other: "Другое",
   },
   search: {
     projects: "Поиск проектов...",
-    noResults: "Проекты не найдены для"
-  }
+    noResults: "Проекты не найдены для",
+  },
 };

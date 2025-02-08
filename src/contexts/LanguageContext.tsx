@@ -1,19 +1,28 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { sr } from '@/data/lang/sr';
-import { srLatn } from '@/data/lang/sr-Latn';
-import { ru } from '@/data/lang/ru';
-import { es } from '@/data/lang/es';
-import { jp } from '@/data/lang/jp';
-import { zh_CN} from '@/data/lang/zh-CN';
-import { zh_TW} from '@/data/lang/zh-TW';
-import { fr } from '@/data/lang/fr';
-import { de } from '@/data/lang/de';
-import { en } from '@/data/lang/en';
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { sr } from "@/data/lang/sr";
+import { srLatn } from "@/data/lang/sr-Latn";
+import { ru } from "@/data/lang/ru";
+import { es } from "@/data/lang/es";
+import { jp } from "@/data/lang/jp";
+import { zh_CN } from "@/data/lang/zh-CN";
+import { zh_TW } from "@/data/lang/zh-TW";
+import { fr } from "@/data/lang/fr";
+import { de } from "@/data/lang/de";
+import { en } from "@/data/lang/en";
 
-
-type Language = 'sr' | 'srLatn' | 'ru' | 'es' | 'jp' | 'zh_CN' | 'zh_TW' | 'fr' | 'de' | 'en';
+type Language =
+  | "sr"
+  | "srLatn"
+  | "ru"
+  | "es"
+  | "jp"
+  | "zh_CN"
+  | "zh_TW"
+  | "fr"
+  | "de"
+  | "en";
 type Translations = typeof sr;
 
 interface LanguageContextType {
@@ -41,21 +50,23 @@ export const languageNames = {
   ru: "Русский",
   es: "Español",
   jp: "日本語",
-  zh_CN: "简体中文", 
-  zh_TW: "繁體中文", 
+  zh_CN: "简体中文",
+  zh_TW: "繁體中文",
   fr: "Français",
   de: "Deutsch",
-  en: "English"
+  en: "English",
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>('sr');
+  const [language, setLanguage] = useState<Language>("sr");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('language') as Language;
+    const savedLang = localStorage.getItem("language") as Language;
     if (savedLang && Object.keys(translations).includes(savedLang)) {
       setLanguage(savedLang);
     }
@@ -64,19 +75,23 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
-    localStorage.setItem('language', lang);
+    localStorage.setItem("language", lang);
     document.documentElement.setAttribute("data-language", lang);
   };
 
   const value = {
     language,
     setLanguage: handleSetLanguage,
-    t: translations[language]
+    t: translations[language],
   };
 
   return (
     <LanguageContext.Provider value={value}>
-      {mounted ? children : <div style={{ visibility: 'hidden' }}>{children}</div>}
+      {mounted ? (
+        children
+      ) : (
+        <div style={{ visibility: "hidden" }}>{children}</div>
+      )}
     </LanguageContext.Provider>
   );
 }
@@ -84,7 +99,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }

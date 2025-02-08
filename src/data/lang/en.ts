@@ -6,7 +6,7 @@ export const en = {
     home: "Home",
     projects: "Projects",
     writing: "Writing",
-    contact: "Contact"
+    contact: "Contact",
   },
   home: {
     currentFocus: "Current Focus",
@@ -16,20 +16,20 @@ export const en = {
     interests: "Interests",
     interestsText: "System design, UI/UX, Open source, Linux",
     location: "Location",
-    locationText: "Serbia, Europe"
+    locationText: "Serbia, Europe",
   },
   buttons: {
     viewProjects: "View Projects",
-    contact: "Contact"
+    contact: "Contact",
   },
   contact: {
     code: "Code",
     social: "Social Networks",
     communication: "Communication",
-    other: "Other"
+    other: "Other",
   },
   search: {
     projects: "Search projects...",
-    noResults: "No projects found for"
-  }
+    noResults: "No projects found for",
+  },
 };

@@ -6,7 +6,7 @@ export const sr = {
     home: "Почетна",
     projects: "Пројекти",
     writing: "Писање",
-    contact: "Контакт"
+    contact: "Контакт",
   },
   home: {
     currentFocus: "Тренутни фокус",
@@ -16,20 +16,20 @@ export const sr = {
     interests: "Интереси",
     interestsText: "Системски дизајн, UI/UX, Open source, Linux",
     location: "Локација",
-    locationText: "Србија, Европа"
+    locationText: "Србија, Европа",
   },
   buttons: {
     viewProjects: "Погледај пројекте",
-    contact: "Контакт"
+    contact: "Контакт",
   },
   contact: {
     code: "Код",
     social: "Друштвене мреже",
     communication: "Комуникација",
-    other: "Остало"
+    other: "Остало",
   },
   search: {
     projects: "Претражи пројекте...",
-    noResults: "Нема пронађених пројеката за"
-  }
+    noResults: "Нема пронађених пројеката за",
+  },
 };

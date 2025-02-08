@@ -11,8 +11,16 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Languages } from "lucide-react";
 import { languageNames } from "@/contexts/LanguageContext";
 
+interface ButtonEvent extends React.MouseEvent<HTMLButtonElement> {
+  currentTarget: HTMLButtonElement;
+}
+
 export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
+
+  const handleClick = (event: ButtonEvent) => {
+    setLanguage(event.currentTarget.getAttribute('data-code') as any);
+  };
 
   return (
     <DropdownMenu>
@@ -26,7 +34,8 @@ export function LanguageToggle() {
         {Object.entries(languageNames).map(([code, name]) => (
           <DropdownMenuItem
             key={code}
-            onClick={() => setLanguage(code as any)}
+            onClick={handleClick}
+            data-code={code}
             className={language === code ? "bg-muted" : ""}
           >
             {name}

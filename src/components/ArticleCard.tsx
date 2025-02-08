@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import React from "react";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink, Calendar } from "lucide-react";
-import { articles } from "@/data/articles.json";
 
 interface ArticleCardProps {
   article: {
@@ -34,7 +33,7 @@ export function ArticleCard({ article, isLast }: ArticleCardProps) {
             </h3>
             <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-1.5" />
           </div>
-          
+
           {/* Date */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Calendar className="w-4 h-4" />

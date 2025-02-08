@@ -1,11 +1,10 @@
-import type { Metadata, Viewport } from "next"; 
-import { Geist } from "next/font/google"; 
+import type { Metadata, Viewport } from "next";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
-const geist = Geist({  
+const geist = Geist({
   subsets: ["latin"],
 });
 
@@ -16,12 +15,12 @@ export const metadata: Metadata = {
     icon: {
       url: "/icon.svg",
       type: "image/svg+xml",
-    }
+    },
   },
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark light"
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
@@ -31,14 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sr" suppressHydrationWarning>
-      <head>
-        {/* 1 */}
-      </head>
+      <head>{/* 1 */}</head>
       <body className={`${geist.className} antialiased`}>
         <ThemeProvider defaultTheme="dark">
-          <LanguageProvider>
-            {children}
-          </LanguageProvider>
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

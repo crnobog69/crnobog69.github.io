@@ -16,7 +16,9 @@ type ThemeProviderState = {
 
 function getSystemTheme(): "light" | "dark" {
   if (typeof window === "undefined") return "dark";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function getInitialTheme(): "light" | "dark" {
@@ -35,12 +37,8 @@ const ThemeProviderContext = createContext<ThemeProviderState>({
   setTheme: () => null,
 });
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "dark",
-}: ThemeProviderProps) {
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
-    // Use an IIFE to compute initial state
     return getInitialTheme();
   });
 

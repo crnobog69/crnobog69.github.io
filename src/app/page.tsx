@@ -23,17 +23,13 @@ import {
   Users,
   Cloud,
   BarChart3,
-  Menu,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import type { projects as ProjectsType } from "@/data/projects.json";
-const { projects } = require("@/data/projects.json") as {
-  projects: typeof ProjectsType;
-};
+import projectsData from "@/data/projects.json";
 import contactData from "@/data/contact.json";
 import type { articles as ArticlesType } from "@/data/articles.json";
 const { articles } = require("@/data/articles.json") as {
@@ -57,13 +53,11 @@ const socialIcons = {
 };
 
 export default function Home() {
-  const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState<
     "home" | "projects" | "writing" | "contact"
   >("home");
   const [searchQuery, setSearchQuery] = useState("");
   const [isTabChanging, setIsTabChanging] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const { t } = useLanguage();
 
@@ -76,7 +70,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
     document.querySelectorAll(".project-card").forEach((card) => {
       observerRef.current?.observe(card);
@@ -84,7 +78,9 @@ export default function Home() {
     return () => observerRef.current?.disconnect();
   }, [activeTab, searchQuery]);
 
-  const handleTabChange = (tab: "home" | "projects" | "writing" | "contact") => {
+  const handleTabChange = (
+    tab: "home" | "projects" | "writing" | "contact"
+  ) => {
     setIsTabChanging(true);
     setTimeout(() => {
       setActiveTab(tab);
@@ -92,13 +88,13 @@ export default function Home() {
     }, 150);
   };
 
-  const filteredProjects = projects.filter((project) => {
+  const filteredProjects = projectsData.projects.filter((project) => {
     const searchLower = searchQuery.toLowerCase();
     return (
       project.title.toLowerCase().includes(searchLower) ||
       project.description.toLowerCase().includes(searchLower) ||
       project.technologies.some((tech) =>
-        tech.toLowerCase().includes(searchLower),
+        tech.toLowerCase().includes(searchLower)
       )
     );
   });
@@ -111,7 +107,9 @@ export default function Home() {
             <h1 className="text-4xl font-bold">{t.title}</h1>
             <p className="text-muted-foreground">{t.role}</p>
             <div className="prose dark:prose-invert max-w-none">
-              <p><i>{t.quote}</i></p>
+              <p>
+                <i>{t.quote}</i>
+              </p>
             </div>
           </section>
           <Separator className="my-8" />
@@ -184,19 +182,27 @@ export default function Home() {
                 <section className="space-y-6 fade-in-up delayed-more">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="p-4 rounded-lg border border-border bg-muted/50 hover-lift">
-                      <h3 className="text-sm font-medium text-muted-foreground mb-2">{t.home.currentFocus}</h3>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                        {t.home.currentFocus}
+                      </h3>
                       <p className="text-sm">{t.home.currentFocusText}</p>
                     </div>
                     <div className="p-4 rounded-lg border border-border bg-muted/50 hover-lift">
-                      <h3 className="text-sm font-medium text-muted-foreground mb-2">{t.home.technologies}</h3>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                        {t.home.technologies}
+                      </h3>
                       <p className="text-sm">{t.home.technologiesText}</p>
                     </div>
                     <div className="p-4 rounded-lg border border-border bg-muted/50 hover-lift">
-                      <h3 className="text-sm font-medium text-muted-foreground mb-2">{t.home.interests}</h3>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                        {t.home.interests}
+                      </h3>
                       <p className="text-sm">{t.home.interestsText}</p>
                     </div>
                     <div className="p-4 rounded-lg border border-border bg-muted/50 hover-lift">
-                      <h3 className="text-sm font-medium text-muted-foreground mb-2">{t.home.location}</h3>
+                      <h3 className="text-sm font-medium text-muted-foreground mb-2">
+                        {t.home.location}
+                      </h3>
                       <p className="text-sm">{t.home.locationText}</p>
                     </div>
                   </div>
@@ -206,21 +212,21 @@ export default function Home() {
                   <div className="flex items-center gap-4">
                     <Button
                       variant="outline"
-                      size="default"  
+                      size="default"
                       className="hover-lift"
                       onClick={() => handleTabChange("projects")}
                     >
                       <FolderGit2 className="mr-2 h-5 w-5" />
                       {t.nav.projects}
                     </Button>
-                    
+
                     <Button
                       variant="outline"
-                      size="default"  
+                      size="default"
                       className="hover-lift"
                       onClick={() => handleTabChange("contact")}
                     >
-                      <Mail className="mr-2 h-5 w-5" /> 
+                      <Mail className="mr-2 h-5 w-5" />
                       {t.nav.contact}
                     </Button>
                   </div>
@@ -288,7 +294,7 @@ export default function Home() {
             {activeTab === "writing" && (
               <div className="space-y-8">
                 {articles.map((article, index) => (
-                  <ArticleCard 
+                  <ArticleCard
                     key={index}
                     article={article}
                     isLast={index === articles.length - 1}
@@ -307,9 +313,12 @@ export default function Home() {
                   </h3>
                   <div className="space-y-2">
                     {contactData.contact.social_links
-                      .filter(link => ['GitHub', 'GitLab', 'Codeberg'].includes(link.name))
+                      .filter((link) =>
+                        ["GitHub", "GitLab", "Codeberg"].includes(link.name)
+                      )
                       .map((link, index) => {
-                        const IconComponent = socialIcons[link.name as keyof typeof socialIcons];
+                        const IconComponent =
+                          socialIcons[link.name as keyof typeof socialIcons];
                         return (
                           <a
                             key={index}
@@ -319,13 +328,15 @@ export default function Home() {
                             className="flex items-center justify-between py-2.5 px-4 rounded-md border border-border bg-muted hover:bg-muted/80 transition-colors group"
                           >
                             <span className="flex items-center gap-2.5">
-                              {IconComponent && <IconComponent className="h-4.5 w-4.5" />}
+                              {IconComponent && (
+                                <IconComponent className="h-4.5 w-4.5" />
+                              )}
                               <span className="text-[13px]">{link.name}</span>
                             </span>
                             <ExternalLink className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </a>
                         );
-                    })}
+                      })}
                   </div>
                 </section>
 
@@ -337,9 +348,14 @@ export default function Home() {
                   </h3>
                   <div className="space-y-2">
                     {contactData.contact.social_links
-                      .filter(link => ['Mastodon', 'X', 'Bluesky', 'Discord'].includes(link.name))
+                      .filter((link) =>
+                        ["Mastodon", "X", "Bluesky", "Discord"].includes(
+                          link.name
+                        )
+                      )
                       .map((link, index) => {
-                        const IconComponent = socialIcons[link.name as keyof typeof socialIcons];
+                        const IconComponent =
+                          socialIcons[link.name as keyof typeof socialIcons];
                         return (
                           <a
                             key={index}
@@ -349,13 +365,15 @@ export default function Home() {
                             className="flex items-center justify-between py-2.5 px-4 rounded-md border border-border bg-muted hover:bg-muted/80 transition-colors group"
                           >
                             <span className="flex items-center gap-2.5">
-                              {IconComponent && <IconComponent className="h-4.5 w-4.5" />}
+                              {IconComponent && (
+                                <IconComponent className="h-4.5 w-4.5" />
+                              )}
                               <span className="text-[13px]">{link.name}</span>
                             </span>
                             <ExternalLink className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </a>
                         );
-                    })}
+                      })}
                   </div>
                 </section>
 
@@ -367,9 +385,12 @@ export default function Home() {
                   </h3>
                   <div className="space-y-2">
                     {contactData.contact.social_links
-                      .filter(link => ['Matrix', 'Telegram'].includes(link.name))
+                      .filter((link) =>
+                        ["Matrix", "Telegram"].includes(link.name)
+                      )
                       .map((link, index) => {
-                        const IconComponent = socialIcons[link.name as keyof typeof socialIcons];
+                        const IconComponent =
+                          socialIcons[link.name as keyof typeof socialIcons];
                         return (
                           <a
                             key={index}
@@ -379,13 +400,15 @@ export default function Home() {
                             className="flex items-center justify-between py-2.5 px-4 rounded-md border border-border bg-muted/50 hover:bg-muted/80 transition-colors group"
                           >
                             <span className="flex items-center gap-2.5">
-                              {IconComponent && <IconComponent className="h-4.5 w-4.5" />}
+                              {IconComponent && (
+                                <IconComponent className="h-4.5 w-4.5" />
+                              )}
                               <span className="text-[13px]">{link.name}</span>
                             </span>
                             <ExternalLink className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </a>
                         );
-                    })}
+                      })}
                   </div>
                 </section>
 
@@ -397,9 +420,12 @@ export default function Home() {
                   </h3>
                   <div className="space-y-2">
                     {contactData.contact.social_links
-                      .filter(link => ['Last.fm', 'Ko-fi', 'Stats-FM'].includes(link.name))
+                      .filter((link) =>
+                        ["Last.fm", "Ko-fi", "Stats-FM"].includes(link.name)
+                      )
                       .map((link, index) => {
-                        const IconComponent = socialIcons[link.name as keyof typeof socialIcons];
+                        const IconComponent =
+                          socialIcons[link.name as keyof typeof socialIcons];
                         return (
                           <a
                             key={index}
@@ -409,13 +435,15 @@ export default function Home() {
                             className="flex items-center justify-between py-2.5 px-4 rounded-md border border-border bg-muted hover:bg-muted/80 transition-colors group"
                           >
                             <span className="flex items-center gap-2.5">
-                              {IconComponent && <IconComponent className="h-4.5 w-4.5" />}
+                              {IconComponent && (
+                                <IconComponent className="h-4.5 w-4.5" />
+                              )}
                               <span className="text-[13px]">{link.name}</span>
                             </span>
                             <ExternalLink className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </a>
                         );
-                    })}
+                      })}
                   </div>
                 </section>
               </div>
