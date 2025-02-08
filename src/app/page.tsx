@@ -12,7 +12,7 @@ import {
   MountainSnow,
   ExternalLink,
   Search,
-  Home as HomeIcon,
+  HomeIcon,
   Gitlab,
   MessagesSquare,
   Send,
@@ -23,18 +23,13 @@ import {
   Users,
   Cloud,
   BarChart3,
-  Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import type { projects as ProjectsType } from "@/data/projects.json";
 import projectsData from "@/data/projects.json";
 import contactData from "@/data/contact.json";
-import type { articles as ArticlesType } from "@/data/articles.json";
-const { articles } = require("@/data/articles.json") as {
-  articles: typeof ArticlesType;
-};
+import { articles } from "@/data/articles.json";
 import { ArticleCard } from "@/components/ArticleCard";
 
 const socialIcons = {
@@ -284,7 +279,7 @@ export default function Home() {
                   ))}
                   {filteredProjects.length === 0 && (
                     <p className="text-muted-foreground text-center py-4">
-                      {t.search.noResults} "{searchQuery}"
+                      {t.search.noResults} &ldquo;{searchQuery}&rdquo;
                     </p>
                   )}
                 </div>

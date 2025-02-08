@@ -37,7 +37,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>({
   setTheme: () => null,
 });
 
-export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     return getInitialTheme();
   });
