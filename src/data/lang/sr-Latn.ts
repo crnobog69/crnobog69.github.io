@@ -5,7 +5,7 @@ export const srLatn = {
   nav: {
     home: "Početna",
     projects: "Projekti",
-    writing: "Tekstovi",
+    writing: "Blog",
     contact: "Kontakt",
   },
   home: {

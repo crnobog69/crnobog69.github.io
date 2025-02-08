@@ -6,6 +6,7 @@ import { srLatn } from "@/data/lang/sr-Latn";
 import { ru } from "@/data/lang/ru";
 import { es } from "@/data/lang/es";
 import { jp } from "@/data/lang/jp";
+import { jp_roman } from "@/data/lang/jp-roman";
 import { zh_CN } from "@/data/lang/zh-CN";
 import { zh_TW } from "@/data/lang/zh-TW";
 import { fr } from "@/data/lang/fr";
@@ -18,6 +19,7 @@ type Language =
   | "ru"
   | "es"
   | "jp"
+  | "jp_roman"
   | "zh_CN"
   | "zh_TW"
   | "fr"
@@ -37,6 +39,7 @@ const translations = {
   ru,
   es,
   jp,
+  jp_roman,
   zh_CN,
   zh_TW,
   fr,
@@ -50,6 +53,7 @@ export const languageNames = {
   ru: "Русский",
   es: "Español",
   jp: "日本語",
+  jp_roman: "Nihongo",
   zh_CN: "简体中文",
   zh_TW: "繁體中文",
   fr: "Français",

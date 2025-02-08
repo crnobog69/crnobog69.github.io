@@ -5,7 +5,7 @@ export const sr = {
   nav: {
     home: "Почетна",
     projects: "Пројекти",
-    writing: "Писање",
+    writing: "Блог",
     contact: "Контакт",
   },
   home: {
