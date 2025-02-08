@@ -29,7 +29,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import projectsData from "@/data/projects.json";
 import contactData from "@/data/contact.json";
-import { articles } from "@/data/articles.json";
+import articles from "@/data/articles.json";
 import { ArticleCard } from "@/components/ArticleCard";
 
 const socialIcons = {
@@ -288,13 +288,25 @@ export default function Home() {
 
             {activeTab === "writing" && (
               <div className="space-y-8">
-                {articles.map((article, index) => (
-                  <ArticleCard
-                    key={index}
-                    article={article}
-                    isLast={index === articles.length - 1}
-                  />
-                ))}
+                {articles.articles.map(
+                  (
+                    article: {
+                      id: number;
+                      title: string;
+                      excerpt: string;
+                      url: string;
+                      date: string;
+                      tags?: string[];
+                    },
+                    index: number
+                  ) => (
+                    <ArticleCard
+                      key={index}
+                      article={article}
+                      isLast={index === articles.articles.length - 1}
+                    />
+                  )
+                )}
               </div>
             )}
 
