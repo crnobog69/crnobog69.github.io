@@ -15,7 +15,7 @@ interface ButtonEvent extends React.MouseEvent<HTMLButtonElement> {
   currentTarget: HTMLButtonElement;
 }
 
-type LanguageCode = "sr" | "en"; // Add all supported language codes
+type LanguageCode = "sr" | "en";
 
 export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
