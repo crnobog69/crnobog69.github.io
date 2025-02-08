@@ -1,46 +1,45 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Command, CommandInput, CommandItem, CommandGroup, CommandList } from "@/components/ui/command";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Languages } from "lucide-react";
 import { languageNames } from "@/contexts/LanguageContext";
 
-type LanguageCode = "sr" | "en";
-
 export function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const code = event.currentTarget.getAttribute("data-code") as LanguageCode;
-    setLanguage(code);
-  };
+  const normalize = (str: string) =>
+    str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <Popover>
+      <PopoverTrigger asChild>
         <Button variant="ghost" size="icon">
           <Languages className="h-4 w-4" />
           <span className="sr-only">Toggle language</span>
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {Object.entries(languageNames).map(([code, name]) => (
-          <DropdownMenuItem
-            key={code}
-            onClick={handleClick}
-            data-code={code}
-            className={language === code ? "bg-muted" : ""}
-          >
-            {name}
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </PopoverTrigger>
+      <PopoverContent className="w-56 border-0 shadow-none p-2">
+        <Command className="border-0 p-0">
+          <CommandInput placeholder="Select language..." />
+          <CommandList>
+            <CommandGroup>
+              {Object.entries(languageNames).map(([code, name]) => (
+                <CommandItem
+                  key={code}
+                  value={code}
+                  data-text-value={normalize(name)}
+                  onSelect={(value) => setLanguage(value as any)}
+                >
+                  {name}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </PopoverContent>
+    </Popover>
   );
 }
