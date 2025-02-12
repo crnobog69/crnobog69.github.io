@@ -2,26 +2,38 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { sr } from "@/data/lang/sr";
-import { srLatn } from "@/data/lang/sr-Latn";
+import { sr_Latn } from "@/data/lang/sr-Latn";
+import { ro } from "@/data/lang/ro";
+import { sk } from "@/data/lang/sk";
+import { gr } from "@/data/lang/gr";
+import { be } from "@/data/lang/be";
 import { ru } from "@/data/lang/ru";
 import { es } from "@/data/lang/es";
+import { kr } from "@/data/lang/kr";
 import { jp } from "@/data/lang/jp";
 import { jp_roman } from "@/data/lang/jp-roman";
 import { zh_CN } from "@/data/lang/zh-CN";
 import { zh_TW } from "@/data/lang/zh-TW";
+import { it } from "@/data/lang/it";
 import { fr } from "@/data/lang/fr";
 import { de } from "@/data/lang/de";
 import { en } from "@/data/lang/en";
 
 export type Language =
   | "sr"
-  | "srLatn"
+  | "sr_Latn"
+  | "ro"
+  | "gr"
+  | "sk"
+  | "be"
   | "ru"
   | "es"
+  | "kr"
   | "jp"
   | "jp_roman"
   | "zh_CN"
   | "zh_TW"
+  | "it"
   | "fr"
   | "de"
   | "en";
@@ -35,13 +47,19 @@ interface LanguageContextType {
 
 const translations = {
   sr,
-  srLatn,
+  sr_Latn,
+  ro,
+  gr,
+  sk,
+  be,
   ru,
   es,
+  kr,
   jp,
   jp_roman,
   zh_CN,
   zh_TW,
+  it,
   fr,
   de,
   en,
@@ -49,13 +67,19 @@ const translations = {
 
 export const languageNames = {
   sr: "Српски",
-  srLatn: "Srpski",
+  sr_Latn: "Srpski",
+  ro: "Română",
+  gr: "Ελληνικά",
+  sk: "Slovenčina",
+  be: "Беларуская",
   ru: "Русский",
   es: "Español",
+  kr: "한국어",
   jp: "日本語",
   jp_roman: "Nihongo",
   zh_CN: "简体中文",
   zh_TW: "繁體中文",
+  it: "Italiano",
   fr: "Français",
   de: "Deutsch",
   en: "English",

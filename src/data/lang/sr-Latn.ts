@@ -1,4 +1,4 @@
-export const srLatn = {
+export const sr_Latn = {
   title: "Crnobog",
   role: "Elektrotehničar Informacionih Tehnologija",
   quote: "'Samo izađi i ubij nekoliko zveri.'",
