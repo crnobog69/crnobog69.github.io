@@ -48,6 +48,10 @@
       {
         "name": "Discord",
         "url": "https://cbdiscord.vercel.app/"
+      },
+      {
+        "name": "Gitea",
+        "url": "https://gitea.com/crnobog"
       }
     ]
   }
