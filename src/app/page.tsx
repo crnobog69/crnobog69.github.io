@@ -36,6 +36,7 @@ const socialIcons = {
   GitHub: Github,
   Codeberg: MountainSnow,
   GitLab: Gitlab,
+  Gitea: Coffee,
   Discord: MessagesSquare,
   Telegram: Send,
   "Last.fm": Music2,
@@ -321,7 +322,7 @@ export default function Home() {
                   <div className="space-y-2">
                     {contactData.contact.social_links
                       .filter((link) =>
-                        ["GitHub", "GitLab", "Codeberg"].includes(link.name)
+                        ["GitHub", "GitLab", "Codeberg", "Gitea"].includes(link.name)
                       )
                       .map((link, index) => {
                         const IconComponent =
