@@ -365,9 +365,13 @@ export default function Home() {
                   <div className="space-y-2">
                     {contactData.contact.social_links
                       .filter((link) =>
-                        ["Mastodon", "X", "Bluesky", "Discord", "Ko-fi"].includes(
-                          link.name
-                        )
+                        [
+                          "Mastodon",
+                          "X",
+                          "Bluesky",
+                          "Discord",
+                          "Ko-fi",
+                        ].includes(link.name)
                       )
                       .map((link, index) => {
                         const IconComponent =
