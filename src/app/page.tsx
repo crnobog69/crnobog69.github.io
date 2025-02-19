@@ -9,6 +9,7 @@ import {
   PenLine,
   Mail,
   Github,
+  PaintBucket,
   MountainSnow,
   ExternalLink,
   Search,
@@ -34,6 +35,7 @@ import { ArticleCard } from "@/components/ArticleCard";
 
 const socialIcons = {
   GitHub: Github,
+  BitBucket: PaintBucket,
   Codeberg: MountainSnow,
   GitLab: Gitlab,
   Gitea: Coffee,
@@ -322,7 +324,7 @@ export default function Home() {
                   <div className="space-y-2">
                     {contactData.contact.social_links
                       .filter((link) =>
-                        ["GitHub", "GitLab", "Codeberg", "Gitea"].includes(
+                        ["GitHub", "BitBucket", "GitLab", "Codeberg", "Gitea"].includes(
                           link.name
                         )
                       )
