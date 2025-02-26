@@ -24,7 +24,7 @@ export function ArticleCard({ article, isLast }: ArticleCardProps) {
           href={article.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block space-y-3 p-4 -mx-4 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors"
+          className="block space-y-3 p-4 mx-0 rounded-lg border border-border bg-muted/50 hover:bg-muted transition-colors"
         >
           {/* Header */}
           <div className="flex items-start justify-between gap-4">

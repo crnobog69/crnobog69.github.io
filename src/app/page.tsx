@@ -98,7 +98,7 @@ export default function Home() {
   });
 
   return (
-    <div className="min-h-screen w-full bg-background text-foreground relative">
+    <div className="min-h-screen w-full bg-background text-foreground relative overflow-x-hidden">
       <div className="relative z-10">
         <main className="container mx-auto px-4 py-16">
           <section className="space-y-4">

@@ -4,6 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden; /* Add this line */
 }
 
 @layer base {
@@ -94,6 +95,7 @@ body {
 html {
   overflow-y: scroll;
   padding-right: 0 !important;
+  overflow-x: hidden; /* Add this line */
 }
 
 body {
