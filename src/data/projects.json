@@ -50,6 +50,12 @@
       "url": "https://bitarctic.vercel.app/"
     },
     {
+      "title": "Red Vintage Theme",
+      "description": "Тема за VS Code",
+      "technologies": ["JSON"],
+      "url": "https://marketplace.visualstudio.com/items?itemName=Crnobog.red-vintage-theme"
+    },
+    {
       "title": "start",
       "description": "Прилагођена почетна страница за веб претраживаче",
       "technologies": ["HTML", "CSS", "JavaScript"],
