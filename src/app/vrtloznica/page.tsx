@@ -24,14 +24,15 @@ export default function VrtloznicaPage() {
     <div className="overflow-hidden h-screen w-screen">
       <style jsx global>{`
         /* Hide scrollbars for all browsers */
-        html, body {
+        html,
+        body {
           overflow: hidden;
           scrollbar-width: none; /* Firefox */
           -ms-overflow-style: none; /* IE and Edge */
         }
-        
+
         /* Webkit browsers (Chrome, Safari) */
-        html::-webkit-scrollbar, 
+        html::-webkit-scrollbar,
         body::-webkit-scrollbar {
           display: none;
         }
