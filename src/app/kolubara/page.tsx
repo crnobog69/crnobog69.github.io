@@ -19,8 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
-import { useTheme } from "@/components/theme-provider";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function KolubaraPage() {
   // Start with a consistent initial state
@@ -32,8 +30,6 @@ export default function KolubaraPage() {
   const [infoOpen, setInfoOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const { theme } = useTheme();
-  const { t } = useLanguage();
   
   const streamUrl = "https://stream.iradio.pro/proxy/radiokolubara?mp=/1";
   
