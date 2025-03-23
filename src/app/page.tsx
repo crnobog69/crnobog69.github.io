@@ -108,7 +108,10 @@ export default function Home() {
           <section className="space-y-4">
             <div className="flex justify-between items-center">
               <h1 className="text-4xl font-bold">{t.title}</h1>
-              <Link href="/vitor" className="opacity-30 hover:opacity-70 transition-opacity">
+              <Link
+                href="/vitor"
+                className="opacity-30 hover:opacity-70 transition-opacity"
+              >
                 <Lock size={16} className="text-muted-foreground" />
               </Link>
             </div>
@@ -514,7 +517,9 @@ export default function Home() {
         .project-card {
           opacity: 0;
           transform: translateY(10px);
-          transition: opacity 0.5s, transform 0.5s;
+          transition:
+            opacity 0.5s,
+            transform 0.5s;
         }
 
         .project-card.show {

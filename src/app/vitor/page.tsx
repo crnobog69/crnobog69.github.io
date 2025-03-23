@@ -11,7 +11,7 @@ import {
   Eye,
   EyeOff,
   ExternalLink,
-  Atom
+  Atom,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
@@ -27,17 +27,17 @@ const secretSections = [
     color: "text-red-500",
     bgColor: "bg-red-500/10",
     borderColor: "border-red-500/20",
-    link: "/radio"
+    link: "/radio",
   },
   {
     id: "vrtloznica",
     name: "Вртложница",
     description: "Највећи вртлог икада.",
-    icon: Atom, 
+    icon: Atom,
     color: "text-amber-500",
     bgColor: "bg-amber-500/10",
     borderColor: "border-amber-500/20",
-    link: "/vrtloznica"
+    link: "/vrtloznica",
   },
   {
     id: "crna",
@@ -45,10 +45,10 @@ const secretSections = [
     description: "Црна позадина.",
     icon: Lock,
     color: "text-purple-500",
-    bgColor: "bg-purple-500/10", 
+    bgColor: "bg-purple-500/10",
     borderColor: "border-purple-500/20",
-    link: "/crna"
-  }
+    link: "/crna",
+  },
 ];
 
 export default function VitorPage() {
@@ -56,9 +56,9 @@ export default function VitorPage() {
   const [authorized, setAuthorized] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  
+
   const encodedPassword = "dmVybWlsaW9u";
-  
+
   const checkPassword = () => {
     try {
       const decodedPassword = atob(encodedPassword);
@@ -75,7 +75,7 @@ export default function VitorPage() {
       setError(true);
     }
   };
-  
+
   // Test if password decoding works
   const testPasswordDecoding = () => {
     try {
@@ -144,11 +144,13 @@ export default function VitorPage() {
           {!authorized ? (
             <div className="bg-card border border-border rounded-lg p-8 max-w-md mx-auto text-center">
               <Lock className="h-10 w-10 mx-auto mb-4 text-foreground/70" />
-              <h2 className="text-xl font-medium mb-4">Потребна ауторизација</h2>
+              <h2 className="text-xl font-medium mb-4">
+                Потребна ауторизација
+              </h2>
               <p className="text-muted-foreground mb-6">
                 Унесите лозинку да бисте приступили заштићеном садржају.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="relative">
                   <input
@@ -179,13 +181,13 @@ export default function VitorPage() {
                     )}
                   </Button>
                 </div>
-                
+
                 {error && (
                   <p className="text-red-500 text-sm">
                     Неисправна лозинка, покушајте поново.
                   </p>
                 )}
-                
+
                 <Button
                   className="w-full bg-foreground text-background hover:bg-foreground/90"
                   onClick={checkPassword}
@@ -199,8 +201,8 @@ export default function VitorPage() {
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-semibold">Локације</h2>
                 <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={handleLock}
                     className="border-red-500/20 text-red-500 hover:bg-red-500/10"
@@ -208,9 +210,9 @@ export default function VitorPage() {
                     <Lock className="h-4 w-4 mr-2" />
                     Закључај
                   </Button>
-                  
-                  <Button 
-                    variant="outline" 
+
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={testPasswordDecoding}
                     className="border-red-500/20 text-red-500 hover:bg-red-500/10"
@@ -220,15 +222,19 @@ export default function VitorPage() {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {secretSections.map((section) => {
                   const IconComponent = section.icon;
                   return (
                     <Link href={section.link} key={section.id}>
-                      <div className={`p-6 rounded-lg border ${section.borderColor} ${section.bgColor} group transition-all hover:translate-y-[-2px] duration-300`}>
+                      <div
+                        className={`p-6 rounded-lg border ${section.borderColor} ${section.bgColor} group transition-all hover:translate-y-[-2px] duration-300`}
+                      >
                         <div className="flex items-start justify-between">
-                          <IconComponent className={`h-10 w-10 ${section.color}`} />
+                          <IconComponent
+                            className={`h-10 w-10 ${section.color}`}
+                          />
                           <ExternalLink className="h-4 w-4 opacity-0 group-hover:opacity-60 transition-opacity" />
                         </div>
                         <h3 className="text-lg font-medium mt-4 mb-2 group-hover:text-red-500 transition-colors">
@@ -249,8 +255,14 @@ export default function VitorPage() {
 
       <style jsx global>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-fade-in {
           animation: fadeIn 0.5s ease-out forwards;

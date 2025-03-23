@@ -215,7 +215,7 @@ export default function KosovskaPage() {
                 Радио Косовска Митровица
               </h1>
               <p className="text-base md:text-xl text-muted-foreground">
-                104,6: Косовска Митровица, Република Србија
+                104,6: Косовска Митровица, Косово и Метохија
               </p>
             </div>
 
