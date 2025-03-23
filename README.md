@@ -22,4 +22,16 @@
 > <br> 
 > **_Cloudflare_** version of the site is currently not working.
 
+## Домени
+
+- [crnobog.vercel.app](https://crnobog.vercel.app)
+
+- [crnbg.vercel.app](https://crnbg.vercel.app)
+
+- [cb-rs.vercel.app](https://cb-rs.vercel.app)
+
+- [crnob.vercel.app](https://crnog.vercel.app)
+
+- [cbog.vercel.app](https://cbog.vercel.app)
+
 #### <p align="center">🍂 Јесени господње 2024</p>
