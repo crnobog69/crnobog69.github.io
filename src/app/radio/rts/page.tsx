@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
 import {
-  Play, 
+  Play,
   Pause,
   Volume2,
   VolumeX,
@@ -17,9 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 export default function RTSPage() {
   const [volume, setVolume] = useState<number>(80);
@@ -32,18 +30,19 @@ export default function RTSPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [hlsSupported, setHlsSupported] = useState<boolean | null>(null);
-  
+
   // RTS HLS stream URL
-  const streamUrl = "	https://rtsradio-live.morescreens.com/RTS_2_001/audio/chunklist.m3u8";
-  
+  const streamUrl =
+    "	https://rtsradio-live.morescreens.com/RTS_2_001/audio/chunklist.m3u8";
+
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
-  const hlsRef = useRef<any>(null);
+  const hlsRef = useRef<{ destroy: () => void } | null>(null);
 
   // Mark component as hydrated
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
+
   // Load saved volume from localStorage after hydration
   useEffect(() => {
     if (!isClient) return;
@@ -94,31 +93,31 @@ export default function RTSPage() {
     if (!isClient) return;
 
     let isMounted = true;
-    
+
     const initializeHls = async () => {
       try {
         // First check if the URL is a direct MP3 stream
-        if (currentStreamUrl.endsWith('.mp3')) {
+        if (currentStreamUrl.endsWith(".mp3")) {
           setHlsSupported(false);
           if (audioRef.current) {
             audioRef.current.src = currentStreamUrl;
           }
           return;
         }
-        
+
         // Otherwise try to use HLS.js
-        const HlsModule = await import('hls.js');
+        const HlsModule = await import("hls.js");
         const Hls = HlsModule.default;
-        
+
         if (!isMounted) return;
 
         if (Hls.isSupported()) {
           setHlsSupported(true);
-          
+
           if (hlsRef.current) {
             hlsRef.current.destroy();
           }
-          
+
           const hls = new Hls({
             debug: false,
             enableWorker: true,
@@ -128,27 +127,32 @@ export default function RTSPage() {
             levelLoadingMaxRetry: 4,
             fragLoadingMaxRetry: 4,
           });
-          
+
           if (!audioRef.current) return;
-          
+
           hls.attachMedia(audioRef.current);
           hls.on(Hls.Events.MEDIA_ATTACHED, () => {
-            console.log("HLS media attached, loading source:", currentStreamUrl);
+            console.log(
+              "HLS media attached, loading source:",
+              currentStreamUrl
+            );
             hls.loadSource(currentStreamUrl);
           });
-          
+
           hls.on(Hls.Events.ERROR, (event, data) => {
             console.warn("HLS error:", data.type, data.details);
-            
+
             if (data.fatal) {
               console.error("HLS.js fatal error:", data.type, data.details);
-              
-              setErrorMessage("Нисмо успели да повежемо стрим. Молимо проверите интернет конекцију.");
-              
+
+              setErrorMessage(
+                "Нисмо успели да повежемо стрим. Молимо проверите интернет конекцију."
+              );
+
               hls.destroy();
             }
           });
-          
+
           hlsRef.current = hls;
         } else {
           // For browsers without HLS support or if HLS.js fails to load
@@ -158,9 +162,9 @@ export default function RTSPage() {
           }
         }
       } catch (error) {
-        console.error('Failed to load HLS.js or initialize stream:', error);
+        console.error("Failed to load HLS.js or initialize stream:", error);
         setHlsSupported(false);
-        
+
         // Use fallback stream URL directly
         setCurrentStreamUrl(streamUrl);
         if (audioRef.current) {
@@ -168,9 +172,9 @@ export default function RTSPage() {
         }
       }
     };
-    
+
     initializeHls();
-    
+
     return () => {
       isMounted = false;
       if (hlsRef.current) {
@@ -182,7 +186,7 @@ export default function RTSPage() {
   // Update source when currentStreamUrl changes but only if not using HLS.js
   useEffect(() => {
     if (!isClient || hlsSupported === null) return;
-    
+
     // If we're not using HLS.js, update the src attribute directly
     if (hlsSupported === false && audioRef.current) {
       audioRef.current.src = currentStreamUrl;
@@ -202,19 +206,19 @@ export default function RTSPage() {
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
       }
-      
+
       loadingTimeoutRef.current = setTimeout(() => {
         if (isLoading) {
           setIsLoading(false);
           setErrorMessage("Учитавање стрима је истекло. Покушајте поново.");
         }
       }, 15000); // 15 second timeout
-      
+
       audioRef.current.play().catch((error) => {
         console.error("Error playing audio:", error);
         setIsLoading(false);
         setErrorMessage("Грешка при покретању аудио стрима. Покушајте поново.");
-        
+
         if (loadingTimeoutRef.current) {
           clearTimeout(loadingTimeoutRef.current);
           loadingTimeoutRef.current = null;
@@ -260,13 +264,15 @@ export default function RTSPage() {
     console.error("Audio stream error occurred:", event);
     setIsLoading(false);
     setIsPlaying(false);
-    
+
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
       loadingTimeoutRef.current = null;
     }
-    
-    setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније.");
+
+    setErrorMessage(
+      "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+    );
   };
 
   return (
@@ -328,9 +334,9 @@ export default function RTSPage() {
                 {errorMessage && (
                   <div className="bg-red-500/10 border border-red-500/30 rounded-md p-3 text-sm text-center">
                     <p className="text-red-500 mb-2">{errorMessage}</p>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="mt-1 text-xs border-red-500/30 text-red-500 hover:bg-red-500/10"
                       onClick={() => {
                         setErrorMessage(null);
@@ -339,7 +345,9 @@ export default function RTSPage() {
                           audioRef.current.load();
                           audioRef.current.play().catch(() => {
                             setIsLoading(false);
-                            setErrorMessage("Нисмо успели да успоставимо конекцију. Покушајте поново касније.");
+                            setErrorMessage(
+                              "Нисмо успели да успоставимо конекцију. Покушајте поново касније."
+                            );
                           });
                         }
                       }}
@@ -392,7 +400,9 @@ export default function RTSPage() {
                     <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
                       <div
                         className="absolute h-full bg-green-500"
-                        style={{ width: `${((volume - 0) / (100 - 0)) * 100}%` }}
+                        style={{
+                          width: `${((volume - 0) / (100 - 0)) * 100}%`,
+                        }}
                       />
                     </div>
                     <input
@@ -401,12 +411,16 @@ export default function RTSPage() {
                       max={100}
                       step={1}
                       value={volume}
-                      onChange={(e) => handleVolumeChange([parseInt(e.target.value, 10)])}
+                      onChange={(e) =>
+                        handleVolumeChange([parseInt(e.target.value, 10)])
+                      }
                       className="absolute w-full h-6 opacity-0 cursor-pointer"
                     />
                     <div
                       className="absolute block h-5 w-5 rounded-full border border-border bg-background shadow-sm pointer-events-none"
-                      style={{ left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)` }}
+                      style={{
+                        left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)`,
+                      }}
                     />
                   </div>
                 </div>
@@ -440,7 +454,7 @@ export default function RTSPage() {
                     )}
                   </Button>
 
-                  <div 
+                  <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       infoOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                     }`}

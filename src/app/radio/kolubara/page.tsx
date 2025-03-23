@@ -34,10 +34,8 @@ export default function KolubaraPage() {
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Primary and fallback stream URLs
-  const streamUrls = [
-    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1",
-  ];
-  
+  const streamUrls = ["https://stream.iradio.pro/proxy/radiokolubara?mp=/1"];
+
   const streamUrl = streamUrls[streamAttempt % streamUrls.length];
 
   // Mark component as hydrated
@@ -158,31 +156,37 @@ export default function KolubaraPage() {
   const handleError = () => {
     setIsLoading(false);
     setIsPlaying(false);
-    
+
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
       loadingTimeoutRef.current = null;
     }
-    
+
     // Try next stream URL if available
     if (streamAttempt < streamUrls.length - 1) {
-      setErrorMessage(`Грешка при учитавању стрима. Покушавам алтернативни извор...`);
+      setErrorMessage(
+        `Грешка при учитавању стрима. Покушавам алтернативни извор...`
+      );
       setStreamAttempt(streamAttempt + 1);
-      
+
       // Attempt to play the fallback stream after a short delay
       setTimeout(() => {
         if (audioRef.current) {
           setIsLoading(true);
           audioRef.current.load();
-          audioRef.current.play().catch(error => {
+          audioRef.current.play().catch((error) => {
             console.error("Error playing fallback audio:", error);
             setIsLoading(false);
-            setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом.");
+            setErrorMessage(
+              "Нисмо успели да успоставимо конекцију са радио станицом."
+            );
           });
         }
       }, 1000);
     } else {
-      setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније.");
+      setErrorMessage(
+        "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+      );
       console.error("Audio stream error occurred with all fallback URLs");
     }
   };
@@ -323,13 +327,15 @@ export default function KolubaraPage() {
                     )}
                   </Button>
 
-                  <div 
+                  <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       infoOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
                     <div className="text-center text-sm md:text-base text-muted-foreground mt-4 pt-4 border-t border-border">
-                      <p>Стрим се емитује директно са сервера Радио Колубаре.</p>
+                      <p>
+                        Стрим се емитује директно са сервера Радио Колубаре.
+                      </p>
                       <p className="mt-2">
                         У случају проблема, освежите страницу или проверите вашу
                         интернет конекцију.

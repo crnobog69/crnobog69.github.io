@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
 import {
-  Play, 
+  Play,
   Pause,
   Volume2,
   VolumeX,
@@ -17,9 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 export default function RadioSPage() {
   const [volume, setVolume] = useState<number>(80);
@@ -32,20 +30,22 @@ export default function RadioSPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [hlsSupported, setHlsSupported] = useState<boolean | null>(null);
-  
+
   // Radio S HLS stream URL
-  const streamUrl = "https://5bc45691ca49f.streamlock.net/asmedia/radios/playlist.m3u8";
+  const streamUrl =
+    "https://5bc45691ca49f.streamlock.net/asmedia/radios/playlist.m3u8";
   // Fallback direct MP3 stream if HLS fails
-  const fallbackStreamUrl = "https://53be5ef2d659e.streamlock.net/asmedia/radios/playlist.mp3";
-  
+  const fallbackStreamUrl =
+    "https://53be5ef2d659e.streamlock.net/asmedia/radios/playlist.mp3";
+
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
-  const hlsRef = useRef<any>(null);
+  const hlsRef = useRef<{ destroy: () => void } | null>(null);
 
   // Mark component as hydrated
   useEffect(() => {
     setIsClient(true);
   }, []);
-  
+
   // Load saved volume from localStorage after hydration
   useEffect(() => {
     if (!isClient) return;
@@ -96,53 +96,58 @@ export default function RadioSPage() {
     if (!isClient) return;
 
     let isMounted = true;
-    
+
     const initializeHls = async () => {
       try {
         // Dynamically import hls.js
-        const HlsModule = await import('hls.js');
+        const HlsModule = await import("hls.js");
         const Hls = HlsModule.default;
-        
+
         if (!isMounted) return;
 
         // Check if HLS is supported
         if (Hls.isSupported()) {
           setHlsSupported(true);
-          
+
           if (hlsRef.current) {
             hlsRef.current.destroy();
           }
-          
+
           const hls = new Hls({
             debug: false,
             enableWorker: true,
           });
-          
+
           if (!audioRef.current) return;
-          
+
           hls.attachMedia(audioRef.current);
           hls.on(Hls.Events.MEDIA_ATTACHED, () => {
             hls.loadSource(currentStreamUrl);
           });
-          
+
           hls.on(Hls.Events.ERROR, (event, data) => {
             if (data.fatal) {
               console.error("HLS.js fatal error:", data.type, data.details);
-              
+
               if (currentStreamUrl === streamUrl) {
                 // Try fallback URL
                 setCurrentStreamUrl(fallbackStreamUrl);
                 setErrorMessage("Покушавам алтернативни извор...");
               } else {
-                setErrorMessage("Нисмо успели да повежемо стрим. Молимо проверите интернет конекцију.");
+                setErrorMessage(
+                  "Нисмо успели да повежемо стрим. Молимо проверите интернет конекцију."
+                );
               }
-              
+
               hls.destroy();
             }
           });
-          
+
           hlsRef.current = hls;
-        } else if (audioRef.current && audioRef.current.canPlayType('application/vnd.apple.mpegurl')) {
+        } else if (
+          audioRef.current &&
+          audioRef.current.canPlayType("application/vnd.apple.mpegurl")
+        ) {
           // For browsers that support HLS natively (like Safari)
           setHlsSupported(false);
           audioRef.current.src = currentStreamUrl;
@@ -155,9 +160,9 @@ export default function RadioSPage() {
           }
         }
       } catch (error) {
-        console.error('Failed to load HLS.js:', error);
+        console.error("Failed to load HLS.js:", error);
         setHlsSupported(false);
-        
+
         // Use fallback stream URL
         setCurrentStreamUrl(fallbackStreamUrl);
         if (audioRef.current) {
@@ -165,21 +170,21 @@ export default function RadioSPage() {
         }
       }
     };
-    
+
     initializeHls();
-    
+
     return () => {
       isMounted = false;
       if (hlsRef.current) {
         hlsRef.current.destroy();
       }
     };
-  }, [isClient]);
+  }, [isClient, currentStreamUrl, streamUrl, fallbackStreamUrl]);
 
   // Update source when currentStreamUrl changes but only if not using HLS.js
   useEffect(() => {
     if (!isClient || hlsSupported === null) return;
-    
+
     // If we're not using HLS.js, update the src attribute directly
     if (hlsSupported === false && audioRef.current) {
       audioRef.current.src = currentStreamUrl;
@@ -198,19 +203,19 @@ export default function RadioSPage() {
       if (loadingTimeoutRef.current) {
         clearTimeout(loadingTimeoutRef.current);
       }
-      
+
       loadingTimeoutRef.current = setTimeout(() => {
         if (isLoading) {
           setIsLoading(false);
           setErrorMessage("Учитавање стрима је истекло. Покушајте поново.");
         }
       }, 15000); // 15 second timeout
-      
+
       audioRef.current.play().catch((error) => {
         console.error("Error playing audio:", error);
         setIsLoading(false);
         setErrorMessage("Грешка при покретању аудио стрима. Покушајте поново.");
-        
+
         if (loadingTimeoutRef.current) {
           clearTimeout(loadingTimeoutRef.current);
           loadingTimeoutRef.current = null;
@@ -255,21 +260,23 @@ export default function RadioSPage() {
   const handleError = () => {
     setIsLoading(false);
     setIsPlaying(false);
-    
+
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
       loadingTimeoutRef.current = null;
     }
-    
+
     // Only set error message if we're using the fallback URL already
     if (currentStreamUrl === fallbackStreamUrl) {
-      setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније.");
+      setErrorMessage(
+        "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+      );
     } else {
       // Switch to fallback URL
       setCurrentStreamUrl(fallbackStreamUrl);
       setErrorMessage("Покушавам алтернативни извор...");
     }
-    
+
     console.error("Audio stream error occurred");
   };
 
@@ -334,9 +341,9 @@ export default function RadioSPage() {
                     <p className="text-red-500 mb-2">{errorMessage}</p>
                     {/* Only show retry button when appropriate */}
                     {errorMessage.includes("Молимо проверите") && (
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
+                      <Button
+                        variant="outline"
+                        size="sm"
                         className="mt-1 text-xs border-red-500/30 text-red-500 hover:bg-red-500/10"
                         onClick={() => {
                           setErrorMessage(null);
@@ -348,7 +355,9 @@ export default function RadioSPage() {
                               audioRef.current.load();
                               audioRef.current.play().catch(() => {
                                 setIsLoading(false);
-                                setErrorMessage("И даље не можемо да успоставимо конекцију. Покушајте касније.");
+                                setErrorMessage(
+                                  "И даље не можемо да успоставимо конекцију. Покушајте касније."
+                                );
                               });
                             }
                           }, 1000);
@@ -403,7 +412,9 @@ export default function RadioSPage() {
                     <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
                       <div
                         className="absolute h-full bg-blue-500"
-                        style={{ width: `${((volume - 0) / (100 - 0)) * 100}%` }}
+                        style={{
+                          width: `${((volume - 0) / (100 - 0)) * 100}%`,
+                        }}
                       />
                     </div>
                     <input
@@ -412,12 +423,16 @@ export default function RadioSPage() {
                       max={100}
                       step={1}
                       value={volume}
-                      onChange={(e) => handleVolumeChange([parseInt(e.target.value, 10)])}
+                      onChange={(e) =>
+                        handleVolumeChange([parseInt(e.target.value, 10)])
+                      }
                       className="absolute w-full h-6 opacity-0 cursor-pointer"
                     />
                     <div
                       className="absolute block h-5 w-5 rounded-full border border-border bg-background shadow-sm pointer-events-none"
-                      style={{ left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)` }}
+                      style={{
+                        left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)`,
+                      }}
                     />
                   </div>
                 </div>
@@ -451,7 +466,7 @@ export default function RadioSPage() {
                     )}
                   </Button>
 
-                  <div 
+                  <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       infoOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                     }`}

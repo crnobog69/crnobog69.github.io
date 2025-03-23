@@ -5,15 +5,9 @@ import { LanguageToggle } from "@/components/language-toggle";
 import { 
   Radio, 
   ArrowLeft, 
-  Music, 
-  Music2, 
-  Headphones, 
+  Music,
   BookOpen, 
-  Activity, 
-  Antenna,
-  Signal, 
-  Mic, 
-  Mic2,
+  Activity,
   RadioTower,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
@@ -38,15 +32,15 @@ export default function RadioStationsPage() {
       location: "Лајковац, Република Србија",
       frequency: "96,9",
       icon: Radio,
-      color: "text-red-500"
+      color: "text-red-500",
     },
     {
       id: "km",
       name: "Радио Косовска Митровица",
       location: "Косовска Митровица, Косово и Метохија",
       frequency: "104,6",
-      icon: Activity, 
-      color: "text-purple-500"
+      icon: Activity,
+      color: "text-purple-500",
     },
     {
       id: "rts",
@@ -54,7 +48,7 @@ export default function RadioStationsPage() {
       location: "Београд, Република Србија",
       frequency: "90,9",
       icon: BookOpen,
-      color: "text-green-500"
+      color: "text-green-500",
     },
     {
       id: "s",
@@ -62,62 +56,65 @@ export default function RadioStationsPage() {
       location: "Београд, Република Србија",
       frequency: "94,9",
       icon: Music,
-      color: "text-blue-500"
-    }
+      color: "text-blue-500",
+    },
   ];
 
   // Enhanced scroll prevention with multiple approaches
   useEffect(() => {
     // Apply multiple techniques to prevent scrolling
-    document.documentElement.style.overflow = 'hidden';
-    document.documentElement.style.height = '100%';
-    document.documentElement.style.position = 'fixed';
-    document.documentElement.style.width = '100%';
-    document.documentElement.style.touchAction = 'none';
-    document.documentElement.style.overscrollBehavior = 'none';
-    
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.height = '100%';
-    document.body.style.width = '100%';
-    document.body.style.touchAction = 'none';
-    document.body.style.overscrollBehavior = 'none';
-    
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.height = "100%";
+    document.documentElement.style.position = "fixed";
+    document.documentElement.style.width = "100%";
+    document.documentElement.style.touchAction = "none";
+    document.documentElement.style.overscrollBehavior = "none";
+
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.height = "100%";
+    document.body.style.width = "100%";
+    document.body.style.touchAction = "none";
+    document.body.style.overscrollBehavior = "none";
+
     // Add event listeners to prevent scroll events
     const preventDefault = (e: Event) => {
       e.preventDefault();
     };
-    
-    document.addEventListener('wheel', preventDefault, { passive: false });
-    document.addEventListener('touchmove', preventDefault, { passive: false });
-    
+
+    document.addEventListener("wheel", preventDefault, { passive: false });
+    document.addEventListener("touchmove", preventDefault, { passive: false });
+
     return () => {
       // Restore all defaults when component unmounts
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.height = '';
-      document.documentElement.style.position = '';
-      document.documentElement.style.width = '';
-      document.documentElement.style.touchAction = '';
-      document.documentElement.style.overscrollBehavior = '';
-      
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.height = '';
-      document.body.style.width = '';
-      document.body.style.touchAction = '';
-      document.body.style.overscrollBehavior = '';
-      
-      document.removeEventListener('wheel', preventDefault);
-      document.removeEventListener('touchmove', preventDefault);
+      document.documentElement.style.overflow = "";
+      document.documentElement.style.height = "";
+      document.documentElement.style.position = "";
+      document.documentElement.style.width = "";
+      document.documentElement.style.touchAction = "";
+      document.documentElement.style.overscrollBehavior = "";
+
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.height = "";
+      document.body.style.width = "";
+      document.body.style.touchAction = "";
+      document.body.style.overscrollBehavior = "";
+
+      document.removeEventListener("wheel", preventDefault);
+      document.removeEventListener("touchmove", preventDefault);
     };
   }, []);
 
   return (
-    <div 
+    <div
       className="fixed top-0 left-0 right-0 bottom-0 bg-background text-foreground"
-      style={{ touchAction: 'none', overscrollBehavior: 'none' }}
+      style={{ touchAction: "none", overscrollBehavior: "none" }}
     >
-      <div className="flex flex-col h-full" style={{ maxHeight: '100vh', overflow: 'hidden' }}>
+      <div
+        className="flex flex-col h-full"
+        style={{ maxHeight: "100vh", overflow: "hidden" }}
+      >
         <header className="flex-shrink-0 border-b border-border">
           <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
             <Link
@@ -134,10 +131,10 @@ export default function RadioStationsPage() {
           </div>
         </header>
 
-        <main 
-          id="radio-content" 
+        <main
+          id="radio-content"
           className="flex-1 container mx-auto px-4 py-8 overflow-y-auto"
-          style={{ maxHeight: 'calc(100vh - 60px)' }}
+          style={{ maxHeight: "calc(100vh - 60px)" }}
         >
           <section className="max-w-4xl mx-auto space-y-6 md:space-y-8">
             <div className="text-center space-y-4 md:space-y-6">

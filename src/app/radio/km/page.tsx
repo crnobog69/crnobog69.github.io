@@ -8,7 +8,7 @@ import {
   Pause,
   Volume2,
   VolumeX,
-  Activity,  // Changed from Radio to Activity
+  Activity, // Changed from Radio to Activity
   ArrowLeft,
   Loader2,
   Info,
@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Slider } from "@/components/ui/slider";
 import Link from "next/link";
 
 export default function KosovskaPage() {
@@ -29,7 +28,6 @@ export default function KosovskaPage() {
   const [isClient, setIsClient] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [streamAttempt, setStreamAttempt] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -37,7 +35,7 @@ export default function KosovskaPage() {
   const streamUrl = "https://streaming10.orion.rs:8002/stream";
   const fallbackStreamUrl = "https://streaming10.orion.rs:8002/stream.mp3"; // Fallback URL
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
-  
+
   // Mark component as hydrated
   useEffect(() => {
     setIsClient(true);
@@ -158,28 +156,32 @@ export default function KosovskaPage() {
   const handleError = () => {
     setIsLoading(false);
     setIsPlaying(false);
-    
+
     if (loadingTimeoutRef.current) {
       clearTimeout(loadingTimeoutRef.current);
       loadingTimeoutRef.current = null;
     }
-    
+
     // Switch to fallback URL if not already using it
     if (currentStreamUrl === streamUrl) {
       setCurrentStreamUrl(fallbackStreamUrl);
       setErrorMessage("Покушавам алтернативни извор...");
-      
+
       setTimeout(() => {
         if (audioRef.current) {
           audioRef.current.load();
           audioRef.current.play().catch(() => {
             setIsLoading(false);
-            setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније.");
+            setErrorMessage(
+              "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+            );
           });
         }
       }, 1000);
     } else {
-      setErrorMessage("Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније.");
+      setErrorMessage(
+        "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+      );
       console.error("Audio stream error occurred with fallback URL");
     }
   };
@@ -209,7 +211,9 @@ export default function KosovskaPage() {
               <div className="flex justify-center">
                 <Activity className="h-16 w-16 md:h-20 md:w-20 text-purple-500" />
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold">Радио Косовска Митровица</h1>
+              <h1 className="text-3xl md:text-5xl font-bold">
+                Радио Косовска Митровица
+              </h1>
               <p className="text-base md:text-xl text-muted-foreground">
                 104,6: Косовска Митровица, Република Србија
               </p>
@@ -287,7 +291,9 @@ export default function KosovskaPage() {
                     <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
                       <div
                         className="absolute h-full bg-purple-500"
-                        style={{ width: `${((volume - 0) / (100 - 0)) * 100}%` }}
+                        style={{
+                          width: `${((volume - 0) / (100 - 0)) * 100}%`,
+                        }}
                       />
                     </div>
                     <input
@@ -296,12 +302,16 @@ export default function KosovskaPage() {
                       max={100}
                       step={1}
                       value={volume}
-                      onChange={(e) => handleVolumeChange([parseInt(e.target.value, 10)])}
+                      onChange={(e) =>
+                        handleVolumeChange([parseInt(e.target.value, 10)])
+                      }
                       className="absolute w-full h-6 opacity-0 cursor-pointer"
                     />
                     <div
                       className="absolute block h-5 w-5 rounded-full border border-border bg-background shadow-sm pointer-events-none"
-                      style={{ left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)` }}
+                      style={{
+                        left: `calc(${((volume - 0) / (100 - 0)) * 100}% - 10px)`,
+                      }}
                     />
                   </div>
                 </div>
@@ -334,13 +344,16 @@ export default function KosovskaPage() {
                     )}
                   </Button>
 
-                  <div 
+                  <div
                     className={`overflow-hidden transition-all duration-300 ease-out ${
                       infoOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
                     <div className="text-center text-sm md:text-base text-muted-foreground mt-4 pt-4 border-t border-border">
-                      <p>Стрим се емитује директно са сервера Радио Косовска Митровица.</p>
+                      <p>
+                        Стрим се емитује директно са сервера Радио Косовска
+                        Митровица.
+                      </p>
                       <p className="mt-2">
                         У случају проблема, освежите страницу или проверите вашу
                         интернет конекцију.
