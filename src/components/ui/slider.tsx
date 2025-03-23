@@ -1,37 +1,62 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
-interface SliderProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'value' | 'defaultValue' | 'onChange'> {
-  value?: number[]
-  defaultValue?: number[]
-  min?: number
-  max?: number
-  step?: number
-  onValueChange?: (value: number[]) => void
-  className?: string
+interface SliderProps
+  extends Omit<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    "value" | "defaultValue" | "onChange"
+  > {
+  value?: number[];
+  defaultValue?: number[];
+  min?: number;
+  max?: number;
+  step?: number;
+  onValueChange?: (value: number[]) => void;
+  className?: string;
 }
 
 const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
-  ({ className, value, defaultValue, min = 0, max = 100, step = 1, onValueChange, ...props }, ref) => {
-    const internalValue = value ? value[0] : defaultValue ? defaultValue[0] : min
+  (
+    {
+      className,
+      value,
+      defaultValue,
+      min = 0,
+      max = 100,
+      step = 1,
+      onValueChange,
+      ...props
+    },
+    ref
+  ) => {
+    const internalValue = value
+      ? value[0]
+      : defaultValue
+        ? defaultValue[0]
+        : min;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = parseInt(event.target.value, 10)
+      const newValue = parseInt(event.target.value, 10);
       if (onValueChange) {
-        onValueChange([newValue])
+        onValueChange([newValue]);
       }
-    }
+    };
 
     // Calculate progress percentage for styling
-    const progressPercent = ((internalValue - min) / (max - min)) * 100
+    const progressPercent = ((internalValue - min) / (max - min)) * 100;
 
     return (
-      <div className={cn("relative flex w-full touch-none select-none items-center", className)}>
+      <div
+        className={cn(
+          "relative flex w-full touch-none select-none items-center",
+          className
+        )}
+      >
         <div className="relative h-2 w-full overflow-hidden rounded-full bg-secondary">
-          <div 
-            className="absolute h-full bg-red-500" 
+          <div
+            className="absolute h-full bg-red-500"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
@@ -46,15 +71,15 @@ const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
           className="absolute w-full h-6 opacity-0 cursor-pointer"
           {...props}
         />
-        <div 
+        <div
           className="absolute block h-5 w-5 rounded-full border border-border bg-background shadow-sm pointer-events-none"
           style={{ left: `calc(${progressPercent}% - 10px)` }}
         />
       </div>
-    )
+    );
   }
-)
+);
 
-Slider.displayName = "Slider"
+Slider.displayName = "Slider";
 
-export { Slider }
+export { Slider };
