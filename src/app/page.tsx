@@ -24,6 +24,7 @@ import {
   Users,
   Cloud,
   BarChart3,
+  Lock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,6 +33,7 @@ import projectsData from "@/data/projects.json";
 import contactData from "@/data/contact.json";
 import articles from "@/data/articles.json";
 import { ArticleCard } from "@/components/ArticleCard";
+import Link from "next/link";
 
 const socialIcons = {
   GitHub: Github,
@@ -70,9 +72,11 @@ export default function Home() {
       },
       { threshold: 0.1 }
     );
+
     document.querySelectorAll(".project-card").forEach((card) => {
       observerRef.current?.observe(card);
     });
+
     return () => observerRef.current?.disconnect();
   }, [activeTab, searchQuery]);
 
@@ -102,7 +106,12 @@ export default function Home() {
       <div className="relative z-10">
         <main className="container mx-auto px-4 py-16">
           <section className="space-y-4">
-            <h1 className="text-4xl font-bold">{t.title}</h1>
+            <div className="flex justify-between items-center">
+              <h1 className="text-4xl font-bold">{t.title}</h1>
+              <Link href="/vitor" className="opacity-30 hover:opacity-70 transition-opacity">
+                <Lock size={16} className="text-muted-foreground" />
+              </Link>
+            </div>
             <p className="text-muted-foreground">{t.role}</p>
             <div className="prose dark:prose-invert max-w-none">
               <p>
@@ -110,7 +119,9 @@ export default function Home() {
               </p>
             </div>
           </section>
+
           <Separator className="my-8" />
+
           <nav className="overflow-x-auto -mx-4 px-4 mb-8">
             <div className="flex items-center gap-4 min-w-max h-9">
               <button
@@ -167,8 +178,11 @@ export default function Home() {
               </div>
             </div>
           </nav>
+
           <div
-            className={`transition-opacity duration-300 ${isTabChanging ? "opacity-0" : "opacity-100"}`}
+            className={`transition-opacity duration-300 ${
+              isTabChanging ? "opacity-0" : "opacity-100"
+            }`}
           >
             {activeTab === "home" && (
               <div className="space-y-12 max-w-2xl">
@@ -471,6 +485,49 @@ export default function Home() {
           </div>
         </main>
       </div>
+
+      <style jsx>{`
+        .hover-lift {
+          transition: transform 0.2s;
+        }
+        .hover-lift:hover {
+          transform: translateY(-2px);
+        }
+
+        .fade-in-up {
+          opacity: 0;
+          transform: translateY(10px);
+          animation: fadeInUp 0.5s forwards;
+        }
+
+        .delayed-more {
+          animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .project-card {
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .project-card.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .gradient-text {
+          background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      `}</style>
     </div>
   );
 }

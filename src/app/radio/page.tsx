@@ -2,11 +2,11 @@
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LanguageToggle } from "@/components/language-toggle";
-import { 
-  Radio, 
-  ArrowLeft, 
+import {
+  Radio,
+  ArrowLeft,
   Music,
-  BookOpen, 
+  BookOpen,
   Activity,
   RadioTower,
 } from "lucide-react";
