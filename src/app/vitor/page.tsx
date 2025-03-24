@@ -109,7 +109,7 @@ export default function VitorPage() {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
-      <header className="border-b border-border">
+      <header className="sticky top-0 z-10 bg-background border-b border-border">
         <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
           <Link
             href="/"
@@ -197,7 +197,7 @@ export default function VitorPage() {
               </div>
             </div>
           ) : (
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6 animate-fade-in pb-8">
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-semibold">Локације</h2>
                 <div className="flex gap-2">

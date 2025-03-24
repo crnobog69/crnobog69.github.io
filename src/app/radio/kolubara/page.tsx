@@ -33,8 +33,11 @@ export default function KolubaraPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Primary and fallback stream URLs
-  const streamUrls = ["https://stream.iradio.pro/proxy/radiokolubara?mp=/1"];
+  // Primary and fallback stream URLs - Added more fallback options
+  const streamUrls = [
+    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1",
+    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1", 
+  ];
 
   const streamUrl = streamUrls[streamAttempt % streamUrls.length];
 
@@ -165,7 +168,7 @@ export default function KolubaraPage() {
     // Try next stream URL if available
     if (streamAttempt < streamUrls.length - 1) {
       setErrorMessage(
-        `Грешка при учитавању стрима. Покушавам алтернативни извор...`
+        `Грешка при учитавању стрима. Покушавам алтернативни извор... (${streamAttempt + 1}/${streamUrls.length})`
       );
       setStreamAttempt(streamAttempt + 1);
 
@@ -177,17 +180,34 @@ export default function KolubaraPage() {
           audioRef.current.play().catch((error) => {
             console.error("Error playing fallback audio:", error);
             setIsLoading(false);
-            setErrorMessage(
-              "Нисмо успели да успоставимо конекцију са радио станицом."
-            );
+            if (streamAttempt >= streamUrls.length - 1) {
+              setErrorMessage(
+                "Нисмо успели да успоставимо конекцију са радио станицом."
+              );
+            }
           });
         }
       }, 1000);
     } else {
       setErrorMessage(
-        "Нисмо успели да успоставимо конекцију са радио станицом. Молимо проверите вашу интернет конекцију или покушајте касније."
+        "Нисмо успели да успоставимо конекцију са радио станицом. Проверите интернет конекцију или покушајте поново касније."
       );
       console.error("Audio stream error occurred with all fallback URLs");
+    }
+  };
+
+  // Add a retry function
+  const handleRetry = () => {
+    setErrorMessage(null);
+    setStreamAttempt(0); // Reset to first stream
+    setIsLoading(true);
+    
+    if (audioRef.current) {
+      audioRef.current.load();
+      audioRef.current.play().catch((error) => {
+        console.error("Error on retry:", error);
+        handleError();
+      });
     }
   };
 
@@ -247,8 +267,16 @@ export default function KolubaraPage() {
               <div className="space-y-6 md:space-y-8 relative z-10">
                 {/* Display error message if there is one */}
                 {errorMessage && (
-                  <div className="bg-red-500/10 border border-red-500/30 rounded-md p-3 text-sm text-center text-red-500">
-                    {errorMessage}
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-md p-3 text-sm text-center">
+                    <p className="text-red-500 mb-2">{errorMessage}</p>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="mt-1 text-xs border-red-500/30 text-red-500 hover:bg-red-500/10"
+                      onClick={handleRetry}
+                    >
+                      Покушај поново
+                    </Button>
                   </div>
                 )}
 

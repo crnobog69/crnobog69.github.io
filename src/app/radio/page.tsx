@@ -60,33 +60,11 @@ export default function RadioStationsPage() {
     },
   ];
 
-  // Enhanced scroll prevention with multiple approaches
+  // Remove scroll prevention code
   useEffect(() => {
-    // Apply multiple techniques to prevent scrolling
-    document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.height = "100%";
-    document.documentElement.style.position = "fixed";
-    document.documentElement.style.width = "100%";
-    document.documentElement.style.touchAction = "none";
-    document.documentElement.style.overscrollBehavior = "none";
-
-    document.body.style.overflow = "hidden";
-    document.body.style.position = "fixed";
-    document.body.style.height = "100%";
-    document.body.style.width = "100%";
-    document.body.style.touchAction = "none";
-    document.body.style.overscrollBehavior = "none";
-
-    // Add event listeners to prevent scroll events
-    const preventDefault = (e: Event) => {
-      e.preventDefault();
-    };
-
-    document.addEventListener("wheel", preventDefault, { passive: false });
-    document.addEventListener("touchmove", preventDefault, { passive: false });
-
+    // No scroll prevention needed - allowing normal scrolling
     return () => {
-      // Restore all defaults when component unmounts
+      // Clean up any potential lingering styles when component unmounts
       document.documentElement.style.overflow = "";
       document.documentElement.style.height = "";
       document.documentElement.style.position = "";
@@ -100,22 +78,13 @@ export default function RadioStationsPage() {
       document.body.style.width = "";
       document.body.style.touchAction = "";
       document.body.style.overscrollBehavior = "";
-
-      document.removeEventListener("wheel", preventDefault);
-      document.removeEventListener("touchmove", preventDefault);
     };
   }, []);
 
   return (
-    <div
-      className="fixed top-0 left-0 right-0 bottom-0 bg-background text-foreground"
-      style={{ touchAction: "none", overscrollBehavior: "none" }}
-    >
-      <div
-        className="flex flex-col h-full"
-        style={{ maxHeight: "100vh", overflow: "hidden" }}
-      >
-        <header className="flex-shrink-0 border-b border-border">
+    <div className="min-h-screen w-full bg-background text-foreground">
+      <div className="flex flex-col">
+        <header className="border-b border-border">
           <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
             <Link
               href="/"
@@ -131,11 +100,7 @@ export default function RadioStationsPage() {
           </div>
         </header>
 
-        <main
-          id="radio-content"
-          className="flex-1 container mx-auto px-4 py-8 overflow-y-auto"
-          style={{ maxHeight: "calc(100vh - 60px)" }}
-        >
+        <main id="radio-content" className="container mx-auto px-4 py-8">
           <section className="max-w-4xl mx-auto space-y-6 md:space-y-8">
             <div className="text-center space-y-4 md:space-y-6">
               <div className="flex justify-center">
