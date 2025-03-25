@@ -33,9 +33,7 @@ export default function KolubaraPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const streamUrls = [
-    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1"
-  ];
+  const streamUrls = ["https://stream.iradio.pro/proxy/radiokolubara?mp=/1"];
 
   const streamUrl = streamUrls[streamAttempt % streamUrls.length];
 
@@ -199,7 +197,7 @@ export default function KolubaraPage() {
     setErrorMessage(null);
     setStreamAttempt(0); // Reset to first stream
     setIsLoading(true);
-    
+
     if (audioRef.current) {
       audioRef.current.load();
       audioRef.current.play().catch((error) => {
