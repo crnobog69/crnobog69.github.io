@@ -33,10 +33,8 @@ export default function KolubaraPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Primary and fallback stream URLs - Added more fallback options
   const streamUrls = [
-    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1",
-    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1", 
+    "https://stream.iradio.pro/proxy/radiokolubara?mp=/1"
   ];
 
   const streamUrl = streamUrls[streamAttempt % streamUrls.length];
