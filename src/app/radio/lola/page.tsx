@@ -31,8 +31,8 @@ export default function LolaPage() {
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Direct stream URL for Radio Lola
-  const streamUrl = "http://s2.tdiradio.com:8000/radiolola.mp3";
-  const fallbackStreamUrl = "https://streaming.tdiradio.com/radiolola.mp3";
+  const streamUrl = "https://streaming.tdiradio.com/radiolola.mp3";
+  const fallbackStreamUrl = "http://s2.tdiradio.com:8000/radiolola.mp3";
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
 
   // Mark component as hydrated
