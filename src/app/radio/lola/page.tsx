@@ -184,7 +184,7 @@ export default function LolaPage() {
     }
   };
 
-  // Add a retry function 
+  // Add a retry function
   const handleRetry = () => {
     setErrorMessage(null);
     setCurrentStreamUrl(streamUrl); // Reset to first stream

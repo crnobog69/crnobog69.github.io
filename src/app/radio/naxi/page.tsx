@@ -31,8 +31,7 @@ export default function NaxiPage() {
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Direct stream URL for Naxi Radio - note: if the PLS file doesn't work, you may need to find the direct stream URL
-  const streamUrl = "http://naxi128.streaming.rs:9150/;";  // Direct stream URL instead of PLS file
-  const fallbackStreamUrl = "https://naxidigital-naxi128.streaming.rs:8030/;"; // Fallback URL
+  const streamUrl = "http://naxi48.streaming.rs:9180/listen.pls;";
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
 
   // Mark component as hydrated
@@ -184,7 +183,7 @@ export default function NaxiPage() {
     }
   };
 
-  // Add a retry function 
+  // Add a retry function
   const handleRetry = () => {
     setErrorMessage(null);
     setCurrentStreamUrl(streamUrl); // Reset to first stream
