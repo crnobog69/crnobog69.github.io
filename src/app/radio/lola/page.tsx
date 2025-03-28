@@ -224,7 +224,7 @@ export default function LolaPage() {
               <div className="flex justify-center">
                 <Radio className="h-16 w-16 md:h-20 md:w-20 text-yellow-500" />
               </div>
-              <h1 className="text-3xl md:text-5xl font-bold">Радио Lola</h1>
+              <h1 className="text-3xl md:text-5xl font-bold">Радио Лола</h1>
               <p className="text-base md:text-xl text-muted-foreground">
                 99,4: Београд, Република Србија
               </p>
@@ -373,7 +373,7 @@ export default function LolaPage() {
                     }`}
                   >
                     <div className="text-center text-sm md:text-base text-muted-foreground mt-4 pt-4 border-t border-border">
-                      <p>Стрим се емитује директно са сервера Радио Lola.</p>
+                      <p>Стрим се емитује директно са сервера Радио Лола.</p>
                       <p className="mt-2">
                         У случају проблема, освежите страницу или проверите вашу
                         интернет конекцију.
