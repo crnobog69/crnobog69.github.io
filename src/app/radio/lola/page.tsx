@@ -8,12 +8,12 @@ import {
   Pause,
   Volume2,
   VolumeX,
-  Radio,
   ArrowLeft,
   Loader2,
   Info,
   ChevronDown,
   ChevronUp,
+  Guitar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -222,11 +222,11 @@ export default function LolaPage() {
           <section className="max-w-4xl mx-auto space-y-6 md:space-y-10">
             <div className="text-center space-y-4 md:space-y-6">
               <div className="flex justify-center">
-                <Radio className="h-16 w-16 md:h-20 md:w-20 text-yellow-500" />
+                <Guitar className="h-16 w-16 md:h-20 md:w-20 text-yellow-500" />
               </div>
               <h1 className="text-3xl md:text-5xl font-bold">Радио Лола</h1>
               <p className="text-base md:text-xl text-muted-foreground">
-                99,4: Београд, Република Србија
+                104,1: Београд, Република Србија
               </p>
             </div>
 
