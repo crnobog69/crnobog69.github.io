@@ -32,7 +32,7 @@ export default function LolaPage() {
 
   // Direct stream URL for Radio Lola
   const streamUrl = "http://s2.tdiradio.com:8000/radiolola.mp3";
-  const fallbackStreamUrl = "https://streaming.tdiradio.com/radiolola.mp3"; // HTTPS fallback URL if needed
+  const fallbackStreamUrl = "https://streaming.tdiradio.com/radiolola.mp3";
   const [currentStreamUrl, setCurrentStreamUrl] = useState(streamUrl);
 
   // Mark component as hydrated
