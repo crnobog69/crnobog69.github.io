@@ -9,6 +9,8 @@ import {
   BookOpen,
   Activity,
   RadioTower,
+  Guitar,
+  Theater,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
@@ -41,6 +43,22 @@ export default function RadioStationsPage() {
       frequency: "104,6",
       icon: Activity,
       color: "text-purple-500",
+    },
+    {
+      id: "naxi",
+      name: "Радио Naxi",
+      location: "Београд, Република Србија",
+      frequency: "96,4",
+      icon: Theater,
+      color: "text-orange-500",
+    },
+    {
+      id: "lola",
+      name: "Радио Лола",
+      location: "Београд, Република Србија",
+      frequency: "104,1",
+      icon: Guitar,
+      color: "text-yellow-500",
     },
     {
       id: "rts",
