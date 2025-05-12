@@ -33,7 +33,7 @@ export default function KolubaraPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const loadingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const streamUrls = ["https://a11.asurahosting.com:8010/radio.mp3", "https://stream.iradio.pro/proxy/radiokolubara?mp=/1", "https://a1.asurahosting.com:9130/radio.mp3"];
+  const streamUrls = ["https://media.radioexs.com/stream/radiokolubara", "https://a11.asurahosting.com:8010/radio.mp3", "https://stream.iradio.pro/proxy/radiokolubara?mp=/1", "https://a1.asurahosting.com:9130/radio.mp3"];
 
   const streamUrl = streamUrls[streamAttempt % streamUrls.length];
 
