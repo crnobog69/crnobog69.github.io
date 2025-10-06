@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout>
+  <Header />
+
+  <main class="work-main">
+    <div class="work-container">
+      <header class="work-header">
+        <h1>Work</h1>
+        <p class="subtitle">professional experience</p>
+      </header>
+
+      <section class="work-content">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="command">$ ls work/</span>
+            </div>
+            <div class="terminal-output">
+              <p>none</p>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="cursor">_</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .work-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .work-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .work-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .work-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .work-content {
+    margin-bottom: 60px;
+  }
+
+  .terminal-window {
+    border: 1px solid var(--primary);
+    background: var(--bg-alt);
+    width: 100rem;
+    max-width: 100%;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--primary);
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.3;
+  }
+
+  .terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt {
+    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .path {
+    opacity: 0.6;
+  }
+
+  .command {
+    color: var(--primary);
+  }
+
+  .cursor {
+    color: var(--primary);
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-output {
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+  }
+
+  .terminal-output p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .work-main {
+      padding: 80px 20px 40px;
+    }
+
+    .work-container {
+      padding: 0;
+    }
+
+    .work-header h1 {
+      font-size: 2rem;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+
+    .terminal-window {
+      width: 100%;
+    }
+  }
+</style>

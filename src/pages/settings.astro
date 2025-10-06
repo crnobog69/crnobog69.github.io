@@ -1,0 +1,177 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout>
+  <Header />
+
+  <main class="settings-main">
+    <div class="settings-container">
+      <header class="settings-header">
+        <h1>Settings</h1>
+        <p class="subtitle">Choose your terminal theme</p>
+      </header>
+
+      <section class="themes-section">
+        <h2 class="section-title">Retro Themes</h2>
+        <div class="theme-list">
+          <button class="theme-button" data-theme="retro-green"
+            >green terminal</button
+          >
+          <button class="theme-button" data-theme="retro-amber"
+            >amber terminal</button
+          >
+          <button class="theme-button" data-theme="retro-blue"
+            >blue screen</button
+          >
+          <button class="theme-button" data-theme="retro-pink">vaporwave</button
+          >
+          <button class="theme-button" data-theme="retro-mono"
+            >monochrome</button
+          >
+        </div>
+
+        <h2 class="section-title">Mocha Themes</h2>
+        <div class="theme-list">
+          <button class="theme-button" data-theme="mocha-red">mocha red</button>
+          <button class="theme-button" data-theme="mocha-green"
+            >mocha green</button
+          >
+          <button class="theme-button" data-theme="mocha-blue"
+            >mocha blue</button
+          >
+          <button class="theme-button" data-theme="mocha-mauve"
+            >mocha mauve</button
+          >
+          <button class="theme-button" data-theme="mocha-peach"
+            >mocha peach</button
+          >
+          <button class="theme-button" data-theme="mocha-yellow"
+            >mocha yellow</button
+          >
+          <button class="theme-button" data-theme="mocha-teal"
+            >mocha teal</button
+          >
+          <button class="theme-button" data-theme="mocha-lavender"
+            >mocha lavender</button
+          >
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const savedTheme = localStorage.getItem("theme") || "mocha-red";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+
+  const themeButtons = document.querySelectorAll(".theme-button");
+
+  function updateActiveTheme(theme: string) {
+    themeButtons.forEach((button) => {
+      button.classList.toggle(
+        "active",
+        button.getAttribute("data-theme") === theme
+      );
+    });
+  }
+
+  updateActiveTheme(savedTheme);
+
+  themeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const theme = button.getAttribute("data-theme");
+      if (theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateActiveTheme(theme);
+      }
+    });
+  });
+</script>
+
+<style>
+  .settings-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .settings-header {
+    margin-bottom: 60px;
+  }
+
+  .settings-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 40px 0 16px;
+    opacity: 0.6;
+    text-transform: lowercase;
+  }
+
+  .theme-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+    border: 1px solid var(--primary);
+  }
+
+  .theme-button {
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    border-bottom: 1px solid var(--primary);
+    padding: 12px 16px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    text-transform: lowercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .theme-button:last-child {
+    border-bottom: none;
+  }
+
+  .theme-button:hover {
+    opacity: 1;
+  }
+
+  .theme-button.active {
+    opacity: 1;
+    background: var(--bg-alt);
+  }
+
+  .theme-button.active::before {
+    content: "> ";
+  }
+
+  @media (max-width: 768px) {
+    .settings-main {
+      padding-top: 80px;
+    }
+
+    .settings-header h1 {
+      font-size: 2rem;
+    }
+
+    .theme-button {
+      font-size: 12px;
+      padding: 10px 12px;
+    }
+  }
+</style>

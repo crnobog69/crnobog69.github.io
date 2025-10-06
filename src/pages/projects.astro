@@ -1,0 +1,342 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout>
+  <Header />
+
+  <main class="projects-main">
+    <div class="projects-container">
+      <header class="projects-header">
+        <h1>Projects</h1>
+        <p class="subtitle">things i've built and deployed</p>
+        <p class="github-text">
+          all other projects can be found on <a
+            href="https://github.com/crnobog69"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-link">github →</a
+          >
+        </p>
+      </header>
+
+      <section class="projects-list">
+        <div class="project-card">
+          <div class="project-header">
+            <h2>$ radio</h2>
+            <div class="project-actions">
+              <span class="project-status">active</span>
+              <button class="expand-btn" aria-label="Expand">↓</button>
+            </div>
+          </div>
+          <p class="project-description">
+            bunch of serbian and international radio stations
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">astro</span>
+            <span class="tech-tag">javascript</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">github →</a>
+            <a href="/radio" class="project-link">page →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h2>$ project_two</h2>
+            <div class="project-actions">
+              <span class="project-status">active</span>
+              <button class="expand-btn" aria-label="Expand">↓</button>
+            </div>
+          </div>
+          <p class="project-description">
+            хоћу да се убијем хоћу да се убијем хоћу да се убијем хоћу да се
+            убијем хоћу да се убијем хоћу да се убијем хоћу да се убијем хоћу да
+            се убијем хоћу да се убијем хоћу да се убијем хоћу да се убијем хоћу
+            да се убијем хоћу да се убијем хоћу да се убијем хоћу да се убијем
+            хоћу да се убијем хоћу да се убијем хоћу да се убијем хоћу да се
+            убијем хоћу да се убијем хоћу да се убијем хоћу да се убијем хоћу да
+            се убијем хоћу да се убијем хоћу да се убијем
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">javascript</span>
+            <span class="tech-tag">astro</span>
+            <span class="tech-tag">css</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">github →</a>
+            <a href="#" class="project-link">docs →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h2>$ project_three</h2>
+            <div class="project-actions">
+              <span class="project-status archived">archived</span>
+              <button class="expand-btn" aria-label="Expand">↓</button>
+            </div>
+          </div>
+          <p class="project-description">хоћу да се убијем</p>
+          <div class="project-tech">
+            <span class="tech-tag">python</span>
+            <span class="tech-tag">flask</span>
+            <span class="tech-tag">sqlite</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">github →</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".project-card");
+
+    cards.forEach((card) => {
+      const expandBtn = card.querySelector(".expand-btn") as HTMLButtonElement;
+      const description = card.querySelector(
+        ".project-description"
+      ) as HTMLElement;
+
+      if (expandBtn && description) {
+        // Check if content overflows
+        const hasOverflow = description.scrollHeight > description.clientHeight;
+
+        if (!hasOverflow) {
+          expandBtn.style.display = "none";
+        }
+
+        expandBtn.addEventListener("click", () => {
+          card.classList.toggle("expanded");
+          expandBtn.textContent = card.classList.contains("expanded")
+            ? "↑"
+            : "↓";
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .projects-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .projects-container {
+    max-width: 100%;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .projects-header {
+    margin-bottom: 60px;
+  }
+
+  .projects-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .github-text {
+    opacity: 0.6;
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+
+  .github-link {
+    color: var(--primary);
+    text-decoration: underline;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  .github-link:hover {
+    opacity: 1;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .project-card {
+    border: 1px solid var(--primary);
+    padding: 24px;
+    background: var(--bg-alt);
+    transition:
+      height 0.3s ease,
+      transform 0.2s ease;
+    height: 250px;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .project-card.expanded {
+    height: auto;
+  }
+
+  .project-card:hover {
+    transform: translateX(4px);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 30px;
+  }
+
+  .project-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .project-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-status {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border: 1px solid var(--primary);
+    opacity: 0.7;
+    text-transform: lowercase;
+    white-space: nowrap;
+  }
+
+  .project-status.archived {
+    opacity: 0.4;
+  }
+
+  .project-description {
+    margin-bottom: 16px;
+    opacity: 0.8;
+    line-height: 1.6;
+    height: 48px;
+    overflow: hidden;
+  }
+
+  .project-card.expanded .project-description {
+    height: auto;
+    overflow: visible;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    height: 32px;
+    overflow: hidden;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border: 1px solid var(--primary);
+    opacity: 0.5;
+    text-transform: lowercase;
+    height: 24px;
+    line-height: 16px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 16px;
+    height: 24px;
+  }
+
+  .project-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    line-height: 1;
+  }
+
+  .project-link:hover {
+    opacity: 1;
+  }
+
+  .expand-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .expand-btn:hover {
+    opacity: 1;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .projects-main {
+      padding: 80px 20px 40px;
+    }
+
+    .projects-container {
+      width: 100%;
+      padding: 0;
+    }
+
+    .projects-header h1 {
+      font-size: 2rem;
+    }
+
+    .github-text {
+      font-size: 0.8rem;
+    }
+
+    .project-card {
+      padding: 16px;
+      height: 220px;
+    }
+
+    .project-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      height: auto;
+    }
+
+    .project-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

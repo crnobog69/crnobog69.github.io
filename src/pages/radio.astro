@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const radios = [
+  {
+    id: "radio-kolubara",
+    name: "Radio Kolubara",
+    description: "streaming now",
+  },
+  {
+    id: "radio-lola",
+    name: "Radio Lola",
+    description: "streaming now",
+  },
+  {
+    id: "radio-s",
+    name: "Radio S",
+    description: "streaming now",
+  },
+  {
+    id: "radio-naxi",
+    name: "Radio Naxi",
+    description: "streaming now",
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="radio-main">
+    <div class="radio-container">
+      <header class="radio-header">
+        <h1>Radio</h1>
+        <p class="subtitle">live streams</p>
+      </header>
+
+      <section class="radio-list">
+        {
+          radios.map((radio) => (
+            <a href={`/radio/${radio.id}`} class="radio-card">
+              <div class="radio-card-header">
+                <h2>$ {radio.name.toLowerCase().replace(" ", "_")}</h2>
+                <span class="arrow">→</span>
+              </div>
+              <p class="radio-card-description">{radio.description}</p>
+            </a>
+          ))
+        }
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .radio-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .radio-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .radio-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .radio-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .radio-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .radio-card {
+    border: 1px solid var(--primary);
+    padding: 24px;
+    background: var(--bg-alt);
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    color: var(--primary);
+    display: block;
+  }
+
+  .radio-card:hover {
+    transform: translateX(4px);
+  }
+
+  .radio-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .radio-card-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .radio-card:hover .arrow {
+    opacity: 1;
+  }
+
+  .radio-card-description {
+    opacity: 0.6;
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .radio-main {
+      padding: 80px 20px 40px;
+    }
+
+    .radio-container {
+      padding: 0;
+    }
+
+    .radio-header h1 {
+      font-size: 2rem;
+    }
+
+    .radio-card {
+      padding: 16px;
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout>
+  <Header />
+
+  <main>
+    <div class="container">
+      <header>
+        <div class="ascii-art">
+          <pre>
+ ██████╗██████╗ ███╗   ██╗ ██████╗ ██████╗  ██████╗  ██████╗ 
+██╔════╝██╔══██╗████╗  ██║██╔═══██╗██╔══██╗██╔═══██╗██╔════╝ 
+██║     ██████╔╝██╔██╗ ██║██║   ██║██████╔╝██║   ██║██║  ███╗
+██║     ██╔══██╗██║╚██╗██║██║   ██║██╔══██╗██║   ██║██║   ██║
+╚██████╗██║  ██║██║ ╚████║╚██████╔╝██████╔╝╚██████╔╝╚██████╔╝
+ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝ 
+          </pre>
+        </div>
+        <p class="tagline">developer / designer / digital architect</p>
+      </header>
+
+      <section class="content">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="command">$ whoami</span>
+            </div>
+            <div class="terminal-output">
+              <p>coding as a hobby and exploring self-hosted solutions.</p>
+              <p>building minimal and functional software.</p>
+            </div>
+
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="cursor">_</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .ascii-art {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .ascii-art pre {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.45rem;
+    line-height: 1.1;
+    opacity: 0.8;
+    overflow-x: auto;
+    white-space: pre;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .tagline {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    text-align: center;
+  }
+
+  .terminal-window {
+    border: 1px solid var(--primary);
+    background: var(--bg-alt);
+    width: 100rem;
+    max-width: 100%;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--primary);
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.3;
+  }
+
+  .terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt {
+    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .path {
+    opacity: 0.6;
+  }
+
+  .command {
+    color: var(--primary);
+  }
+
+  .cursor {
+    color: var(--primary);
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-output {
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+  }
+
+  .terminal-output p {
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .skill {
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    border: 1px solid var(--primary);
+    opacity: 0.7;
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 768px) {
+    .ascii-art pre {
+      font-size: 0.3rem;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+
+    .skill {
+      font-size: 0.75rem;
+      margin-right: 8px;
+    }
+  }
+</style>

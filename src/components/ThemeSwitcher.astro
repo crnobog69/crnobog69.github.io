@@ -1,0 +1,227 @@
+<div class="theme-switcher">
+  <button class="theme-toggle" id="theme-toggle" title="Change theme">
+    <span class="theme-icon">●</span>
+  </button>
+
+  <div class="theme-menu" id="theme-menu">
+    <div class="theme-option" data-theme="retro-green">
+      <span class="theme-dot" style="background: #00ff00"></span>
+      <span>green</span>
+    </div>
+    <div class="theme-option" data-theme="retro-amber">
+      <span class="theme-dot" style="background: #ffb000"></span>
+      <span>amber</span>
+    </div>
+    <div class="theme-option" data-theme="retro-blue">
+      <span class="theme-dot" style="background: #00aaff"></span>
+      <span>blue</span>
+    </div>
+    <div class="theme-option" data-theme="retro-pink">
+      <span class="theme-dot" style="background: #ff00ff"></span>
+      <span>pink</span>
+    </div>
+    <div class="theme-option" data-theme="retro-mono">
+      <span class="theme-dot" style="background: #ffffff"></span>
+      <span>mono</span>
+    </div>
+    <div class="theme-option" data-theme="mocha-red">
+      <span class="theme-dot" style="background: #f38ba8"></span>
+      <span>mocha</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Set initial theme from localStorage or default
+  const savedTheme = localStorage.getItem("theme") || "retro-green";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+
+  const themeToggle = document.getElementById(
+    "theme-toggle"
+  ) as HTMLButtonElement;
+  const themeMenu = document.getElementById("theme-menu") as HTMLElement;
+  const themeOptions = document.querySelectorAll(".theme-option");
+
+  // Create background animation effect
+  function createBackgroundPulse() {
+    const pulse = document.createElement("div");
+    pulse.className = "theme-pulse";
+    document.body.appendChild(pulse);
+
+    setTimeout(() => {
+      pulse.remove();
+    }, 1000);
+  }
+
+  // Set active theme indicator
+  function updateActiveTheme(theme: string) {
+    themeOptions.forEach((option) => {
+      option.classList.toggle(
+        "active",
+        option.getAttribute("data-theme") === theme
+      );
+    });
+  }
+
+  // Initialize active theme
+  updateActiveTheme(savedTheme);
+
+  // Toggle menu visibility
+  themeToggle.addEventListener("click", () => {
+    themeMenu.classList.toggle("open");
+  });
+
+  // Handle theme selection
+  themeOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const theme = option.getAttribute("data-theme");
+      if (theme) {
+        createBackgroundPulse();
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        updateActiveTheme(theme);
+        themeMenu.classList.remove("open");
+      }
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target || !(e.target as Element).closest(".theme-switcher")) {
+      themeMenu.classList.remove("open");
+    }
+  });
+</script>
+
+<style>
+  .theme-switcher {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 12px;
+  }
+
+  .theme-toggle:hover {
+    background: var(--bg-alt);
+  }
+
+  .theme-icon {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .theme-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg);
+    border: 1px solid var(--primary);
+    min-width: 120px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s ease;
+  }
+
+  .theme-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    text-transform: lowercase;
+    color: var(--primary);
+    border-bottom: 1px solid var(--bg-alt);
+  }
+
+  .theme-option:last-child {
+    border-bottom: none;
+  }
+
+  .theme-option:hover {
+    background: var(--bg-alt);
+  }
+
+  .theme-option.active {
+    background: var(--bg-alt);
+  }
+
+  .theme-option.active::after {
+    content: "✓";
+    margin-left: auto;
+    font-size: 10px;
+  }
+
+  .theme-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .theme-switcher {
+      top: 13px;
+      right: 15px;
+    }
+
+    .theme-toggle {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  /* Background pulse animation */
+  :global(.theme-pulse) {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+    animation: pulse-expand 1s ease-out forwards;
+  }
+
+  @keyframes pulse-expand {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(50);
+      opacity: 0;
+    }
+  }
+</style>
