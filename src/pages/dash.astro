@@ -137,8 +137,17 @@ const services = [
 
 <script>
   let isTailscale = false;
+  let isPublicDeployment = false;
 
   document.addEventListener("DOMContentLoaded", () => {
+    // Check if we're on a public deployment
+    isPublicDeployment =
+      window.location.hostname !== "localhost" &&
+      window.location.hostname !== "127.0.0.1" &&
+      !window.location.hostname.includes("192.168") &&
+      !window.location.hostname.includes("10.0") &&
+      !window.location.hostname.includes("172.");
+
     const networkToggle = document.getElementById(
       "networkToggle"
     ) as HTMLInputElement;
@@ -152,13 +161,25 @@ const services = [
       ".status-item"
     ) as NodeListOf<HTMLElement>;
 
+    // Update notice text for public deployments
+    if (isPublicDeployment) {
+      const noticeText = networkNotice.querySelector(".notice-text");
+      if (noticeText) {
+        noticeText.textContent =
+          "⚠ public deployment: local network ping is blocked by browser security";
+        networkNotice.style.display = "block";
+      }
+    }
+
     // Load saved network preference
     const savedNetwork = localStorage.getItem("dashNetwork");
     if (savedNetwork === "tailscale") {
       isTailscale = true;
       networkToggle.checked = true;
       networkStatus.textContent = "tailscale network";
-      networkNotice.style.display = "block";
+      if (!isPublicDeployment) {
+        networkNotice.style.display = "block";
+      }
       updateServiceUrls();
     }
 
@@ -168,8 +189,12 @@ const services = [
         ? "tailscale network"
         : "local network";
 
-      // Show/hide notice based on network
-      networkNotice.style.display = isTailscale ? "block" : "none";
+      // Show/hide notice based on network and deployment type
+      if (isPublicDeployment) {
+        networkNotice.style.display = "block";
+      } else {
+        networkNotice.style.display = isTailscale ? "block" : "none";
+      }
 
       localStorage.setItem("dashNetwork", isTailscale ? "tailscale" : "local");
       updateServiceUrls();
@@ -211,10 +236,32 @@ const services = [
               "service-offline"
             );
 
-            checkServiceStatus(currentUrl, statusElement, serviceName);
+            // Skip ping check for private IPs on public deployments
+            if (isPublicDeployment && isPrivateIP(currentUrl)) {
+              statusElement.innerHTML =
+                '<span class="blocked">●</span> blocked';
+              serviceElement.classList.add("service-blocked");
+            } else {
+              checkServiceStatus(currentUrl, statusElement, serviceName);
+            }
           }
         }
       });
+    }
+
+    function isPrivateIP(url: string): boolean {
+      try {
+        const urlObj = new URL(url);
+        const hostname = urlObj.hostname;
+        return (
+          hostname.startsWith("192.168.") ||
+          hostname.startsWith("10.") ||
+          hostname.startsWith("172.") ||
+          hostname.startsWith("100.")
+        );
+      } catch {
+        return false;
+      }
     }
 
     // Initial check
@@ -454,6 +501,11 @@ const services = [
     opacity: 0.5;
   }
 
+  .status-item.service-blocked {
+    border-color: #fab387;
+    opacity: 0.6;
+  }
+
   .status-label {
     font-size: 0.8rem;
     opacity: 0.8;
@@ -497,6 +549,11 @@ const services = [
 
   .offline {
     color: #f38ba8;
+    font-size: 0.6rem;
+  }
+
+  .blocked {
+    color: #fab387;
     font-size: 0.6rem;
   }
 
