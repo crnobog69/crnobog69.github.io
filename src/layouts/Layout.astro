@@ -115,6 +115,18 @@
   </head>
   <body>
     <slot />
+    <script is:inline>
+      // Update copyright year automatically
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentYear = new Date().getFullYear();
+        const footers = document.querySelectorAll("footer p");
+        footers.forEach((footer) => {
+          if (footer.textContent && footer.textContent.includes("© ")) {
+            footer.textContent = `© ${currentYear} crnobog`;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
 
