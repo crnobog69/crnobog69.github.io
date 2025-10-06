@@ -17,11 +17,6 @@
 
 <br>
 
-> [!NOTE] 
-> **_Cloudflare_** верзија сајта тренутно не ради.
-> <br> 
-> **_Cloudflare_** version of the site is currently not working.
-
 ## Домени
 
 - [crnobog.vercel.app](https://crnobog.vercel.app)
