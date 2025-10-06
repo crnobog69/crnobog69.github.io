@@ -19,6 +19,8 @@
 
 ## Домени
 
+- [crnobog.pages.dev](https://crnobog.pages.dev)
+
 - [crnobog.vercel.app](https://crnobog.vercel.app)
 
 - [crnbg.vercel.app](https://crnbg.vercel.app)

@@ -1,0 +1,531 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+// Define services with their URLs for both networks
+const services = [
+  {
+    name: "casaos",
+    localUrl: "http://192.168.1.8:100/#/",
+    tailscaleUrl: "http://100.91.132.35:100/#/",
+    port: "100",
+  },
+  {
+    name: "portainer",
+    localUrl: "http://192.168.1.8:9000/",
+    tailscaleUrl: "http://100.91.132.35:9000/",
+    port: "9000",
+  },
+  {
+    name: "crafty",
+    localUrl: "https://192.168.1.8:8111/",
+    tailscaleUrl: "https://100.91.132.35:8111/",
+    port: "8111",
+  },
+  {
+    name: "jellyfin",
+    localUrl: "http://192.168.1.8:8097/",
+    tailscaleUrl: "http://100.91.132.35:8097/",
+    port: "8096",
+  },
+  {
+    name: "wakapi",
+    localUrl: "https://wakapi.nightmere.qzz.io/",
+    tailscaleUrl: "https://wakapi.nightmere.qzz.io/",
+    port: "4000",
+  },
+  {
+    name: "vaultwarden",
+    localUrl: "https://vault.nightmere.qzz.io/",
+    tailscaleUrl: "http://100.91.132.35:10380/",
+    port: "10380",
+  },
+  {
+    name: "uptimekuma",
+    localUrl: "http://192.168.1.8:3001/",
+    tailscaleUrl: "http://100.91.132.35:3001/",
+    port: "3001",
+  },
+  {
+    name: "btop",
+    localUrl: "http://192.168.1.8:7681/",
+    tailscaleUrl: "http://100.91.132.35:7681/",
+    port: "7681",
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="dash-main">
+    <div class="dash-container">
+      <header class="dash-header">
+        <h1>Dashboard</h1>
+        <p class="subtitle">system overview</p>
+        <div class="network-toggle">
+          <label class="toggle-label">
+            <input type="checkbox" id="networkToggle" class="toggle-input" />
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="network-status">local network</span>
+        </div>
+      </header>
+
+      <section class="dash-content">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="command">$ service status</span>
+            </div>
+            <div class="terminal-output">
+              <div class="status-grid">
+                {
+                  services.map((service) => (
+                    <a
+                      href={service.localUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="status-item"
+                      data-service={service.name}
+                      data-local-url={service.localUrl}
+                      data-tailscale-url={service.tailscaleUrl}
+                    >
+                      <span class="status-label">{service.name}</span>
+                      <div class="status-info">
+                        <span
+                          class="status-indicator"
+                          id={`status-${service.name}`}
+                        >
+                          <span class="loading">checking...</span>
+                        </span>
+                        <span class="status-port">:{service.port}</span>
+                      </div>
+                    </a>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="cursor">_</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  let isTailscale = false;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const networkToggle = document.getElementById(
+      "networkToggle"
+    ) as HTMLInputElement;
+    const networkStatus = document.querySelector(
+      ".network-status"
+    ) as HTMLSpanElement;
+    const services = document.querySelectorAll(
+      ".status-item"
+    ) as NodeListOf<HTMLElement>;
+
+    // Load saved network preference
+    const savedNetwork = localStorage.getItem("dashNetwork");
+    if (savedNetwork === "tailscale") {
+      isTailscale = true;
+      networkToggle.checked = true;
+      networkStatus.textContent = "tailscale network";
+      updateServiceUrls();
+    }
+
+    networkToggle.addEventListener("change", () => {
+      isTailscale = networkToggle.checked;
+      networkStatus.textContent = isTailscale
+        ? "tailscale network"
+        : "local network";
+      localStorage.setItem("dashNetwork", isTailscale ? "tailscale" : "local");
+      updateServiceUrls();
+      checkAllServices();
+    });
+
+    function updateServiceUrls() {
+      services.forEach((serviceElement: HTMLElement) => {
+        const localUrl = serviceElement.getAttribute("data-local-url");
+        const tailscaleUrl = serviceElement.getAttribute("data-tailscale-url");
+
+        if (localUrl && tailscaleUrl) {
+          serviceElement.setAttribute(
+            "href",
+            isTailscale ? tailscaleUrl : localUrl
+          );
+        }
+      });
+    }
+
+    function checkAllServices() {
+      services.forEach((serviceElement: HTMLElement) => {
+        const serviceName = serviceElement.getAttribute("data-service");
+        const localUrl = serviceElement.getAttribute("data-local-url");
+        const tailscaleUrl = serviceElement.getAttribute("data-tailscale-url");
+
+        if (serviceName && localUrl && tailscaleUrl) {
+          const currentUrl = isTailscale ? tailscaleUrl : localUrl;
+          const statusElement = document.getElementById(
+            `status-${serviceName}`
+          ) as HTMLElement | null;
+
+          if (statusElement) {
+            // Reset status
+            statusElement.innerHTML =
+              '<span class="loading">checking...</span>';
+            serviceElement.classList.remove(
+              "service-online",
+              "service-offline"
+            );
+
+            checkServiceStatus(currentUrl, statusElement, serviceName);
+          }
+        }
+      });
+    }
+
+    // Initial check
+    checkAllServices();
+  });
+
+  async function checkServiceStatus(
+    url: string,
+    statusElement: HTMLElement,
+    serviceName: string
+  ): Promise<void> {
+    try {
+      const startTime = Date.now();
+
+      const response = await fetch(url, {
+        mode: "no-cors",
+        method: "HEAD",
+        signal: AbortSignal.timeout(5000),
+      });
+
+      const endTime = Date.now();
+      const responseTime = endTime - startTime;
+
+      statusElement.innerHTML = `<span class="online">●</span> ${responseTime}ms`;
+      statusElement.parentElement?.parentElement?.classList.add(
+        "service-online"
+      );
+    } catch (error) {
+      statusElement.innerHTML = '<span class="offline">●</span> offline';
+      statusElement.parentElement?.parentElement?.classList.add(
+        "service-offline"
+      );
+    }
+  }
+</script>
+
+<style>
+  .dash-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .dash-container {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .dash-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .dash-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .network-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+
+  .toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    border: 1px solid var(--primary);
+    transition: 0.2s;
+    border-radius: 24px;
+  }
+
+  .toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: var(--primary);
+    transition: 0.2s;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+
+  .toggle-input:checked + .toggle-slider:before {
+    transform: translateX(26px);
+    opacity: 1;
+  }
+
+  .network-status {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-transform: lowercase;
+  }
+
+  .dash-content {
+    margin-bottom: 60px;
+  }
+
+  .terminal-window {
+    border: 1px solid var(--primary);
+    background: var(--bg-alt);
+    width: 100rem;
+    max-width: 100%;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--primary);
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.3;
+  }
+
+  .terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt {
+    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .path {
+    opacity: 0.6;
+  }
+
+  .command {
+    color: var(--primary);
+  }
+
+  .cursor {
+    color: var(--primary);
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-output {
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--primary);
+    background: var(--bg);
+    opacity: 0.7;
+    text-decoration: none;
+    color: var(--primary);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .status-item:hover {
+    opacity: 1;
+    transform: translateX(2px);
+    background: var(--bg-alt);
+  }
+
+  .status-item.service-online {
+    border-color: #a6e3a1;
+  }
+
+  .status-item.service-offline {
+    border-color: #f38ba8;
+    opacity: 0.5;
+  }
+
+  .status-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: lowercase;
+  }
+
+  .status-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 60px;
+    justify-content: flex-end;
+  }
+
+  .loading {
+    opacity: 0.6;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .online {
+    color: #a6e3a1;
+    font-size: 0.6rem;
+  }
+
+  .offline {
+    color: #f38ba8;
+    font-size: 0.6rem;
+  }
+
+  .status-port {
+    opacity: 0.5;
+    font-size: 0.7rem;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .dash-main {
+      padding: 80px 20px 40px;
+    }
+
+    .dash-container {
+      padding: 0;
+    }
+
+    .dash-header h1 {
+      font-size: 2rem;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+
+    .terminal-window {
+      width: 100%;
+    }
+
+    .status-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .status-item {
+      padding: 6px 10px;
+    }
+
+    .status-info {
+      gap: 6px;
+    }
+
+    .network-toggle {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .network-status {
+      font-size: 0.8rem;
+    }
+  }
+</style>
