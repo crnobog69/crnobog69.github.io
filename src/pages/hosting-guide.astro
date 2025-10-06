@@ -1,0 +1,821 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const hostingSteps = [
+  {
+    title: "Clone Repository",
+    command: "git clone https://github.com/crnobog69/crnobog69.github.io.git",
+    description: "Download the source code to your local machine",
+  },
+  {
+    title: "Install Dependencies",
+    command: "cd crnobog69.github.io && bun install",
+    description: "Install all required packages using Bun (faster than npm)",
+  },
+  {
+    title: "Development Server",
+    command: "bun run dev",
+    description: "Start local development server on http://localhost:4321",
+  },
+  {
+    title: "Build for Production",
+    command: "bun run build",
+    description: "Generate static files in the dist/ directory",
+  },
+];
+
+const deploymentOptions = [
+  {
+    platform: "Vercel",
+    steps: [
+      "Connect your GitHub repository to Vercel",
+      "Configure build settings: Framework = Astro",
+      "Deploy automatically on git push",
+    ],
+    url: "https://vercel.com",
+  },
+  {
+    platform: "Cloudflare Pages",
+    steps: [
+      "Connect repository to Cloudflare Pages",
+      "Set build command: bun run build",
+      "Set output directory: dist",
+      "Deploy on commits to main branch",
+    ],
+    url: "https://pages.cloudflare.com",
+  },
+  {
+    platform: "Netlify",
+    steps: [
+      "Import project from Git repository",
+      "Build command: bun run build",
+      "Publish directory: dist",
+      "Deploy site automatically",
+    ],
+    url: "https://netlify.com",
+  },
+  {
+    platform: "Self-Hosted VPS",
+    steps: [
+      "Build project locally: bun run build",
+      "Upload dist/ folder to your server",
+      "Configure web server (nginx/apache)",
+      "Point domain to server IP",
+    ],
+    url: null,
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="guide-main">
+    <div class="guide-container">
+      <header class="guide-header">
+        <h1>Hosting Guide</h1>
+        <p class="subtitle">self-host this website</p>
+      </header>
+
+      <section class="guide-content">
+        <!-- Prerequisites -->
+        <div class="section-block">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span class="prompt">crnobog@terminal</span>
+                <span class="path">~</span>
+                <span class="command">$ echo "Prerequisites"</span>
+              </div>
+              <div class="terminal-output">
+                <div class="prereq-list">
+                  <div class="prereq-item">
+                    <span class="prereq-check">✓</span>
+                    <span>Node.js 18+ or Bun 1.0+ installed</span>
+                  </div>
+                  <div class="prereq-item">
+                    <span class="prereq-check">✓</span>
+                    <span>Git installed</span>
+                  </div>
+                  <div class="prereq-item">
+                    <span class="prereq-check">✓</span>
+                    <span>Text editor (VS Code recommended)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Setup Steps -->
+        <div class="section-block">
+          <h2>Setup Steps</h2>
+          {
+            hostingSteps.map((step, index) => (
+              <div class="step-card">
+                <div class="step-header">
+                  <span class="step-number">{index + 1}</span>
+                  <h3>{step.title}</h3>
+                </div>
+                <div class="command-block">
+                  <code class="command-text">{step.command}</code>
+                  <button
+                    class="copy-step"
+                    data-command={step.command}
+                    aria-label="Copy command"
+                    title="Copy to clipboard"
+                  >
+                    <svg
+                      class="copy-icon"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    <svg
+                      class="check-icon"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="20,6 9,17 4,12" />
+                    </svg>
+                    <span class="copy-text">copy</span>
+                  </button>
+                </div>
+                <p class="step-description">{step.description}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Deployment Options -->
+        <div class="section-block">
+          <h2>Deployment Options</h2>
+          <div class="deployment-grid">
+            {
+              deploymentOptions.map((option) => (
+                <div class="deployment-card">
+                  <div class="deployment-header">
+                    <h3>{option.platform}</h3>
+                    {option.url && (
+                      <a
+                        href={option.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="platform-link"
+                      >
+                        Visit →
+                      </a>
+                    )}
+                  </div>
+                  <div class="deployment-steps">
+                    {option.steps.map((step, index) => (
+                      <div class="deployment-step">
+                        <span class="step-dot">•</span>
+                        <span>{step}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="section-block">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+              <span class="terminal-dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span class="prompt">crnobog@terminal</span>
+                <span class="path">~</span>
+                <span class="command">$ cat notes.txt</span>
+              </div>
+              <div class="terminal-output">
+                <div class="notes-list">
+                  <p>• This is a static Astro site - no server required</p>
+                  <p>• All content is generated at build time</p>
+                  <p>• Bun is significantly faster than npm for installs</p>
+                  <p>• The radio player requires HTTPS for some streams</p>
+                  <p>
+                    • Dashboard ping functionality has CORS limitations
+                    (everything works when self-hosted)
+                  </p>
+                  <p>• Customize themes in src/layouts/Layout.astro</p>
+                  <p>• Customize Dashboard in src/pages/dash.astro</p>
+                  <p>
+                    • You can use PM2 to keep your website running in the
+                    background
+                  </p>
+                </div>
+              </div>
+              <div class="terminal-line">
+                <span class="prompt">crnobog@terminal</span>
+                <span class="path">~</span>
+                <span class="cursor">_</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyButtons = document.querySelectorAll(".copy-step");
+
+    copyButtons.forEach((button) => {
+      const copyIcon = button.querySelector(".copy-icon");
+      const checkIcon = button.querySelector(".check-icon");
+      const copyText = button.querySelector(".copy-text");
+
+      button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const command = button.getAttribute("data-command");
+
+        if (!command || button.classList.contains("copying")) return;
+
+        button.classList.add("copying");
+
+        try {
+          await navigator.clipboard.writeText(command);
+
+          // Success animation
+          copyIcon?.classList.add("hide");
+          checkIcon?.classList.add("show");
+          if (copyText) copyText.textContent = "copied!";
+
+          button.classList.add("success");
+
+          setTimeout(() => {
+            copyIcon?.classList.remove("hide");
+            checkIcon?.classList.remove("show");
+            if (copyText) copyText.textContent = "copy";
+            button.classList.remove("copying", "success");
+          }, 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          try {
+            const textArea = document.createElement("textarea");
+            textArea.value = command;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+
+            // Success animation
+            copyIcon?.classList.add("hide");
+            checkIcon?.classList.add("show");
+            if (copyText) copyText.textContent = "copied!";
+
+            button.classList.add("success");
+
+            setTimeout(() => {
+              copyIcon?.classList.remove("hide");
+              checkIcon?.classList.remove("show");
+              if (copyText) copyText.textContent = "copy";
+              button.classList.remove("copying", "success");
+            }, 2000);
+          } catch (fallbackErr) {
+            // Error state
+            button.classList.add("error");
+            if (copyText) copyText.textContent = "failed";
+
+            setTimeout(() => {
+              if (copyText) copyText.textContent = "copy";
+              button.classList.remove("copying", "error");
+            }, 2000);
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .guide-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .guide-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .guide-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .guide-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .guide-content {
+    margin-bottom: 60px;
+  }
+
+  .section-block {
+    margin-bottom: 60px;
+  }
+
+  .section-block h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--primary);
+    opacity: 0.9;
+  }
+
+  .terminal-window {
+    border: 1px solid var(--primary);
+    background: var(--bg-alt);
+    width: 100%;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--primary);
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.3;
+  }
+
+  .terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt {
+    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .path {
+    opacity: 0.6;
+  }
+
+  .command {
+    color: var(--primary);
+  }
+
+  .cursor {
+    color: var(--primary);
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-output {
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+  }
+
+  .prereq-list,
+  .notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prereq-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .prereq-check {
+    color: #a6e3a1;
+    font-weight: bold;
+  }
+
+  .step-card {
+    border: 1px solid var(--primary);
+    padding: 24px;
+    margin-bottom: 20px;
+    background: var(--bg-alt);
+    opacity: 0.9;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .step-number {
+    background: var(--primary);
+    color: var(--bg);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .step-header h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .command-block {
+    background: var(--bg);
+    border: 1px solid var(--primary);
+    padding: 12px 16px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .command-text {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    flex: 1;
+    word-break: break-all;
+    line-height: 1.4;
+  }
+
+  .copy-step {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 6px 12px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.75rem;
+    font-family: "IBM Plex Mono", monospace;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .copy-step:hover {
+    opacity: 1;
+    background: var(--primary);
+    color: var(--bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .copy-step.copying {
+    pointer-events: none;
+    transform: scale(0.98);
+  }
+
+  .copy-step.success {
+    background: #a6e3a1;
+    border-color: #a6e3a1;
+    color: var(--bg);
+    transform: scale(1.02);
+  }
+
+  .copy-step.error {
+    background: #f38ba8;
+    border-color: #f38ba8;
+    color: var(--bg);
+  }
+
+  .copy-icon,
+  .check-icon {
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .copy-icon.hide {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+
+  .check-icon {
+    position: absolute;
+    left: 6px;
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
+  }
+
+  .check-icon.show {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  .copy-text {
+    text-transform: lowercase;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .step-description {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .deployment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .deployment-card {
+    border: 1px solid var(--primary);
+    padding: 20px;
+    background: var(--bg-alt);
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  .deployment-card:hover {
+    opacity: 1;
+  }
+
+  .deployment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .deployment-header h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .platform-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+
+  .platform-link:hover {
+    opacity: 1;
+  }
+
+  .deployment-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .deployment-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .step-dot {
+    color: var(--primary);
+    opacity: 0.6;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  /* Mobile-first responsive design */
+  @media (max-width: 768px) {
+    .guide-main {
+      padding: 80px 16px 40px;
+    }
+
+    .guide-container {
+      padding: 0;
+    }
+
+    .guide-header {
+      margin-bottom: 40px;
+    }
+
+    .guide-header h1 {
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+
+    .section-block {
+      margin-bottom: 40px;
+    }
+
+    .section-block h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+
+    .terminal-line {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .step-card {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .step-header {
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      font-size: 0.8rem;
+    }
+
+    .step-header h3 {
+      font-size: 1rem;
+    }
+
+    .command-block {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .command-text {
+      font-size: 0.8rem;
+      word-break: break-all;
+    }
+
+    .copy-step {
+      align-self: center;
+      padding: 8px 16px;
+      font-size: 0.7rem;
+    }
+
+    .step-description {
+      font-size: 0.85rem;
+    }
+
+    .deployment-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .deployment-card {
+      padding: 16px;
+    }
+
+    .deployment-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .deployment-header h3 {
+      font-size: 1rem;
+    }
+
+    .platform-link {
+      font-size: 0.8rem;
+    }
+
+    .deployment-step {
+      font-size: 0.8rem;
+    }
+
+    .prereq-item {
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    .notes-list p {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .guide-main {
+      padding: 80px 12px 40px;
+    }
+
+    .guide-header h1 {
+      font-size: 1.8rem;
+    }
+
+    .section-block h2 {
+      font-size: 1.2rem;
+    }
+
+    .terminal-body {
+      padding: 12px;
+      font-size: 0.8rem;
+    }
+
+    .step-card {
+      padding: 12px;
+    }
+
+    .command-text {
+      font-size: 0.75rem;
+    }
+
+    .step-description {
+      font-size: 0.8rem;
+    }
+
+    .deployment-card {
+      padding: 12px;
+    }
+
+    .deployment-header h3 {
+      font-size: 0.9rem;
+    }
+
+    .deployment-step {
+      font-size: 0.75rem;
+    }
+
+    .copy-step {
+      padding: 6px 12px;
+      font-size: 0.65rem;
+    }
+  }
+</style>

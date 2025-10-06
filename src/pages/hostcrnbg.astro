@@ -1,0 +1,328 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const deployments = [
+  {
+    name: "Cloudflare Pages",
+    url: "https://crnobog.pages.dev",
+    status: "primary",
+    description: "main deployment platform",
+  },
+  {
+    name: "Vercel",
+    url: "https://crnobog.vercel.app",
+    status: "active",
+    description: "alternative deployment",
+  },
+  {
+    name: "Vercel Alt",
+    url: "https://crnbg.vercel.app",
+    status: "active",
+    description: "short domain variant",
+  },
+  {
+    name: "Vercel RS",
+    url: "https://cb-rs.vercel.app",
+    status: "active",
+    description: "regional deployment",
+  },
+  {
+    name: "Vercel CB",
+    url: "https://cbog.vercel.app",
+    status: "active",
+    description: "compact domain",
+  },
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="host-main">
+    <div class="host-container">
+      <header class="host-header">
+        <h1>HostCRNBG</h1>
+        <p class="subtitle">deployment endpoints</p>
+      </header>
+
+      <section class="host-content">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="command">$ cat domains.txt</span>
+            </div>
+            <div class="terminal-output">
+              <div class="deployments-list">
+                {
+                  deployments.map((deployment) => (
+                    <div class="deployment-item">
+                      <div class="deployment-header">
+                        <span class="deployment-name">{deployment.name}</span>
+                        <span class={`deployment-status ${deployment.status}`}>
+                          {deployment.status}
+                        </span>
+                      </div>
+                      <div class="deployment-info">
+                        <a
+                          href={deployment.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="deployment-url"
+                        >
+                          {deployment.url}
+                        </a>
+                        <span class="deployment-desc">
+                          {deployment.description}
+                        </span>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="command">$ echo "all systems operational"</span>
+            </div>
+            <div class="terminal-output">
+              <p>all systems operational</p>
+            </div>
+            <div class="terminal-line">
+              <span class="prompt">crnobog@terminal</span>
+              <span class="path">~</span>
+              <span class="cursor">_</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 crnobog</p>
+      </footer>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .host-main {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+  }
+
+  .host-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .host-header {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .host-header h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .host-content {
+    margin-bottom: 60px;
+  }
+
+  .terminal-window {
+    border: 1px solid var(--primary);
+    background: var(--bg-alt);
+    width: 100rem;
+    max-width: 100%;
+  }
+
+  .terminal-header {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--primary);
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.3;
+  }
+
+  .terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .prompt {
+    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .path {
+    opacity: 0.6;
+  }
+
+  .command {
+    color: var(--primary);
+  }
+
+  .cursor {
+    color: var(--primary);
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .terminal-output {
+    margin: 10px 0 20px 0;
+    opacity: 0.8;
+  }
+
+  .terminal-output p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .deployments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .deployment-item {
+    border: 1px solid var(--primary);
+    padding: 16px;
+    background: var(--bg);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .deployment-item:hover {
+    opacity: 1;
+  }
+
+  .deployment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .deployment-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--primary);
+  }
+
+  .deployment-status {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border: 1px solid var(--primary);
+    text-transform: lowercase;
+    opacity: 0.7;
+  }
+
+  .deployment-status.primary {
+    background: #a6e3a1;
+    color: var(--bg);
+    border-color: #a6e3a1;
+  }
+
+  .deployment-status.active {
+    background: var(--primary);
+    color: var(--bg);
+  }
+
+  .deployment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .deployment-url {
+    color: var(--primary);
+    text-decoration: underline;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  .deployment-url:hover {
+    opacity: 1;
+  }
+
+  .deployment-desc {
+    font-size: 0.75rem;
+    opacity: 0.6;
+  }
+
+  footer {
+    opacity: 0.4;
+    font-size: 0.85rem;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid var(--primary);
+  }
+
+  @media (max-width: 768px) {
+    .host-main {
+      padding: 80px 20px 40px;
+    }
+
+    .host-container {
+      padding: 0;
+    }
+
+    .host-header h1 {
+      font-size: 2rem;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.85rem;
+    }
+
+    .terminal-window {
+      width: 100%;
+    }
+
+    .deployment-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .deployment-info {
+      gap: 6px;
+    }
+  }
+</style>
