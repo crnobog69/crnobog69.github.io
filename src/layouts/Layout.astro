@@ -6,6 +6,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Crnobog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script is:inline>
       // Initialize theme from localStorage before page renders
       (function () {
@@ -13,6 +19,99 @@
         document.documentElement.setAttribute("data-theme", savedTheme);
       })();
     </script>
+    <style is:inline>
+      /* Critical CSS variables - inline to prevent FOUC */
+      :root[data-theme="retro-green"] {
+        --primary: #33ff33;
+        --bg: #000000;
+        --bg-alt: #0d0d0d;
+        --bg-gradient: #000000;
+      }
+
+      :root[data-theme="retro-amber"] {
+        --primary: #ffaa00;
+        --bg: #000000;
+        --bg-alt: #0d0d0d;
+        --bg-gradient: #000000;
+      }
+
+      :root[data-theme="retro-blue"] {
+        --primary: #00aaff;
+        --bg: #000000;
+        --bg-alt: #0d0d0d;
+        --bg-gradient: #000000;
+      }
+
+      :root[data-theme="retro-pink"] {
+        --primary: #ff00ff;
+        --bg: #000000;
+        --bg-alt: #0d0d0d;
+        --bg-gradient: #000000;
+      }
+
+      :root[data-theme="retro-mono"] {
+        --primary: #ffffff;
+        --bg: #000000;
+        --bg-alt: #0d0d0d;
+        --bg-gradient: #000000;
+      }
+
+      :root[data-theme="mocha-red"] {
+        --primary: #f38ba8;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-green"] {
+        --primary: #a6e3a1;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-blue"] {
+        --primary: #89b4fa;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-mauve"] {
+        --primary: #cba6f7;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-peach"] {
+        --primary: #fab387;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-yellow"] {
+        --primary: #f9e2af;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-teal"] {
+        --primary: #94e2d5;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+
+      :root[data-theme="mocha-lavender"] {
+        --primary: #b4befe;
+        --bg: #181825;
+        --bg-alt: #1e1e2e;
+        --bg-gradient: #181825;
+      }
+    </style>
   </head>
   <body>
     <slot />
