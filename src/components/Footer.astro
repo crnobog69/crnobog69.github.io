@@ -1,0 +1,10 @@
+<footer>
+  <p>© <span id="year"></span> crnobog</p>
+</footer>
+
+<script>
+  const yearElement = document.getElementById("year");
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
+  }
+</script>
