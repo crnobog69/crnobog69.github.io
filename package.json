@@ -6,7 +6,8 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"astro": "^5.14.1"
@@ -15,6 +16,7 @@
 		"node": ">=18.0.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.0"
+		"@biomejs/biome": "2.3.0",
+		"husky": "^9.1.7"
 	}
 }
