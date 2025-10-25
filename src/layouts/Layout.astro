@@ -14,7 +14,7 @@
     />
     <script is:inline>
       // Initialize theme from localStorage before page renders
-      (function () {
+      (() => {
         const savedTheme = localStorage.getItem("theme") || "mocha-red";
         document.documentElement.setAttribute("data-theme", savedTheme);
       })();
