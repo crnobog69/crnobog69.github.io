@@ -1,71 +1,71 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
 
 const hostingSteps = [
-  {
-    title: "Clone Repository",
-    command: "git clone https://github.com/crnobog69/crnobog69.github.io.git",
-    description: "Download the source code to your local machine",
-  },
-  {
-    title: "Install Dependencies",
-    command: "cd crnobog69.github.io && bun install",
-    description: "Install all required packages using Bun (faster than npm)",
-  },
-  {
-    title: "Development Server",
-    command: "bun run dev",
-    description: "Start local development server on http://localhost:4321",
-  },
-  {
-    title: "Build for Production",
-    command: "bun run build",
-    description: "Generate static files in the dist/ directory",
-  },
+	{
+		title: "Clone Repository",
+		command: "git clone https://github.com/crnobog69/crnobog69.github.io.git",
+		description: "Download the source code to your local machine",
+	},
+	{
+		title: "Install Dependencies",
+		command: "cd crnobog69.github.io && bun install",
+		description: "Install all required packages using Bun (faster than npm)",
+	},
+	{
+		title: "Development Server",
+		command: "bun run dev",
+		description: "Start local development server on http://localhost:4321",
+	},
+	{
+		title: "Build for Production",
+		command: "bun run build",
+		description: "Generate static files in the dist/ directory",
+	},
 ];
 
 const deploymentOptions = [
-  {
-    platform: "Vercel",
-    steps: [
-      "Connect your GitHub repository to Vercel",
-      "Configure build settings: Framework = Astro",
-      "Deploy automatically on git push",
-    ],
-    url: "https://vercel.com",
-  },
-  {
-    platform: "Cloudflare Pages",
-    steps: [
-      "Connect repository to Cloudflare Pages",
-      "Set build command: bun run build",
-      "Set output directory: dist",
-      "Deploy on commits to main branch",
-    ],
-    url: "https://pages.cloudflare.com",
-  },
-  {
-    platform: "Netlify",
-    steps: [
-      "Import project from Git repository",
-      "Build command: bun run build",
-      "Publish directory: dist",
-      "Deploy site automatically",
-    ],
-    url: "https://netlify.com",
-  },
-  {
-    platform: "Self-Hosted VPS",
-    steps: [
-      "Build project locally: bun run build",
-      "Upload dist/ folder to your server",
-      "Configure web server (nginx/apache)",
-      "Point domain to server IP",
-    ],
-    url: null,
-  },
+	{
+		platform: "Vercel",
+		steps: [
+			"Connect your GitHub repository to Vercel",
+			"Configure build settings: Framework = Astro",
+			"Deploy automatically on git push",
+		],
+		url: "https://vercel.com",
+	},
+	{
+		platform: "Cloudflare Pages",
+		steps: [
+			"Connect repository to Cloudflare Pages",
+			"Set build command: bun run build",
+			"Set output directory: dist",
+			"Deploy on commits to main branch",
+		],
+		url: "https://pages.cloudflare.com",
+	},
+	{
+		platform: "Netlify",
+		steps: [
+			"Import project from Git repository",
+			"Build command: bun run build",
+			"Publish directory: dist",
+			"Deploy site automatically",
+		],
+		url: "https://netlify.com",
+	},
+	{
+		platform: "Self-Hosted VPS",
+		steps: [
+			"Build project locally: bun run build",
+			"Upload dist/ folder to your server",
+			"Configure web server (nginx/apache)",
+			"Point domain to server IP",
+		],
+		url: null,
+	},
 ];
 ---
 

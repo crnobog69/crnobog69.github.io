@@ -1,58 +1,58 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
 
 // Define services with their URLs for both networks
 const services = [
-  {
-    name: "casaos",
-    localUrl: "http://192.168.1.8:100/#/",
-    tailscaleUrl: "http://100.91.132.35:100/#/",
-    port: "100",
-  },
-  {
-    name: "portainer",
-    localUrl: "http://192.168.1.8:9000/",
-    tailscaleUrl: "http://100.91.132.35:9000/",
-    port: "9000",
-  },
-  {
-    name: "crafty",
-    localUrl: "https://192.168.1.8:8111/",
-    tailscaleUrl: "https://100.91.132.35:8111/",
-    port: "8111",
-  },
-  {
-    name: "jellyfin",
-    localUrl: "http://192.168.1.8:8097/",
-    tailscaleUrl: "http://100.91.132.35:8097/",
-    port: "8096",
-  },
-  {
-    name: "wakapi",
-    localUrl: "https://wakapi.nightmere.qzz.io/",
-    tailscaleUrl: "http://100.91.132.35:4000/",
-    port: "4000",
-  },
-  {
-    name: "vaultwarden",
-    localUrl: "https://vault.nightmere.qzz.io/",
-    tailscaleUrl: "http://100.91.132.35:10380/",
-    port: "10380",
-  },
-  {
-    name: "uptimekuma",
-    localUrl: "http://192.168.1.8:3001/",
-    tailscaleUrl: "http://100.91.132.35:3001/",
-    port: "3001",
-  },
-  {
-    name: "btop",
-    localUrl: "http://192.168.1.8:7681/",
-    tailscaleUrl: "http://100.91.132.35:7681/",
-    port: "7681",
-  },
+	{
+		name: "casaos",
+		localUrl: "http://192.168.1.8:100/#/",
+		tailscaleUrl: "http://100.91.132.35:100/#/",
+		port: "100",
+	},
+	{
+		name: "portainer",
+		localUrl: "http://192.168.1.8:9000/",
+		tailscaleUrl: "http://100.91.132.35:9000/",
+		port: "9000",
+	},
+	{
+		name: "crafty",
+		localUrl: "https://192.168.1.8:8111/",
+		tailscaleUrl: "https://100.91.132.35:8111/",
+		port: "8111",
+	},
+	{
+		name: "jellyfin",
+		localUrl: "http://192.168.1.8:8097/",
+		tailscaleUrl: "http://100.91.132.35:8097/",
+		port: "8096",
+	},
+	{
+		name: "wakapi",
+		localUrl: "https://wakapi.nightmere.qzz.io/",
+		tailscaleUrl: "http://100.91.132.35:4000/",
+		port: "4000",
+	},
+	{
+		name: "vaultwarden",
+		localUrl: "https://vault.nightmere.qzz.io/",
+		tailscaleUrl: "http://100.91.132.35:10380/",
+		port: "10380",
+	},
+	{
+		name: "uptimekuma",
+		localUrl: "http://192.168.1.8:3001/",
+		tailscaleUrl: "http://100.91.132.35:3001/",
+		port: "3001",
+	},
+	{
+		name: "btop",
+		localUrl: "http://192.168.1.8:7681/",
+		tailscaleUrl: "http://100.91.132.35:7681/",
+		port: "7681",
+	},
 ];
 ---
 
