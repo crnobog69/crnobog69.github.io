@@ -1,73 +1,58 @@
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 // Define services with their URLs for both networks
 const services = [
-	{
-		name: "casaos",
-		localUrl: "http://192.168.1.8:100/#/",
-		tailscaleUrl: "http://100.91.132.35:100/#/",
-		port: "100",
-	},
-	{
-		name: "portainer",
-		localUrl: "http://192.168.1.8:9000/",
-		tailscaleUrl: "http://100.91.132.35:9000/",
-		port: "9000",
-	},
-	{
-		name: "crafty",
-		localUrl: "https://192.168.1.8:8111/",
-		tailscaleUrl: "https://100.91.132.35:8111/",
-		port: "8111",
-	},
-	{
-		name: "jellyfin",
-		localUrl: "http://192.168.1.8:8097/",
-		tailscaleUrl: "http://100.91.132.35:8097/",
-		port: "8096",
-	},
-	{
-		name: "wakapi",
-		localUrl: "https://wakapi.nightmere.qzz.io/",
-		tailscaleUrl: "http://100.91.132.35:4000/",
-		port: "4000",
-	},
-	{
-		name: "vaultwarden",
-		localUrl: "https://vault.nightmere.qzz.io/",
-		tailscaleUrl: "http://100.91.132.35:10380/",
-		port: "10380",
-	},
-	{
-		name: "uptimekuma",
-		localUrl: "http://192.168.1.8:3001/",
-		tailscaleUrl: "http://100.91.132.35:3001/",
-		port: "3001",
-	},
-	{
-		name: "btop",
-		localUrl: "http://192.168.1.8:7681/",
-		tailscaleUrl: "http://100.91.132.35:7681/",
-		port: "7681",
-	},
+  {
+    name: "casaos",
+    localUrl: "http://192.168.1.8:100/#/",
+    tailscaleUrl: "http://100.91.132.35:100/#/",
+    port: "100",
+  },
+  {
+    name: "portainer",
+    localUrl: "http://192.168.1.8:9000/",
+    tailscaleUrl: "http://100.91.132.35:9000/",
+    port: "9000",
+  },
+  {
+    name: "crafty",
+    localUrl: "https://192.168.1.8:8111/",
+    tailscaleUrl: "https://100.91.132.35:8111/",
+    port: "8111",
+  },
+  {
+    name: "jellyfin",
+    localUrl: "http://192.168.1.8:8097/",
+    tailscaleUrl: "http://100.91.132.35:8097/",
+    port: "8096",
+  },
+  {
+    name: "wakapi",
+    localUrl: "https://wakapi.crnbg.org/",
+    tailscaleUrl: "http://100.91.132.35:4000/",
+    port: "4000",
+  },
+  {
+    name: "vaultwarden",
+    localUrl: "https://vlt.crnbg.org/",
+    tailscaleUrl: "http://100.91.132.35:10380/",
+    port: "10380",
+  },
+  {
+    name: "uptimekuma",
+    localUrl: "http://192.168.1.8:3001/",
+    tailscaleUrl: "http://100.91.132.35:3001/",
+    port: "3001",
+  },
+  {
+    name: "btop",
+    localUrl: "http://192.168.1.8:7681/",
+    tailscaleUrl: "http://100.91.132.35:7681/",
+    port: "7681",
+  },
 ];
 ---
 
@@ -162,16 +147,16 @@ const services = [
       !window.location.hostname.includes("172.");
 
     const networkToggle = document.getElementById(
-      "networkToggle"
+      "networkToggle",
     ) as HTMLInputElement;
     const networkStatus = document.querySelector(
-      ".network-status"
+      ".network-status",
     ) as HTMLSpanElement;
     const networkNotice = document.getElementById(
-      "networkNotice"
+      "networkNotice",
     ) as HTMLElement;
     const services = document.querySelectorAll(
-      ".status-item"
+      ".status-item",
     ) as NodeListOf<HTMLElement>;
 
     // Update notice text for public deployments
@@ -222,7 +207,7 @@ const services = [
         if (localUrl && tailscaleUrl) {
           serviceElement.setAttribute(
             "href",
-            isTailscale ? tailscaleUrl : localUrl
+            isTailscale ? tailscaleUrl : localUrl,
           );
         }
       });
@@ -237,7 +222,7 @@ const services = [
         if (serviceName && localUrl && tailscaleUrl) {
           const currentUrl = isTailscale ? tailscaleUrl : localUrl;
           const statusElement = document.getElementById(
-            `status-${serviceName}`
+            `status-${serviceName}`,
           ) as HTMLElement | null;
 
           if (statusElement) {
@@ -246,7 +231,7 @@ const services = [
               '<span class="loading">checking...</span>';
             serviceElement.classList.remove(
               "service-online",
-              "service-offline"
+              "service-offline",
             );
 
             // Skip ping check for private IPs on public deployments
@@ -284,7 +269,7 @@ const services = [
   async function checkServiceStatus(
     url: string,
     statusElement: HTMLElement,
-    serviceName: string
+    serviceName: string,
   ): Promise<void> {
     try {
       const startTime = Date.now();
@@ -300,12 +285,12 @@ const services = [
 
       statusElement.innerHTML = `<span class="online">●</span> ${responseTime}ms`;
       statusElement.parentElement?.parentElement?.classList.add(
-        "service-online"
+        "service-online",
       );
     } catch (error) {
       statusElement.innerHTML = '<span class="offline">●</span> offline';
       statusElement.parentElement?.parentElement?.classList.add(
-        "service-offline"
+        "service-offline",
       );
     }
   }
